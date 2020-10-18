@@ -1,6 +1,9 @@
 # TorchScript IR
 
 Utilities for converting PyTorch Hub models to TorchScript IR.
+Generates an inlined IR file for each model, as well as a
+`submodule_graphs.tsir` file containing the graphs for each submodule in the
+model. Optionally saves `.pt` files with the scripted/traced models.
 
 ```shell
 # Optional: env setup.
