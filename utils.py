@@ -8,11 +8,15 @@ import pygments.lexers
 import pygments.formatters
 import torch
 
-# Assumes the optional setup was followed. Best effort otherwise.
+# Might be useful for windows, hard for me to say.
 normalize_sep = lambda s: os.sep.join(s.split("/"))
-HOME = os.environ.get("HOME") + os.sep
-ENV_PATH = normalize_sep(".venv/torchscript_ir/lib/python3.8/site-packages/")
-CACHE_PATH = normalize_sep(".cache/")
+PATH_FILTERS = [
+    os.environ["HOME"] + os.sep if "HOME" in os.environ else "",
+    "/usr/",
+    normalize_sep(".venv/torchscript_ir/"),
+    normalize_sep(r"lib/python3.[0-9]+/site-packages/"),
+    normalize_sep(".cache/"),
+]
 
 
 def highlight(code):
@@ -22,9 +26,8 @@ def highlight(code):
 
 
 def clean_references(graph: str) -> str:
-  graph = graph.replace(HOME, "")
-  graph = graph.replace(ENV_PATH, "")
-  graph = graph.replace(CACHE_PATH, "")
+  for pattern in PATH_FILTERS:
+    graph = re.sub(pattern, "", graph)
   return graph
 
 
