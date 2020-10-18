@@ -1,0 +1,11 @@
+# General
+scipy
+
+# Pytorch
+torch
+torchvision
+transformers
+
+# Util
+pygments
+yapf
