@@ -32,9 +32,16 @@ for attr in dir(transformers):
 ALL_MODELS = []
 for _, models in CONFIG_TO_MODELS.items():
   ALL_MODELS.extend([_get_model_name(model) for model in models])
-
 # PreTrainedModels wont work without loading weights.
-ALL_MODELS = [model for model in ALL_MODELS if "pretrainedmodel" not in model.lower()]
+ALL_MODELS = [
+    model for model in ALL_MODELS if "pretrainedmodel" not in model.lower()
+]
+
+MODEL_TO_KWARGS = {
+    "MBartForConditionalGeneration": {
+        "num_beams": 8
+    }
+}
 
 
 def parse_arguments():
@@ -72,13 +79,17 @@ def main():
         continue
 
       print(model_name)
+      if model_name in MODEL_TO_KWARGS:
+        kwargs = MODEL_TO_KWARGS[model_name]
+      else:
+        kwargs = {}
       model = None
       try:
         # Based off of the conversion in:
         #   https://huggingface.co/transformers/torchscript.html
 
         # Sometimes fails because of missing encoder / decoder specification.
-        config = config_class(torchscript=True)
+        config = config_class(torchscript=True, **kwargs)
         model = model_class(config)
         model.eval()
         # batch_size = 17, num_choices = 7, sequence_length = 13
