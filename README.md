@@ -5,6 +5,10 @@ Generates an inlined IR file for each model, as well as a
 `submodule.tsir` file containing the graphs for each submodule in the
 model. Optionally saves `.pt` files with the scripted/traced models.
 
+Note: The `submodule.tsir` file has all occurances of
+`".___torch_mangle_[0-9]+"` removed so that otherwise duplicate graphs
+can be filtered out.
+
 ```shell
 # Optional: env setup.
 python3 -m venv "${HOME?}/.venv/torchscript_ir"
