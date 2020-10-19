@@ -1,0 +1,545 @@
+graph(%self : __torch__.torchvision.models.vgg.___torch_mangle_1116.VGG,
+      %x.1 : Tensor):
+  %2 : int = prim::Constant[value=-1]()
+  %3 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/vgg.py:45:29
+  %4 : __torch__.torch.nn.modules.container.___torch_mangle_1115.Sequential = prim::GetAttr[name="features"](%self)
+  %11 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:57
+  %12 : float = prim::Constant[value=1.0000000000000001e-05]() # torch/nn/modules/batchnorm.py:136:77
+  %exponential_average_factor.2 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/batchnorm.py:108:41
+  %14 : int = prim::Constant[value=4]() # torch/nn/modules/batchnorm.py:276:26
+  %15 : str = prim::Constant[value="Exception"]() # torch/nn/modules/batchnorm.py:277:12
+  %16 : int = prim::Constant[value=0]() # torch/nn/functional.py:1991:22
+  %17 : int = prim::Constant[value=2]() # torch/nn/functional.py:1992:31
+  %18 : bool = prim::Constant[value=1]() # torch/nn/functional.py:2016:33
+  %19 : int = prim::Constant[value=1]() # torch/nn/modules/conv.py:413:47
+  %20 : __torch__.torch.nn.modules.conv.___torch_mangle_1107.Conv2d = prim::GetAttr[name="0"](%4)
+  %21 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%4)
+  %22 : __torch__.torch.nn.modules.conv.___torch_mangle_1109.Conv2d = prim::GetAttr[name="4"](%4)
+  %23 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_18.BatchNorm2d = prim::GetAttr[name="5"](%4)
+  %24 : __torch__.torch.nn.modules.conv.___torch_mangle_467.Conv2d = prim::GetAttr[name="8"](%4)
+  %25 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_12.BatchNorm2d = prim::GetAttr[name="9"](%4)
+  %26 : __torch__.torch.nn.modules.conv.___torch_mangle_3.Conv2d = prim::GetAttr[name="11"](%4)
+  %27 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_12.BatchNorm2d = prim::GetAttr[name="12"](%4)
+  %28 : __torch__.torch.nn.modules.conv.___torch_mangle_1110.Conv2d = prim::GetAttr[name="15"](%4)
+  %29 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_21.BatchNorm2d = prim::GetAttr[name="16"](%4)
+  %30 : __torch__.torch.nn.modules.conv.___torch_mangle_948.Conv2d = prim::GetAttr[name="18"](%4)
+  %31 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_21.BatchNorm2d = prim::GetAttr[name="19"](%4)
+  %32 : __torch__.torch.nn.modules.conv.___torch_mangle_948.Conv2d = prim::GetAttr[name="22"](%4)
+  %33 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_21.BatchNorm2d = prim::GetAttr[name="23"](%4)
+  %34 : __torch__.torch.nn.modules.conv.___torch_mangle_948.Conv2d = prim::GetAttr[name="25"](%4)
+  %35 : __torch__.torch.nn.modules.batchnorm.___torch_mangle_21.BatchNorm2d = prim::GetAttr[name="26"](%4)
+  %36 : Tensor = prim::GetAttr[name="weight"](%20)
+  %37 : Tensor? = prim::GetAttr[name="bias"](%20)
+  %38 : int[] = prim::ListConstruct(%19, %19)
+  %39 : int[] = prim::ListConstruct(%19, %19)
+  %40 : int[] = prim::ListConstruct(%19, %19)
+  %input.4 : Tensor = aten::conv2d(%x.1, %36, %37, %38, %39, %40, %19) # torch/nn/modules/conv.py:415:15
+  %42 : int = aten::dim(%input.4) # torch/nn/modules/batchnorm.py:276:11
+  %43 : bool = aten::ne(%42, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%43) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %44 : bool = prim::GetAttr[name="training"](%21)
+   = prim::If(%44) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %45 : Tensor = prim::GetAttr[name="num_batches_tracked"](%21)
+      %46 : Tensor = aten::add(%45, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%21, %46)
+      -> ()
+    block1():
+      -> ()
+  %47 : bool = prim::GetAttr[name="training"](%21)
+  %48 : Tensor = prim::GetAttr[name="running_mean"](%21)
+  %49 : Tensor = prim::GetAttr[name="running_var"](%21)
+  %50 : Tensor = prim::GetAttr[name="weight"](%21)
+  %51 : Tensor = prim::GetAttr[name="bias"](%21)
+   = prim::If(%47) # torch/nn/functional.py:2011:4
+    block0():
+      %52 : int[] = aten::size(%input.4) # torch/nn/functional.py:2012:27
+      %size_prods.2 : int = aten::__getitem__(%52, %16) # torch/nn/functional.py:1991:17
+      %54 : int = aten::len(%52) # torch/nn/functional.py:1992:19
+      %55 : int = aten::sub(%54, %17) # torch/nn/functional.py:1992:19
+      %size_prods.4 : int = prim::Loop(%55, %18, %size_prods.2) # torch/nn/functional.py:1992:4
+        block0(%i.2 : int, %size_prods.7 : int):
+          %59 : int = aten::add(%i.2, %17) # torch/nn/functional.py:1993:27
+          %60 : int = aten::__getitem__(%52, %59) # torch/nn/functional.py:1993:22
+          %size_prods.5 : int = aten::mul(%size_prods.7, %60) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.5)
+      %62 : bool = aten::eq(%size_prods.4, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%62) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.6 : Tensor = aten::batch_norm(%input.4, %50, %51, %48, %49, %47, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.8 : Tensor = aten::relu_(%input.6) # torch/nn/functional.py:1117:17
+  %65 : int[] = prim::ListConstruct(%17, %17)
+  %66 : int[] = prim::ListConstruct(%17, %17)
+  %67 : int[] = prim::ListConstruct(%16, %16)
+  %68 : int[] = prim::ListConstruct(%19, %19)
+  %input.10 : Tensor = aten::max_pool2d(%input.8, %65, %66, %67, %68, %11) # torch/nn/functional.py:575:11
+  %70 : Tensor = prim::GetAttr[name="weight"](%22)
+  %71 : Tensor? = prim::GetAttr[name="bias"](%22)
+  %72 : int[] = prim::ListConstruct(%19, %19)
+  %73 : int[] = prim::ListConstruct(%19, %19)
+  %74 : int[] = prim::ListConstruct(%19, %19)
+  %input.12 : Tensor = aten::conv2d(%input.10, %70, %71, %72, %73, %74, %19) # torch/nn/modules/conv.py:415:15
+  %76 : int = aten::dim(%input.12) # torch/nn/modules/batchnorm.py:276:11
+  %77 : bool = aten::ne(%76, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%77) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %78 : bool = prim::GetAttr[name="training"](%23)
+   = prim::If(%78) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %79 : Tensor = prim::GetAttr[name="num_batches_tracked"](%23)
+      %80 : Tensor = aten::add(%79, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%23, %80)
+      -> ()
+    block1():
+      -> ()
+  %81 : bool = prim::GetAttr[name="training"](%23)
+  %82 : Tensor = prim::GetAttr[name="running_mean"](%23)
+  %83 : Tensor = prim::GetAttr[name="running_var"](%23)
+  %84 : Tensor = prim::GetAttr[name="weight"](%23)
+  %85 : Tensor = prim::GetAttr[name="bias"](%23)
+   = prim::If(%81) # torch/nn/functional.py:2011:4
+    block0():
+      %86 : int[] = aten::size(%input.12) # torch/nn/functional.py:2012:27
+      %size_prods.8 : int = aten::__getitem__(%86, %16) # torch/nn/functional.py:1991:17
+      %88 : int = aten::len(%86) # torch/nn/functional.py:1992:19
+      %89 : int = aten::sub(%88, %17) # torch/nn/functional.py:1992:19
+      %size_prods.9 : int = prim::Loop(%89, %18, %size_prods.8) # torch/nn/functional.py:1992:4
+        block0(%i.3 : int, %size_prods.10 : int):
+          %93 : int = aten::add(%i.3, %17) # torch/nn/functional.py:1993:27
+          %94 : int = aten::__getitem__(%86, %93) # torch/nn/functional.py:1993:22
+          %size_prods.11 : int = aten::mul(%size_prods.10, %94) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.11)
+      %96 : bool = aten::eq(%size_prods.9, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%96) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.14 : Tensor = aten::batch_norm(%input.12, %84, %85, %82, %83, %81, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.16 : Tensor = aten::relu_(%input.14) # torch/nn/functional.py:1117:17
+  %99 : int[] = prim::ListConstruct(%17, %17)
+  %100 : int[] = prim::ListConstruct(%17, %17)
+  %101 : int[] = prim::ListConstruct(%16, %16)
+  %102 : int[] = prim::ListConstruct(%19, %19)
+  %input.17 : Tensor = aten::max_pool2d(%input.16, %99, %100, %101, %102, %11) # torch/nn/functional.py:575:11
+  %104 : Tensor = prim::GetAttr[name="weight"](%24)
+  %105 : Tensor? = prim::GetAttr[name="bias"](%24)
+  %106 : int[] = prim::ListConstruct(%19, %19)
+  %107 : int[] = prim::ListConstruct(%19, %19)
+  %108 : int[] = prim::ListConstruct(%19, %19)
+  %input.19 : Tensor = aten::conv2d(%input.17, %104, %105, %106, %107, %108, %19) # torch/nn/modules/conv.py:415:15
+  %110 : int = aten::dim(%input.19) # torch/nn/modules/batchnorm.py:276:11
+  %111 : bool = aten::ne(%110, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%111) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %112 : bool = prim::GetAttr[name="training"](%25)
+   = prim::If(%112) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %113 : Tensor = prim::GetAttr[name="num_batches_tracked"](%25)
+      %114 : Tensor = aten::add(%113, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%25, %114)
+      -> ()
+    block1():
+      -> ()
+  %115 : bool = prim::GetAttr[name="training"](%25)
+  %116 : Tensor = prim::GetAttr[name="running_mean"](%25)
+  %117 : Tensor = prim::GetAttr[name="running_var"](%25)
+  %118 : Tensor = prim::GetAttr[name="weight"](%25)
+  %119 : Tensor = prim::GetAttr[name="bias"](%25)
+   = prim::If(%115) # torch/nn/functional.py:2011:4
+    block0():
+      %120 : int[] = aten::size(%input.19) # torch/nn/functional.py:2012:27
+      %size_prods.12 : int = aten::__getitem__(%120, %16) # torch/nn/functional.py:1991:17
+      %122 : int = aten::len(%120) # torch/nn/functional.py:1992:19
+      %123 : int = aten::sub(%122, %17) # torch/nn/functional.py:1992:19
+      %size_prods.13 : int = prim::Loop(%123, %18, %size_prods.12) # torch/nn/functional.py:1992:4
+        block0(%i.4 : int, %size_prods.14 : int):
+          %127 : int = aten::add(%i.4, %17) # torch/nn/functional.py:1993:27
+          %128 : int = aten::__getitem__(%120, %127) # torch/nn/functional.py:1993:22
+          %size_prods.15 : int = aten::mul(%size_prods.14, %128) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.15)
+      %130 : bool = aten::eq(%size_prods.13, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%130) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.21 : Tensor = aten::batch_norm(%input.19, %118, %119, %116, %117, %115, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.23 : Tensor = aten::relu_(%input.21) # torch/nn/functional.py:1117:17
+  %133 : Tensor = prim::GetAttr[name="weight"](%26)
+  %134 : Tensor? = prim::GetAttr[name="bias"](%26)
+  %135 : int[] = prim::ListConstruct(%19, %19)
+  %136 : int[] = prim::ListConstruct(%19, %19)
+  %137 : int[] = prim::ListConstruct(%19, %19)
+  %input.25 : Tensor = aten::conv2d(%input.23, %133, %134, %135, %136, %137, %19) # torch/nn/modules/conv.py:415:15
+  %139 : int = aten::dim(%input.25) # torch/nn/modules/batchnorm.py:276:11
+  %140 : bool = aten::ne(%139, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%140) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %141 : bool = prim::GetAttr[name="training"](%27)
+   = prim::If(%141) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %142 : Tensor = prim::GetAttr[name="num_batches_tracked"](%27)
+      %143 : Tensor = aten::add(%142, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%27, %143)
+      -> ()
+    block1():
+      -> ()
+  %144 : bool = prim::GetAttr[name="training"](%27)
+  %145 : Tensor = prim::GetAttr[name="running_mean"](%27)
+  %146 : Tensor = prim::GetAttr[name="running_var"](%27)
+  %147 : Tensor = prim::GetAttr[name="weight"](%27)
+  %148 : Tensor = prim::GetAttr[name="bias"](%27)
+   = prim::If(%144) # torch/nn/functional.py:2011:4
+    block0():
+      %149 : int[] = aten::size(%input.25) # torch/nn/functional.py:2012:27
+      %size_prods.16 : int = aten::__getitem__(%149, %16) # torch/nn/functional.py:1991:17
+      %151 : int = aten::len(%149) # torch/nn/functional.py:1992:19
+      %152 : int = aten::sub(%151, %17) # torch/nn/functional.py:1992:19
+      %size_prods.17 : int = prim::Loop(%152, %18, %size_prods.16) # torch/nn/functional.py:1992:4
+        block0(%i.5 : int, %size_prods.18 : int):
+          %156 : int = aten::add(%i.5, %17) # torch/nn/functional.py:1993:27
+          %157 : int = aten::__getitem__(%149, %156) # torch/nn/functional.py:1993:22
+          %size_prods.19 : int = aten::mul(%size_prods.18, %157) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.19)
+      %159 : bool = aten::eq(%size_prods.17, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%159) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.27 : Tensor = aten::batch_norm(%input.25, %147, %148, %145, %146, %144, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.29 : Tensor = aten::relu_(%input.27) # torch/nn/functional.py:1117:17
+  %162 : int[] = prim::ListConstruct(%17, %17)
+  %163 : int[] = prim::ListConstruct(%17, %17)
+  %164 : int[] = prim::ListConstruct(%16, %16)
+  %165 : int[] = prim::ListConstruct(%19, %19)
+  %input.31 : Tensor = aten::max_pool2d(%input.29, %162, %163, %164, %165, %11) # torch/nn/functional.py:575:11
+  %167 : Tensor = prim::GetAttr[name="weight"](%28)
+  %168 : Tensor? = prim::GetAttr[name="bias"](%28)
+  %169 : int[] = prim::ListConstruct(%19, %19)
+  %170 : int[] = prim::ListConstruct(%19, %19)
+  %171 : int[] = prim::ListConstruct(%19, %19)
+  %input.33 : Tensor = aten::conv2d(%input.31, %167, %168, %169, %170, %171, %19) # torch/nn/modules/conv.py:415:15
+  %173 : int = aten::dim(%input.33) # torch/nn/modules/batchnorm.py:276:11
+  %174 : bool = aten::ne(%173, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%174) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %175 : bool = prim::GetAttr[name="training"](%29)
+   = prim::If(%175) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %176 : Tensor = prim::GetAttr[name="num_batches_tracked"](%29)
+      %177 : Tensor = aten::add(%176, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%29, %177)
+      -> ()
+    block1():
+      -> ()
+  %178 : bool = prim::GetAttr[name="training"](%29)
+  %179 : Tensor = prim::GetAttr[name="running_mean"](%29)
+  %180 : Tensor = prim::GetAttr[name="running_var"](%29)
+  %181 : Tensor = prim::GetAttr[name="weight"](%29)
+  %182 : Tensor = prim::GetAttr[name="bias"](%29)
+   = prim::If(%178) # torch/nn/functional.py:2011:4
+    block0():
+      %183 : int[] = aten::size(%input.33) # torch/nn/functional.py:2012:27
+      %size_prods.20 : int = aten::__getitem__(%183, %16) # torch/nn/functional.py:1991:17
+      %185 : int = aten::len(%183) # torch/nn/functional.py:1992:19
+      %186 : int = aten::sub(%185, %17) # torch/nn/functional.py:1992:19
+      %size_prods.21 : int = prim::Loop(%186, %18, %size_prods.20) # torch/nn/functional.py:1992:4
+        block0(%i.6 : int, %size_prods.22 : int):
+          %190 : int = aten::add(%i.6, %17) # torch/nn/functional.py:1993:27
+          %191 : int = aten::__getitem__(%183, %190) # torch/nn/functional.py:1993:22
+          %size_prods.23 : int = aten::mul(%size_prods.22, %191) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.23)
+      %193 : bool = aten::eq(%size_prods.21, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%193) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.35 : Tensor = aten::batch_norm(%input.33, %181, %182, %179, %180, %178, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.37 : Tensor = aten::relu_(%input.35) # torch/nn/functional.py:1117:17
+  %196 : Tensor = prim::GetAttr[name="weight"](%30)
+  %197 : Tensor? = prim::GetAttr[name="bias"](%30)
+  %198 : int[] = prim::ListConstruct(%19, %19)
+  %199 : int[] = prim::ListConstruct(%19, %19)
+  %200 : int[] = prim::ListConstruct(%19, %19)
+  %input.39 : Tensor = aten::conv2d(%input.37, %196, %197, %198, %199, %200, %19) # torch/nn/modules/conv.py:415:15
+  %202 : int = aten::dim(%input.39) # torch/nn/modules/batchnorm.py:276:11
+  %203 : bool = aten::ne(%202, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%203) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %204 : bool = prim::GetAttr[name="training"](%31)
+   = prim::If(%204) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %205 : Tensor = prim::GetAttr[name="num_batches_tracked"](%31)
+      %206 : Tensor = aten::add(%205, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%31, %206)
+      -> ()
+    block1():
+      -> ()
+  %207 : bool = prim::GetAttr[name="training"](%31)
+  %208 : Tensor = prim::GetAttr[name="running_mean"](%31)
+  %209 : Tensor = prim::GetAttr[name="running_var"](%31)
+  %210 : Tensor = prim::GetAttr[name="weight"](%31)
+  %211 : Tensor = prim::GetAttr[name="bias"](%31)
+   = prim::If(%207) # torch/nn/functional.py:2011:4
+    block0():
+      %212 : int[] = aten::size(%input.39) # torch/nn/functional.py:2012:27
+      %size_prods.24 : int = aten::__getitem__(%212, %16) # torch/nn/functional.py:1991:17
+      %214 : int = aten::len(%212) # torch/nn/functional.py:1992:19
+      %215 : int = aten::sub(%214, %17) # torch/nn/functional.py:1992:19
+      %size_prods.25 : int = prim::Loop(%215, %18, %size_prods.24) # torch/nn/functional.py:1992:4
+        block0(%i.7 : int, %size_prods.26 : int):
+          %219 : int = aten::add(%i.7, %17) # torch/nn/functional.py:1993:27
+          %220 : int = aten::__getitem__(%212, %219) # torch/nn/functional.py:1993:22
+          %size_prods.27 : int = aten::mul(%size_prods.26, %220) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.27)
+      %222 : bool = aten::eq(%size_prods.25, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%222) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.41 : Tensor = aten::batch_norm(%input.39, %210, %211, %208, %209, %207, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.43 : Tensor = aten::relu_(%input.41) # torch/nn/functional.py:1117:17
+  %225 : int[] = prim::ListConstruct(%17, %17)
+  %226 : int[] = prim::ListConstruct(%17, %17)
+  %227 : int[] = prim::ListConstruct(%16, %16)
+  %228 : int[] = prim::ListConstruct(%19, %19)
+  %input.45 : Tensor = aten::max_pool2d(%input.43, %225, %226, %227, %228, %11) # torch/nn/functional.py:575:11
+  %230 : Tensor = prim::GetAttr[name="weight"](%32)
+  %231 : Tensor? = prim::GetAttr[name="bias"](%32)
+  %232 : int[] = prim::ListConstruct(%19, %19)
+  %233 : int[] = prim::ListConstruct(%19, %19)
+  %234 : int[] = prim::ListConstruct(%19, %19)
+  %input.47 : Tensor = aten::conv2d(%input.45, %230, %231, %232, %233, %234, %19) # torch/nn/modules/conv.py:415:15
+  %236 : int = aten::dim(%input.47) # torch/nn/modules/batchnorm.py:276:11
+  %237 : bool = aten::ne(%236, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%237) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %238 : bool = prim::GetAttr[name="training"](%33)
+   = prim::If(%238) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %239 : Tensor = prim::GetAttr[name="num_batches_tracked"](%33)
+      %240 : Tensor = aten::add(%239, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%33, %240)
+      -> ()
+    block1():
+      -> ()
+  %241 : bool = prim::GetAttr[name="training"](%33)
+  %242 : Tensor = prim::GetAttr[name="running_mean"](%33)
+  %243 : Tensor = prim::GetAttr[name="running_var"](%33)
+  %244 : Tensor = prim::GetAttr[name="weight"](%33)
+  %245 : Tensor = prim::GetAttr[name="bias"](%33)
+   = prim::If(%241) # torch/nn/functional.py:2011:4
+    block0():
+      %246 : int[] = aten::size(%input.47) # torch/nn/functional.py:2012:27
+      %size_prods.28 : int = aten::__getitem__(%246, %16) # torch/nn/functional.py:1991:17
+      %248 : int = aten::len(%246) # torch/nn/functional.py:1992:19
+      %249 : int = aten::sub(%248, %17) # torch/nn/functional.py:1992:19
+      %size_prods.29 : int = prim::Loop(%249, %18, %size_prods.28) # torch/nn/functional.py:1992:4
+        block0(%i.8 : int, %size_prods.30 : int):
+          %253 : int = aten::add(%i.8, %17) # torch/nn/functional.py:1993:27
+          %254 : int = aten::__getitem__(%246, %253) # torch/nn/functional.py:1993:22
+          %size_prods.31 : int = aten::mul(%size_prods.30, %254) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.31)
+      %256 : bool = aten::eq(%size_prods.29, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%256) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.49 : Tensor = aten::batch_norm(%input.47, %244, %245, %242, %243, %241, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.51 : Tensor = aten::relu_(%input.49) # torch/nn/functional.py:1117:17
+  %259 : Tensor = prim::GetAttr[name="weight"](%34)
+  %260 : Tensor? = prim::GetAttr[name="bias"](%34)
+  %261 : int[] = prim::ListConstruct(%19, %19)
+  %262 : int[] = prim::ListConstruct(%19, %19)
+  %263 : int[] = prim::ListConstruct(%19, %19)
+  %input.53 : Tensor = aten::conv2d(%input.51, %259, %260, %261, %262, %263, %19) # torch/nn/modules/conv.py:415:15
+  %265 : int = aten::dim(%input.53) # torch/nn/modules/batchnorm.py:276:11
+  %266 : bool = aten::ne(%265, %14) # torch/nn/modules/batchnorm.py:276:11
+   = prim::If(%266) # torch/nn/modules/batchnorm.py:276:8
+    block0():
+       = prim::RaiseException(%15) # torch/nn/modules/batchnorm.py:277:12
+      -> ()
+    block1():
+      -> ()
+  %267 : bool = prim::GetAttr[name="training"](%35)
+   = prim::If(%267) # torch/nn/modules/batchnorm.py:110:11
+    block0():
+      %268 : Tensor = prim::GetAttr[name="num_batches_tracked"](%35)
+      %269 : Tensor = aten::add(%268, %19, %19) # torch/nn/modules/batchnorm.py:113:43
+       = prim::SetAttr[name="num_batches_tracked"](%35, %269)
+      -> ()
+    block1():
+      -> ()
+  %270 : bool = prim::GetAttr[name="training"](%35)
+  %271 : Tensor = prim::GetAttr[name="running_mean"](%35)
+  %272 : Tensor = prim::GetAttr[name="running_var"](%35)
+  %273 : Tensor = prim::GetAttr[name="weight"](%35)
+  %274 : Tensor = prim::GetAttr[name="bias"](%35)
+   = prim::If(%270) # torch/nn/functional.py:2011:4
+    block0():
+      %275 : int[] = aten::size(%input.53) # torch/nn/functional.py:2012:27
+      %size_prods.1 : int = aten::__getitem__(%275, %16) # torch/nn/functional.py:1991:17
+      %277 : int = aten::len(%275) # torch/nn/functional.py:1992:19
+      %278 : int = aten::sub(%277, %17) # torch/nn/functional.py:1992:19
+      %size_prods : int = prim::Loop(%278, %18, %size_prods.1) # torch/nn/functional.py:1992:4
+        block0(%i.1 : int, %size_prods.6 : int):
+          %282 : int = aten::add(%i.1, %17) # torch/nn/functional.py:1993:27
+          %283 : int = aten::__getitem__(%275, %282) # torch/nn/functional.py:1993:22
+          %size_prods.3 : int = aten::mul(%size_prods.6, %283) # torch/nn/functional.py:1993:8
+          -> (%18, %size_prods.3)
+      %285 : bool = aten::eq(%size_prods, %19) # torch/nn/functional.py:1994:7
+       = prim::If(%285) # torch/nn/functional.py:1994:4
+        block0():
+           = prim::RaiseException(%15) # torch/nn/functional.py:1995:8
+          -> ()
+        block1():
+          -> ()
+      -> ()
+    block1():
+      -> ()
+  %input.55 : Tensor = aten::batch_norm(%input.53, %273, %274, %271, %272, %270, %exponential_average_factor.2, %12, %18) # torch/nn/functional.py:2014:11
+  %input.57 : Tensor = aten::relu_(%input.55) # torch/nn/functional.py:1117:17
+  %288 : int[] = prim::ListConstruct(%17, %17)
+  %289 : int[] = prim::ListConstruct(%17, %17)
+  %290 : int[] = prim::ListConstruct(%16, %16)
+  %291 : int[] = prim::ListConstruct(%19, %19)
+  %x.3 : Tensor = aten::max_pool2d(%input.57, %288, %289, %290, %291, %11) # torch/nn/functional.py:575:11
+  %6 : __torch__.torch.nn.modules.pooling.___torch_mangle_1112.AdaptiveAvgPool2d = prim::GetAttr[name="avgpool"](%self)
+  %293 : int = prim::Constant[value=2]()
+  %294 : str = prim::Constant[value="Exception"]() # <string>:5:2
+  %295 : int = prim::Constant[value=7]() # torch/nn/modules/pooling.py:1111:44
+  %296 : int[] = prim::ListConstruct(%295, %295)
+  %297 : int[] = aten::size(%x.3) # torch/nn/functional.py:925:51
+  %298 : int = aten::len(%297) # <string>:5:9
+  %299 : bool = aten::gt(%298, %293) # <string>:5:9
+   = prim::If(%299) # <string>:5:2
+    block0():
+      -> ()
+    block1():
+       = prim::RaiseException(%294) # <string>:5:2
+      -> ()
+  %x.5 : Tensor = aten::adaptive_avg_pool2d(%x.3, %296) # torch/nn/functional.py:926:11
+  %x.7 : Tensor = aten::flatten(%x.5, %3, %2) # torch/hub/pytorch_vision_master/torchvision/models/vgg.py:45:12
+  %9 : __torch__.torch.nn.modules.container.___torch_mangle_1114.Sequential = prim::GetAttr[name="classifier"](%self)
+  %301 : float = prim::Constant[value=0.5]() # torch/nn/modules/dropout.py:58:32
+  %302 : int = prim::Constant[value=2]() # torch/nn/functional.py:1672:22
+  %303 : int = prim::Constant[value=1]()
+  %304 : __torch__.torch.nn.modules.linear.___torch_mangle_1113.Linear = prim::GetAttr[name="0"](%9)
+  %305 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="2"](%9)
+  %306 : __torch__.torch.nn.modules.linear.___torch_mangle_4.Linear = prim::GetAttr[name="3"](%9)
+  %307 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="5"](%9)
+  %308 : __torch__.torch.nn.modules.linear.___torch_mangle_5.Linear = prim::GetAttr[name="6"](%9)
+  %309 : Tensor = prim::GetAttr[name="weight"](%304)
+  %310 : Tensor = prim::GetAttr[name="bias"](%304)
+  %311 : int = aten::dim(%x.7) # torch/nn/functional.py:1672:7
+  %312 : bool = aten::eq(%311, %302) # torch/nn/functional.py:1672:7
+  %input.3 : Tensor = prim::If(%312) # torch/nn/functional.py:1672:4
+    block0():
+      %314 : Tensor = aten::t(%309) # torch/nn/functional.py:1674:39
+      %ret.2 : Tensor = aten::addmm(%310, %x.7, %314, %303, %303) # torch/nn/functional.py:1674:14
+      -> (%ret.2)
+    block1():
+      %316 : Tensor = aten::t(%309) # torch/nn/functional.py:1676:30
+      %output.2 : Tensor = aten::matmul(%x.7, %316) # torch/nn/functional.py:1676:17
+      %output.4 : Tensor = aten::add_(%output.2, %310, %303) # torch/nn/functional.py:1678:12
+      -> (%output.4)
+  %input.5 : Tensor = aten::relu_(%input.3) # torch/nn/functional.py:1117:17
+  %320 : bool = prim::GetAttr[name="training"](%305)
+  %input.7 : Tensor = aten::dropout(%input.5, %301, %320) # torch/nn/functional.py:973:17
+  %322 : Tensor = prim::GetAttr[name="weight"](%306)
+  %323 : Tensor = prim::GetAttr[name="bias"](%306)
+  %324 : int = aten::dim(%input.7) # torch/nn/functional.py:1672:7
+  %325 : bool = aten::eq(%324, %302) # torch/nn/functional.py:1672:7
+  %input.9 : Tensor = prim::If(%325) # torch/nn/functional.py:1672:4
+    block0():
+      %327 : Tensor = aten::t(%322) # torch/nn/functional.py:1674:39
+      %ret.3 : Tensor = aten::addmm(%323, %input.7, %327, %303, %303) # torch/nn/functional.py:1674:14
+      -> (%ret.3)
+    block1():
+      %329 : Tensor = aten::t(%322) # torch/nn/functional.py:1676:30
+      %output.5 : Tensor = aten::matmul(%input.7, %329) # torch/nn/functional.py:1676:17
+      %output.6 : Tensor = aten::add_(%output.5, %323, %303) # torch/nn/functional.py:1678:12
+      -> (%output.6)
+  %input.11 : Tensor = aten::relu_(%input.9) # torch/nn/functional.py:1117:17
+  %333 : bool = prim::GetAttr[name="training"](%307)
+  %input.13 : Tensor = aten::dropout(%input.11, %301, %333) # torch/nn/functional.py:973:17
+  %335 : Tensor = prim::GetAttr[name="weight"](%308)
+  %336 : Tensor = prim::GetAttr[name="bias"](%308)
+  %337 : int = aten::dim(%input.13) # torch/nn/functional.py:1672:7
+  %338 : bool = aten::eq(%337, %302) # torch/nn/functional.py:1672:7
+  %x.9 : Tensor = prim::If(%338) # torch/nn/functional.py:1672:4
+    block0():
+      %340 : Tensor = aten::t(%335) # torch/nn/functional.py:1674:39
+      %ret.1 : Tensor = aten::addmm(%336, %input.13, %340, %303, %303) # torch/nn/functional.py:1674:14
+      -> (%ret.1)
+    block1():
+      %342 : Tensor = aten::t(%335) # torch/nn/functional.py:1676:30
+      %output.1 : Tensor = aten::matmul(%input.13, %342) # torch/nn/functional.py:1676:17
+      %output.3 : Tensor = aten::add_(%output.1, %336, %303) # torch/nn/functional.py:1678:12
+      -> (%output.3)
+  return (%x.9)

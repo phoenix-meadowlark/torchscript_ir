@@ -1,0 +1,278 @@
+graph(%self.1 : __torch__.transformers.modeling_reformer.ReformerForMaskedLM,
+      %input_ids : Long(17:13, 13:1),
+      %position_ids : Long(17:13, 13:1)):
+  %3 : __torch__.transformers.modeling_reformer.ReformerOnlyLMHead = prim::GetAttr[name="lm_head"](%self.1)
+  %4 : __torch__.transformers.modeling_reformer.ReformerModel = prim::GetAttr[name="reformer"](%self.1)
+  %8 : bool = prim::Constant[value=1](), scope: __module.reformer/__module.reformer.encoder/__module.reformer.encoder.layer_norm # torch/nn/functional.py:2048:0
+  %9 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.reformer/__module.reformer.encoder/__module.reformer.encoder.layer_norm # torch/nn/functional.py:2048:0
+  %10 : int = prim::Constant[value=512](), scope: __module.reformer/__module.reformer.encoder/__module.reformer.encoder.layer_norm # torch/nn/functional.py:2048:0
+  %11 : bool = prim::Constant[value=0](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+  %12 : int = prim::Constant[value=-1](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+  %13 : float = prim::Constant[value=0.050000000000000003](), scope: __module.reformer/__module.reformer.embeddings # torch/nn/functional.py:973:0
+  %14 : int = prim::Constant[value=16](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %15 : int = prim::Constant[value=15](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %16 : int = prim::Constant[value=14](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %17 : int = prim::Constant[value=13](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %18 : int = prim::Constant[value=12](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %19 : int = prim::Constant[value=11](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %20 : int = prim::Constant[value=10](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %21 : int = prim::Constant[value=9](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %22 : int = prim::Constant[value=8](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %23 : int = prim::Constant[value=7](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %24 : int = prim::Constant[value=6](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %25 : int = prim::Constant[value=5](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %26 : int = prim::Constant[value=4](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %27 : int = prim::Constant[value=3](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:195:0
+  %28 : int = prim::Constant[value=9223372036854775807](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:193:0
+  %29 : int = prim::Constant[value=64](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %30 : int = prim::Constant[value=2](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %31 : int = prim::Constant[value=0](), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:147:0
+  %32 : int = prim::Constant[value=1](), scope: __module.reformer # transformers/modeling_reformer.py:2037:0
+  %33 : __torch__.transformers.modeling_reformer.ReformerEncoder = prim::GetAttr[name="encoder"](%4)
+  %34 : __torch__.transformers.modeling_reformer.ReformerEmbeddings = prim::GetAttr[name="embeddings"](%4)
+  %35 : int = aten::size(%input_ids, %32), scope: __module.reformer # transformers/modeling_reformer.py:2037:0
+  %orig_sequence_length : Long() = prim::NumToTensor(%35), scope: __module.reformer
+  %37 : __torch__.transformers.modeling_reformer.AxialPositionEmbeddings = prim::GetAttr[name="position_embeddings"](%34)
+  %38 : __torch__.torch.nn.modules.sparse.___torch_mangle_30133.Embedding = prim::GetAttr[name="word_embeddings"](%34)
+  %39 : Tensor = prim::GetAttr[name="weight"](%38)
+  %input.1 : Float(17:3328, 13:256, 256:1) = aten::embedding(%39, %input_ids, %12, %11, %11), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+  %inputs_embeds : Float(17:3328, 13:256, 256:1) = aten::dropout(%input.1, %13, %11), scope: __module.reformer/__module.reformer.embeddings # torch/nn/functional.py:973:0
+  %42 : __torch__.torch.nn.modules.container.ParameterList = prim::GetAttr[name="weights"](%37)
+  %43 : Tensor = prim::GetAttr[name="1"](%42)
+  %44 : __torch__.torch.nn.modules.container.ParameterList = prim::GetAttr[name="weights"](%37)
+  %45 : Tensor = prim::GetAttr[name="0"](%44)
+  %46 : int = aten::size(%position_ids, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:147:0
+  %47 : int = aten::size(%45, %30), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %48 : int[] = prim::ListConstruct(%46, %29, %29, %47), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings
+  %weight.4 : Float(17:0, 64:64, 64:0, 64:1) = aten::expand(%45, %48, %11), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %50 : int = aten::size(%43, %30), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %51 : int[] = prim::ListConstruct(%46, %29, %29, %50), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings
+  %weight.5 : Float(17:0, 64:0, 64:192, 192:1) = aten::expand(%43, %51, %11), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:151:0
+  %53 : Float(17:0, 64:64, 64:0, 64:1) = aten::slice(%weight.4, %31, %31, %28, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:193:0
+  %54 : Float(17:0, 1:64, 64:0, 64:1) = aten::slice(%53, %32, %31, %32, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:193:0
+  %55 : Float(17:0, 64:0, 64:192, 192:1) = aten::slice(%weight.5, %31, %31, %28, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:193:0
+  %56 : Float(17:0, 1:0, 64:192, 192:1) = aten::slice(%55, %32, %31, %32, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:193:0
+  %57 : Tensor[] = prim::ListConstruct(%54, %56), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings
+  %position_encodings.1 : Float(17:16384, 1:16384, 64:256, 256:1) = aten::cat(%57, %12), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:192:0
+  %59 : int = aten::size(%position_encodings.1, %27), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:195:0
+  %60 : int[] = prim::ListConstruct(%46, %12, %59), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings
+  %position_encodings : Float(17:16384, 64:256, 256:1) = aten::reshape(%position_encodings.1, %60), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:195:0
+  %62 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %63 : Long(13:1) = aten::select(%position_ids, %31, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %64 : Float(13:256, 256:1) = aten::index_select(%62, %31, %63), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %65 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%64, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %66 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %67 : Long(13:1) = aten::select(%position_ids, %31, %32), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %68 : Float(13:256, 256:1) = aten::index_select(%66, %31, %67), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %69 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%68, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %70 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %30), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %71 : Long(13:1) = aten::select(%position_ids, %31, %30), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %72 : Float(13:256, 256:1) = aten::index_select(%70, %31, %71), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %73 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%72, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %74 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %27), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %75 : Long(13:1) = aten::select(%position_ids, %31, %27), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %76 : Float(13:256, 256:1) = aten::index_select(%74, %31, %75), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %77 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%76, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %78 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %26), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %79 : Long(13:1) = aten::select(%position_ids, %31, %26), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %80 : Float(13:256, 256:1) = aten::index_select(%78, %31, %79), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %81 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%80, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %82 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %25), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %83 : Long(13:1) = aten::select(%position_ids, %31, %25), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %84 : Float(13:256, 256:1) = aten::index_select(%82, %31, %83), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %85 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%84, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %86 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %24), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %87 : Long(13:1) = aten::select(%position_ids, %31, %24), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %88 : Float(13:256, 256:1) = aten::index_select(%86, %31, %87), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %89 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%88, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %90 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %23), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %91 : Long(13:1) = aten::select(%position_ids, %31, %23), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %92 : Float(13:256, 256:1) = aten::index_select(%90, %31, %91), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %93 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%92, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %94 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %22), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %95 : Long(13:1) = aten::select(%position_ids, %31, %22), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %96 : Float(13:256, 256:1) = aten::index_select(%94, %31, %95), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %97 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%96, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %98 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %21), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %99 : Long(13:1) = aten::select(%position_ids, %31, %21), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %100 : Float(13:256, 256:1) = aten::index_select(%98, %31, %99), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %101 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%100, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %102 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %20), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %103 : Long(13:1) = aten::select(%position_ids, %31, %20), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %104 : Float(13:256, 256:1) = aten::index_select(%102, %31, %103), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %105 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%104, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %106 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %19), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %107 : Long(13:1) = aten::select(%position_ids, %31, %19), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %108 : Float(13:256, 256:1) = aten::index_select(%106, %31, %107), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %109 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%108, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %110 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %18), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %111 : Long(13:1) = aten::select(%position_ids, %31, %18), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %112 : Float(13:256, 256:1) = aten::index_select(%110, %31, %111), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %113 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%112, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %114 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %17), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %115 : Long(13:1) = aten::select(%position_ids, %31, %17), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %116 : Float(13:256, 256:1) = aten::index_select(%114, %31, %115), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %117 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%116, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %118 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %16), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %119 : Long(13:1) = aten::select(%position_ids, %31, %16), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %120 : Float(13:256, 256:1) = aten::index_select(%118, %31, %119), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %121 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%120, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %122 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %15), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %123 : Long(13:1) = aten::select(%position_ids, %31, %15), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %124 : Float(13:256, 256:1) = aten::index_select(%122, %31, %123), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %125 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%124, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %126 : Float(64:256, 256:1) = aten::select(%position_encodings, %31, %14), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %127 : Long(13:1) = aten::select(%position_ids, %31, %14), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %128 : Float(13:256, 256:1) = aten::index_select(%126, %31, %127), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %129 : Float(1:3328, 13:256, 256:1) = aten::unsqueeze(%128, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:200:0
+  %130 : Tensor[] = prim::ListConstruct(%65, %69, %73, %77, %81, %85, %89, %93, %97, %101, %105, %109, %113, %117, %121, %125, %129), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings
+  %position_embeddings : Float(17:3328, 13:256, 256:1) = aten::cat(%130, %31), scope: __module.reformer/__module.reformer.embeddings/__module.reformer.embeddings.position_embeddings # transformers/modeling_reformer.py:198:0
+  %hidden_states.1 : Float(17:3328, 13:256, 256:1) = aten::add(%inputs_embeds, %position_embeddings, %32), scope: __module.reformer/__module.reformer.embeddings # transformers/modeling_reformer.py:265:0
+  %133 : __torch__.torch.nn.modules.normalization.___torch_mangle_30214.LayerNorm = prim::GetAttr[name="layer_norm"](%33)
+  %134 : Tensor[] = prim::ListConstruct(%hidden_states.1, %hidden_states.1), scope: __module.reformer/__module.reformer.encoder
+  %hidden_states.2 : Float(17:6656, 13:512, 512:1) = aten::cat(%134, %12), scope: __module.reformer/__module.reformer.encoder # transformers/modeling_reformer.py:1726:0
+  %input.56 : Float(17:6656, 13:512, 512:1) = ^_ReversibleFunction(ModuleList(
+  (0): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LocalSelfAttention(
+        (query): Linear(in_features=256, out_features=768, bias=False)
+        (key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+  (1): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LSHSelfAttention(
+        (query_key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+  (2): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LocalSelfAttention(
+        (query): Linear(in_features=256, out_features=768, bias=False)
+        (key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+  (3): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LSHSelfAttention(
+        (query_key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+  (4): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LocalSelfAttention(
+        (query): Linear(in_features=256, out_features=768, bias=False)
+        (key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+  (5): ReformerLayer(
+    (attention): ReformerAttention(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (self_attention): LSHSelfAttention(
+        (query_key): Linear(in_features=256, out_features=768, bias=False)
+        (value): Linear(in_features=256, out_features=768, bias=False)
+      )
+      (output): ReformerSelfOutput(
+        (dense): Linear(in_features=768, out_features=256, bias=False)
+      )
+    )
+    (feed_forward): ChunkReformerFeedForward(
+      (layer_norm): LayerNorm((256,), eps=1e-12, elementwise_affine=True)
+      (dense): ReformerFeedForwardDense(
+        (dense): Linear(in_features=256, out_features=512, bias=True)
+      )
+      (output): ReformerFeedForwardOutput(
+        (dense): Linear(in_features=512, out_features=256, bias=True)
+      )
+    )
+  )
+), None, [None, None, None, None, None, None], None, [], [], [(None, None), (None, None), (None, None), (None, None), (None, None), (None, None)], False, False, False)(%hidden_states.2, %orig_sequence_length), scope: __module.reformer/__module.reformer.encoder # transformers/modeling_reformer.py:1727:0
+  %137 : Tensor = prim::GetAttr[name="bias"](%133)
+  %138 : Tensor = prim::GetAttr[name="weight"](%133)
+  %139 : int[] = prim::ListConstruct(%10), scope: __module.reformer/__module.reformer.encoder/__module.reformer.encoder.layer_norm
+  %input : Float(17:6656, 13:512, 512:1) = aten::layer_norm(%input.56, %139, %138, %137, %9, %8), scope: __module.reformer/__module.reformer.encoder/__module.reformer.encoder.layer_norm # torch/nn/functional.py:2048:0
+  %input_tensor : Float(17:6656, 13:512, 512:1) = aten::dropout(%input, %13, %11), scope: __module.reformer/__module.reformer.encoder # torch/nn/functional.py:973:0
+  %142 : int = prim::Constant[value=1](), scope: __module.lm_head/__module.lm_head.decoder # torch/nn/functional.py:1678:0
+  %143 : Tensor = prim::GetAttr[name="bias"](%3)
+  %144 : __torch__.torch.nn.modules.linear.___torch_mangle_30215.Linear = prim::GetAttr[name="decoder"](%3)
+  %145 : Tensor = prim::GetAttr[name="weight"](%144)
+  %146 : Float(512:1, 320:512) = aten::t(%145), scope: __module.lm_head/__module.lm_head.decoder # torch/nn/functional.py:1676:0
+  %output : Float(17:4160, 13:320, 320:1) = aten::matmul(%input_tensor, %146), scope: __module.lm_head/__module.lm_head.decoder # torch/nn/functional.py:1676:0
+  %148 : Float(17:4160, 13:320, 320:1) = aten::add_(%output, %143, %142), scope: __module.lm_head/__module.lm_head.decoder # torch/nn/functional.py:1678:0
+  %7 : (Float(17:4160, 13:320, 320:1)) = prim::TupleConstruct(%148)
+  return (%7)

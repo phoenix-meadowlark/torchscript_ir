@@ -56,7 +56,6 @@ def _get_cleaned_method_graphs(module: torch.nn.Module) -> List[Tuple[str]]:
       continue
 
   if not len(methods_and_graphs):
-    print("WARNING: encountered module without a 'graph' attr.")
     assert not hasattr(module, "graph_for_types")
     return [("*", "module had no methods with graph attrs.\n")]
   else:
@@ -104,3 +103,27 @@ def group_by_graph(graphs):
     graph = textwrap.indent(graph, '  ')
     grouped_graphs.append("\n".join(names_and_methods + [graph]))
   return grouped_graphs
+
+
+def save_tsir(model, jit_model, model_path, save_model=False):
+  os.makedirs(model_path, exist_ok=True)
+  if issubclass(jit_model.__class__, torch.jit.TracedModule):
+    jit_type = "trace"
+  else:
+    jit_type = "script"
+
+  with open(os.path.join(model_path, f"inlined.{jit_type}.tsir"), "w") as f:
+    f.write(clean_references(str(jit_model.inlined_graph)))
+
+  graphs = get_submodule_graphs(jit_model)
+  graphs = group_by_graph(graphs)
+  lines = str(model).split("\n")
+  lines.append("")
+  lines.extend(graphs)
+
+  with open(os.path.join(model_path, f"submodules.{jit_type}.tsir"), "w") as f:
+    f.write("\n".join(lines) + "\n")
+
+  if save_model:
+    torch.jit.save(jit_model,
+                   os.path.join(model_path, f"{model_name}.{jit_type}.pt"))

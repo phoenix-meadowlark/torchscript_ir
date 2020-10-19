@@ -1,0 +1,567 @@
+AlbertForMaskedLM(
+  (albert): AlbertModel(
+    (embeddings): AlbertEmbeddings(
+      (word_embeddings): Embedding(30000, 128, padding_idx=0)
+      (position_embeddings): Embedding(512, 128)
+      (token_type_embeddings): Embedding(2, 128)
+      (LayerNorm): LayerNorm((128,), eps=1e-12, elementwise_affine=True)
+      (dropout): Dropout(p=0, inplace=False)
+    )
+    (encoder): AlbertTransformer(
+      (embedding_hidden_mapping_in): Linear(in_features=128, out_features=4096, bias=True)
+      (albert_layer_groups): ModuleList(
+        (0): AlbertLayerGroup(
+          (albert_layers): ModuleList(
+            (0): AlbertLayer(
+              (full_layer_layer_norm): LayerNorm((4096,), eps=1e-12, elementwise_affine=True)
+              (attention): AlbertAttention(
+                (query): Linear(in_features=4096, out_features=4096, bias=True)
+                (key): Linear(in_features=4096, out_features=4096, bias=True)
+                (value): Linear(in_features=4096, out_features=4096, bias=True)
+                (attention_dropout): Dropout(p=0, inplace=False)
+                (output_dropout): Dropout(p=0, inplace=False)
+                (dense): Linear(in_features=4096, out_features=4096, bias=True)
+                (LayerNorm): LayerNorm((4096,), eps=1e-12, elementwise_affine=True)
+              )
+              (ffn): Linear(in_features=4096, out_features=16384, bias=True)
+              (ffn_output): Linear(in_features=16384, out_features=4096, bias=True)
+              (dropout): Dropout(p=0, inplace=False)
+            )
+          )
+        )
+      )
+    )
+  )
+  (predictions): AlbertMLMHead(
+    (LayerNorm): LayerNorm((128,), eps=1e-05, elementwise_affine=True)
+    (dense): Linear(in_features=4096, out_features=128, bias=True)
+    (decoder): Linear(in_features=128, out_features=30000, bias=True)
+  )
+)
+
+AlbertForMaskedLM._actual_script_module
+AlbertForMaskedLM.forward
+  graph(%self.1 : __torch__.transformers.modeling_albert.AlbertForMaskedLM,
+        %input_ids : Long(17:13, 13:1),
+        %attention_mask.1 : Long(17:13, 13:1)):
+    %2883 : __torch__.transformers.modeling_albert.AlbertMLMHead = prim::GetAttr[name="predictions"](%self.1)
+    %2872 : __torch__.transformers.modeling_albert.AlbertModel = prim::GetAttr[name="albert"](%self.1)
+    %3206 : Tensor = prim::CallMethod[name="forward"](%2872, %input_ids, %attention_mask.1)
+    %3207 : Tensor = prim::CallMethod[name="forward"](%2883, %3206)
+    %2356 : (Float(17:390000, 13:30000, 30000:1)) = prim::TupleConstruct(%3207)
+    return (%2356)
+
+AlbertForMaskedLM.albert
+AlbertModel._actual_script_module
+  graph(%self.2 : __torch__.transformers.modeling_albert.AlbertModel,
+        %input_ids : Long(17:13, 13:1),
+        %attention_mask.1 : Long(17:13, 13:1)):
+    %1 : __torch__.transformers.modeling_albert.AlbertTransformer = prim::GetAttr[name="encoder"](%self.2)
+    %2 : __torch__.transformers.modeling_albert.AlbertEmbeddings = prim::GetAttr[name="embeddings"](%self.2)
+    %3 : int = prim::Constant[value=0](), scope: __module.albert # transformers/modeling_albert.py:663:0
+    %4 : int = aten::size(%input_ids, %3), scope: __module.albert # transformers/modeling_albert.py:663:0
+    %6 : Long() = prim::NumToTensor(%4), scope: __module.albert
+    %7 : int = aten::Int(%6), scope: __module.albert
+    %8 : int = prim::Constant[value=1](), scope: __module.albert # transformers/modeling_albert.py:663:0
+    %9 : int = aten::size(%input_ids, %8), scope: __module.albert # transformers/modeling_albert.py:663:0
+    %10 : Long() = prim::NumToTensor(%9), scope: __module.albert
+    %11 : int = aten::Int(%10), scope: __module.albert
+    %12 : int[] = prim::ListConstruct(%7, %11), scope: __module.albert
+    %13 : int = prim::Constant[value=4](), scope: __module.albert # transformers/modeling_albert.py:674:0
+    %14 : int = prim::Constant[value=0](), scope: __module.albert # transformers/modeling_albert.py:674:0
+    %15 : Device = prim::Constant[value="cpu"](), scope: __module.albert # transformers/modeling_albert.py:674:0
+    %16 : bool = prim::Constant[value=0](), scope: __module.albert # transformers/modeling_albert.py:674:0
+    %input.2 : Long(17:13, 13:1) = aten::zeros(%12, %13, %14, %15, %16), scope: __module.albert # transformers/modeling_albert.py:674:0
+    %18 : int = prim::Constant[value=1](), scope: __module.albert # transformers/modeling_albert.py:676:0
+    %19 : Long(17:13, 1:13, 13:1) = aten::unsqueeze(%attention_mask.1, %18), scope: __module.albert # transformers/modeling_albert.py:676:0
+    %21 : int = prim::Constant[value=2](), scope: __module.albert # transformers/modeling_albert.py:676:0
+    %extended_attention_mask : Long(17:13, 1:13, 1:13, 13:1) = aten::unsqueeze(%19, %21), scope: __module.albert # transformers/modeling_albert.py:676:0
+    %23 : int = prim::Constant[value=6](), scope: __module.albert # transformers/modeling_albert.py:677:0
+    %24 : bool = prim::Constant[value=0](), scope: __module.albert # transformers/modeling_albert.py:677:0
+    %25 : bool = prim::Constant[value=0](), scope: __module.albert # transformers/modeling_albert.py:677:0
+    %26 : None = prim::Constant(), scope: __module.albert
+    %27 : Float(17:13, 1:13, 1:13, 13:1) = aten::to(%extended_attention_mask, %23, %24, %25, %26), scope: __module.albert # transformers/modeling_albert.py:677:0
+    %28 : float = prim::Constant[value=1.](), scope: __module.albert # torch/tensor.py:396:0
+    %29 : int = prim::Constant[value=1](), scope: __module.albert # torch/tensor.py:396:0
+    %30 : Float(17:13, 1:13, 1:13, 13:1) = aten::rsub(%27, %28, %29), scope: __module.albert # torch/tensor.py:396:0
+    %31 : Double() = prim::Constant[value={-10000}](), scope: __module.albert # transformers/modeling_albert.py:678:0
+    %attention_mask : Float(17:13, 1:13, 1:13, 13:1) = aten::mul(%30, %31), scope: __module.albert # transformers/modeling_albert.py:678:0
+    %35 : Tensor = prim::CallMethod[name="forward"](%2, %input_ids, %input.2)
+    %36 : Tensor = prim::CallMethod[name="forward"](%1, %35, %attention_mask)
+    return (%36)
+
+AlbertForMaskedLM.predictions
+AlbertMLMHead._actual_script_module
+  graph(%self.155 : __torch__.transformers.modeling_albert.AlbertMLMHead,
+        %6 : Float(17:53248, 13:4096, 4096:1)):
+    %1 : Tensor = prim::GetAttr[name="bias"](%self.155)
+    %2 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="decoder"](%self.155)
+    %3 : __torch__.torch.nn.modules.normalization.LayerNorm = prim::GetAttr[name="LayerNorm"](%self.155)
+    %4 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="dense"](%self.155)
+    %24 : Tensor = prim::CallMethod[name="forward"](%4, %6)
+    %7 : Double() = prim::Constant[value={0.5}](), scope: __module.predictions # transformers/activations.py:30:0
+    %8 : Float(17:1664, 13:128, 128:1) = aten::mul(%24, %7), scope: __module.predictions # transformers/activations.py:30:0
+    %9 : float = prim::Constant[value=3.](), scope: __module.predictions # transformers/activations.py:30:0
+    %10 : Float(17:1664, 13:128, 128:1) = aten::pow(%24, %9), scope: __module.predictions # transformers/activations.py:30:0
+    %11 : Double() = prim::Constant[value={0.044715}](), scope: __module.predictions # transformers/activations.py:30:0
+    %12 : Float(17:1664, 13:128, 128:1) = aten::mul(%10, %11), scope: __module.predictions # transformers/activations.py:30:0
+    %13 : int = prim::Constant[value=1](), scope: __module.predictions # transformers/activations.py:30:0
+    %14 : Float(17:1664, 13:128, 128:1) = aten::add(%24, %12, %13), scope: __module.predictions # transformers/activations.py:30:0
+    %15 : Double() = prim::Constant[value={0.797885}](), scope: __module.predictions # transformers/activations.py:30:0
+    %16 : Float(17:1664, 13:128, 128:1) = aten::mul(%14, %15), scope: __module.predictions # transformers/activations.py:30:0
+    %17 : Float(17:1664, 13:128, 128:1) = aten::tanh(%16), scope: __module.predictions # transformers/activations.py:30:0
+    %18 : Double() = prim::Constant[value={1}](), scope: __module.predictions # transformers/activations.py:30:0
+    %19 : int = prim::Constant[value=1](), scope: __module.predictions # transformers/activations.py:30:0
+    %20 : Float(17:1664, 13:128, 128:1) = aten::add(%17, %18, %19), scope: __module.predictions # transformers/activations.py:30:0
+    %input.91 : Float(17:1664, 13:128, 128:1) = aten::mul(%8, %20), scope: __module.predictions # transformers/activations.py:30:0
+    %25 : Tensor = prim::CallMethod[name="forward"](%3, %input.91)
+    %26 : Tensor = prim::CallMethod[name="forward"](%2, %1, %25)
+    return (%26)
+
+AlbertModel.embeddings
+AlbertEmbeddings._actual_script_module
+  graph(%self.3 : __torch__.transformers.modeling_albert.AlbertEmbeddings,
+        %input_ids : Long(17:13, 13:1),
+        %input.2 : Long(17:13, 13:1)):
+    %3 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="dropout"](%self.3)
+    %4 : __torch__.torch.nn.modules.normalization.LayerNorm = prim::GetAttr[name="LayerNorm"](%self.3)
+    %5 : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="token_type_embeddings"](%self.3)
+    %6 : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="position_embeddings"](%self.3)
+    %7 : __torch__.torch.nn.modules.sparse.Embedding = prim::GetAttr[name="word_embeddings"](%self.3)
+    %8 : Tensor = prim::GetAttr[name="position_ids"](%self.3)
+    %12 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:222:0
+    %13 : int = aten::size(%input_ids, %12), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:222:0
+    %seq_length : Long() = prim::NumToTensor(%13), scope: __module.albert/__module.albert.embeddings
+    %15 : int = aten::Int(%seq_length), scope: __module.albert/__module.albert.embeddings
+    %16 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %17 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %18 : int = prim::Constant[value=9223372036854775807](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %19 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %20 : Long(1:512, 512:1) = aten::slice(%8, %16, %17, %18, %19), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %21 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %22 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %23 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %input.1 : Long(1:512, 13:1) = aten::slice(%20, %21, %22, %15, %23), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:229:0
+    %34 : Tensor = prim::CallMethod[name="forward"](%7, %input_ids)
+    %35 : Tensor = prim::CallMethod[name="forward"](%6, %input.1)
+    %36 : Tensor = prim::CallMethod[name="forward"](%5, %input.2)
+    %28 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:239:0
+    %29 : Float(17:1664, 13:128, 128:1) = aten::add(%34, %35, %28), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:239:0
+    %30 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:239:0
+    %input.3 : Float(17:1664, 13:128, 128:1) = aten::add(%29, %36, %30), scope: __module.albert/__module.albert.embeddings # transformers/modeling_albert.py:239:0
+    %37 : Tensor = prim::CallMethod[name="forward"](%4, %input.3)
+    %38 : Tensor = prim::CallMethod[name="forward"](%3, %37)
+    return (%38)
+
+AlbertModel.encoder
+AlbertTransformer._actual_script_module
+  graph(%self.9 : __torch__.transformers.modeling_albert.AlbertTransformer,
+        %1 : Float(17:1664, 13:128, 128:1),
+        %attention_mask : Float(17:13, 1:13, 1:13, 13:1)):
+    %3 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="albert_layer_groups"](%self.9)
+    %4 : __torch__.transformers.modeling_albert.AlbertLayerGroup = prim::GetAttr[name="0"](%3)
+    %5 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="embedding_hidden_mapping_in"](%self.9)
+    %41 : Tensor = prim::CallMethod[name="forward"](%5, %1)
+    %42 : (Tensor, Tensor) = prim::CallMethod[name="forward"](%4, %41, %attention_mask)
+    %8 : Float(17:53248, 13:4096, 4096:1), %9 : Float(4096:1) = prim::TupleUnpack(%42)
+    %43 : (Tensor, Tensor) = prim::CallMethod[name="forward1"](%4, %8, %attention_mask, %9)
+    %11 : Float(17:53248, 13:4096, 4096:1), %12 : Float(4096:1) = prim::TupleUnpack(%43)
+    %44 : (Tensor, Tensor) = prim::CallMethod[name="forward2"](%4, %11, %attention_mask, %12)
+    %14 : Float(17:53248, 13:4096, 4096:1), %15 : Float(4096:1) = prim::TupleUnpack(%44)
+    %45 : (Tensor, Tensor) = prim::CallMethod[name="forward3"](%4, %14, %attention_mask, %15)
+    %17 : Float(17:53248, 13:4096, 4096:1), %18 : Float(4096:1) = prim::TupleUnpack(%45)
+    %46 : (Tensor, Tensor) = prim::CallMethod[name="forward4"](%4, %17, %attention_mask, %18)
+    %20 : Float(17:53248, 13:4096, 4096:1), %21 : Float(4096:1) = prim::TupleUnpack(%46)
+    %47 : (Tensor, Tensor) = prim::CallMethod[name="forward5"](%4, %20, %attention_mask, %21)
+    %23 : Float(17:53248, 13:4096, 4096:1), %24 : Float(4096:1) = prim::TupleUnpack(%47)
+    %48 : (Tensor, Tensor) = prim::CallMethod[name="forward6"](%4, %23, %attention_mask, %24)
+    %26 : Float(17:53248, 13:4096, 4096:1), %27 : Float(4096:1) = prim::TupleUnpack(%48)
+    %49 : (Tensor, Tensor) = prim::CallMethod[name="forward7"](%4, %26, %attention_mask, %27)
+    %29 : Float(17:53248, 13:4096, 4096:1), %30 : Float(4096:1) = prim::TupleUnpack(%49)
+    %50 : (Tensor, Tensor) = prim::CallMethod[name="forward8"](%4, %29, %attention_mask, %30)
+    %32 : Float(17:53248, 13:4096, 4096:1), %33 : Float(4096:1) = prim::TupleUnpack(%50)
+    %51 : (Tensor, Tensor) = prim::CallMethod[name="forward9"](%4, %32, %attention_mask, %33)
+    %35 : Float(17:53248, 13:4096, 4096:1), %36 : Float(4096:1) = prim::TupleUnpack(%51)
+    %52 : (Tensor, Tensor) = prim::CallMethod[name="forward10"](%4, %35, %attention_mask, %36)
+    %38 : Float(17:53248, 13:4096, 4096:1), %39 : Float(4096:1) = prim::TupleUnpack(%52)
+    %53 : Tensor = prim::CallMethod[name="forward11"](%4, %38, %attention_mask, %39)
+    return (%53)
+
+AlbertEmbeddings.LayerNorm
+LayerNorm._actual_script_module
+  graph(%self.7 : __torch__.torch.nn.modules.normalization.LayerNorm,
+        %input.3 : Float(17:1664, 13:128, 128:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.7)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.7)
+    %4 : int = prim::Constant[value=128](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+    %5 : int[] = prim::ListConstruct(%4), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.LayerNorm
+    %6 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+    %7 : bool = prim::Constant[value=1](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+    %input.4 : Float(17:1664, 13:128, 128:1) = aten::layer_norm(%input.3, %5, %3, %2, %6, %7), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+    return (%input.4)
+
+AlbertEmbeddings.dropout
+Dropout._actual_script_module
+  graph(%self.8 : __torch__.torch.nn.modules.dropout.Dropout,
+        %1 : Float(17:1664, 13:128, 128:1)):
+    %2 : float = prim::Constant[value=0.](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.dropout # torch/nn/functional.py:973:0
+    %3 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.dropout # torch/nn/functional.py:973:0
+    %input.5 : Float(17:1664, 13:128, 128:1) = aten::dropout(%1, %2, %3), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.dropout # torch/nn/functional.py:973:0
+    return (%input.5)
+
+AlbertEmbeddings.position_embeddings
+Embedding._actual_script_module
+  graph(%self.5 : __torch__.torch.nn.modules.sparse.Embedding,
+        %input.1 : Long(1:512, 13:1)):
+    %2 : Tensor = prim::GetAttr[name="weight"](%self.5)
+    %3 : int = prim::Constant[value=-1](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+    %4 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+    %5 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+    %position_embeddings : Float(1:1664, 13:128, 128:1) = aten::embedding(%2, %input.1, %3, %4, %5), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+    return (%position_embeddings)
+
+AlbertEmbeddings.token_type_embeddings
+Embedding._actual_script_module
+  graph(%self.6 : __torch__.torch.nn.modules.sparse.Embedding,
+        %input.2 : Long(17:13, 13:1)):
+    %2 : Tensor = prim::GetAttr[name="weight"](%self.6)
+    %3 : int = prim::Constant[value=-1](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.token_type_embeddings # torch/nn/functional.py:1814:0
+    %4 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.token_type_embeddings # torch/nn/functional.py:1814:0
+    %5 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.token_type_embeddings # torch/nn/functional.py:1814:0
+    %token_type_embeddings : Float(17:1664, 13:128, 128:1) = aten::embedding(%2, %input.2, %3, %4, %5), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.token_type_embeddings # torch/nn/functional.py:1814:0
+    return (%token_type_embeddings)
+
+AlbertEmbeddings.word_embeddings
+Embedding._actual_script_module
+  graph(%self.4 : __torch__.torch.nn.modules.sparse.Embedding,
+        %input_ids : Long(17:13, 13:1)):
+    %2 : Tensor = prim::GetAttr[name="weight"](%self.4)
+    %3 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+    %4 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+    %5 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+    %inputs_embeds : Float(17:1664, 13:128, 128:1) = aten::embedding(%2, %input_ids, %3, %4, %5), scope: __module.albert/__module.albert.embeddings/__module.albert.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+    return (%inputs_embeds)
+
+AlbertTransformer.embedding_hidden_mapping_in
+Linear._actual_script_module
+  graph(%self.10 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:1664, 13:128, 128:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.10)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.10)
+    %4 : Float(128:1, 4096:128) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.embedding_hidden_mapping_in # torch/nn/functional.py:1676:0
+    %output.1 : Float(17:53248, 13:4096, 4096:1) = aten::matmul(%1, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.embedding_hidden_mapping_in # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.embedding_hidden_mapping_in # torch/nn/functional.py:1678:0
+    %input.6 : Float(17:53248, 13:4096, 4096:1) = aten::add_(%output.1, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.embedding_hidden_mapping_in # torch/nn/functional.py:1678:0
+    return (%input.6)
+
+ModuleList.*
+Linear.*
+Dropout.*
+  module had no methods with graph attrs.
+
+AlbertLayerGroup._actual_script_module
+  graph(%self.11 : __torch__.transformers.modeling_albert.AlbertLayerGroup,
+        %1 : Float(17:53248, 13:4096, 4096:1),
+        %attention_mask : Float(17:13, 1:13, 1:13, 13:1)):
+    %3 : __torch__.torch.nn.modules.container.ModuleList = prim::GetAttr[name="albert_layers"](%self.11)
+    %4 : __torch__.transformers.modeling_albert.AlbertLayer = prim::GetAttr[name="0"](%3)
+    %9 : (Tensor, Tensor) = prim::CallMethod[name="forward"](%4, %1, %attention_mask)
+    %6 : Float(17:53248, 13:4096, 4096:1), %7 : Float(4096:1) = prim::TupleUnpack(%9)
+    %8 : (Float(17:53248, 13:4096, 4096:1), Float(4096:1)) = prim::TupleConstruct(%6, %7)
+    return (%8)
+
+AlbertLayer._actual_script_module
+  graph(%self.12 : __torch__.transformers.modeling_albert.AlbertLayer,
+        %1 : Float(17:53248, 13:4096, 4096:1),
+        %attention_mask : Float(17:13, 1:13, 1:13, 13:1)):
+    %3 : __torch__.torch.nn.modules.normalization.LayerNorm = prim::GetAttr[name="full_layer_layer_norm"](%self.12)
+    %4 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="ffn_output"](%self.12)
+    %5 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="ffn"](%self.12)
+    %6 : __torch__.transformers.modeling_albert.AlbertAttention = prim::GetAttr[name="attention"](%self.12)
+    %52 : (Tensor, Tensor) = prim::CallMethod[name="forward"](%6, %1, %attention_mask)
+    %8 : Float(17:53248, 13:4096, 4096:1), %9 : Float(4096:1) = prim::TupleUnpack(%52)
+    %53 : Tensor = prim::CallMethod[name="forward"](%5, %8)
+    %32 : Double() = prim::Constant[value={0.5}](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %33 : Float(17:212992, 13:16384, 16384:1) = aten::mul(%53, %32), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %34 : float = prim::Constant[value=3.](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %35 : Float(17:212992, 13:16384, 16384:1) = aten::pow(%53, %34), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %36 : Double() = prim::Constant[value={0.044715}](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %37 : Float(17:212992, 13:16384, 16384:1) = aten::mul(%35, %36), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %38 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %39 : Float(17:212992, 13:16384, 16384:1) = aten::add(%53, %37, %38), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %40 : Double() = prim::Constant[value={0.797885}](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %41 : Float(17:212992, 13:16384, 16384:1) = aten::mul(%39, %40), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %42 : Float(17:212992, 13:16384, 16384:1) = aten::tanh(%41), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %43 : Double() = prim::Constant[value={1}](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %44 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %45 : Float(17:212992, 13:16384, 16384:1) = aten::add(%42, %43, %44), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %input.11 : Float(17:212992, 13:16384, 16384:1) = aten::mul(%33, %45), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/activations.py:30:0
+    %54 : Tensor = prim::CallMethod[name="forward"](%4, %input.11)
+    %48 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/modeling_albert.py:363:0
+    %input.12 : Float(17:53248, 13:4096, 4096:1) = aten::add(%54, %8, %48), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0 # transformers/modeling_albert.py:363:0
+    %55 : Tensor = prim::CallMethod[name="forward"](%3, %input.12)
+    %51 : (Float(17:53248, 13:4096, 4096:1), Float(4096:1)) = prim::TupleConstruct(%55, %9)
+    return (%51)
+
+AlbertLayer.attention
+AlbertAttention._actual_script_module
+  graph(%self.13 : __torch__.transformers.modeling_albert.AlbertAttention,
+        %1 : Float(17:53248, 13:4096, 4096:1),
+        %attention_mask : Float(17:13, 1:13, 1:13, 13:1)):
+    %3 : __torch__.torch.nn.modules.normalization.LayerNorm = prim::GetAttr[name="LayerNorm"](%self.13)
+    %4 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="output_dropout"](%self.13)
+    %5 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="dense"](%self.13)
+    %6 : Tensor = prim::GetAttr[name="bias"](%5)
+    %7 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="dense"](%self.13)
+    %8 : Tensor = prim::GetAttr[name="weight"](%7)
+    %9 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="attention_dropout"](%self.13)
+    %10 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="value"](%self.13)
+    %11 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="key"](%self.13)
+    %12 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="query"](%self.13)
+    %126 : Tensor = prim::CallMethod[name="forward"](%12, %1)
+    %127 : Tensor = prim::CallMethod[name="forward"](%11, %1)
+    %128 : Tensor = prim::CallMethod[name="forward"](%10, %1)
+    %16 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %17 : int = aten::size(%126, %16), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %18 : Long() = prim::NumToTensor(%17), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %19 : int = aten::Int(%18), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %20 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %21 : int = aten::size(%126, %20), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %22 : Long() = prim::NumToTensor(%21), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %23 : int = aten::Int(%22), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %27 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %28 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %29 : int[] = prim::ListConstruct(%19, %23, %27, %28), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %x.2 : Float(17:53248, 13:4096, 64:64, 64:1) = aten::view(%126, %29), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %31 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %32 : int = prim::Constant[value=2](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %33 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %34 : int = prim::Constant[value=3](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %35 : int[] = prim::ListConstruct(%31, %32, %33, %34), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %query_layer.1 : Float(17:53248, 64:64, 13:4096, 64:1) = aten::permute(%x.2, %35), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %37 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %38 : int = aten::size(%127, %37), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %39 : Long() = prim::NumToTensor(%38), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %40 : int = aten::Int(%39), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %41 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %42 : int = aten::size(%127, %41), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %43 : Long() = prim::NumToTensor(%42), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %44 : int = aten::Int(%43), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %48 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %49 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %50 : int[] = prim::ListConstruct(%40, %44, %48, %49), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %x.4 : Float(17:53248, 13:4096, 64:64, 64:1) = aten::view(%127, %50), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %52 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %53 : int = prim::Constant[value=2](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %54 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %55 : int = prim::Constant[value=3](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %56 : int[] = prim::ListConstruct(%52, %53, %54, %55), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %key_layer.1 : Float(17:53248, 64:64, 13:4096, 64:1) = aten::permute(%x.4, %56), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %58 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %59 : int = aten::size(%128, %58), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %60 : Long() = prim::NumToTensor(%59), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %61 : int = aten::Int(%60), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %62 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %63 : int = aten::size(%128, %62), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:271:0
+    %64 : Long() = prim::NumToTensor(%63), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %65 : int = aten::Int(%64), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %69 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %70 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %71 : int[] = prim::ListConstruct(%61, %65, %69, %70), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %x.6 : Float(17:53248, 13:4096, 64:64, 64:1) = aten::view(%128, %71), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:272:0
+    %73 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %74 : int = prim::Constant[value=2](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %75 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %76 : int = prim::Constant[value=3](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %77 : int[] = prim::ListConstruct(%73, %74, %75, %76), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %value_layer.1 : Float(17:53248, 64:64, 13:4096, 64:1) = aten::permute(%x.6, %77), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:273:0
+    %79 : int = prim::Constant[value=-1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:303:0
+    %80 : int = prim::Constant[value=-2](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:303:0
+    %81 : Float(17:53248, 64:64, 64:1, 13:4096) = aten::transpose(%key_layer.1, %79, %80), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:303:0
+    %attention_scores.1 : Float(17:10816, 64:169, 13:13, 13:1) = aten::matmul(%query_layer.1, %81), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:303:0
+    %83 : Double() = prim::Constant[value={8}](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:304:0
+    %attention_scores.2 : Float(17:10816, 64:169, 13:13, 13:1) = aten::div(%attention_scores.1, %83), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:304:0
+    %85 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:307:0
+    %input.7 : Float(17:10816, 64:169, 13:13, 13:1) = aten::add(%attention_scores.2, %attention_mask, %85), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:307:0
+    %87 : int = prim::Constant[value=-1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # torch/nn/functional.py:1498:0
+    %88 : None = prim::Constant(), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %input.8 : Float(17:10816, 64:169, 13:13, 13:1) = aten::softmax(%input.7, %87, %88), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # torch/nn/functional.py:1498:0
+    %129 : Tensor = prim::CallMethod[name="forward"](%9, %input.8)
+    %context_layer.1 : Float(17:53248, 64:832, 13:64, 64:1) = aten::matmul(%129, %value_layer.1), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:320:0
+    %92 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %93 : int = prim::Constant[value=2](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %94 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %95 : int = prim::Constant[value=3](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %96 : int[] = prim::ListConstruct(%92, %93, %94, %95), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %97 : Float(17:53248, 13:64, 64:832, 64:1) = aten::permute(%context_layer.1, %96), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %98 : int = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %99 : Float(17:53248, 13:4096, 64:64, 64:1) = aten::contiguous(%97, %98), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:322:0
+    %100 : Float(4096:1, 4096:4096) = aten::t(%8), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %101 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %102 : int = prim::Constant[value=64](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %103 : int = prim::Constant[value=4096](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %104 : int[] = prim::ListConstruct(%101, %102, %103), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %105 : Float(64:64, 64:1, 4096:4096) = aten::view(%100, %104), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %106 : int = prim::Constant[value=6](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %107 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %108 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %109 : None = prim::Constant(), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %110 : Float(64:64, 64:1, 4096:4096) = aten::to(%105, %106, %107, %108, %109), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:326:0
+    %111 : int = prim::Constant[value=6](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:330:0
+    %112 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:330:0
+    %113 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:330:0
+    %114 : None = prim::Constant(), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %b.1 : Float(4096:1) = aten::to(%6, %111, %112, %113, %114), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:330:0
+    %116 : str = prim::Constant[value="bfnd,ndh->bfh"](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # torch/functional.py:327:0
+    %117 : Tensor[] = prim::ListConstruct(%99, %110), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention
+    %118 : Float(17:53248, 13:4096, 4096:1) = aten::einsum(%116, %117), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # torch/functional.py:327:0
+    %119 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:332:0
+    %input.9 : Float(17:53248, 13:4096, 4096:1) = aten::add(%118, %b.1, %119), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:332:0
+    %130 : Tensor = prim::CallMethod[name="forward"](%4, %input.9)
+    %122 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:334:0
+    %input.10 : Float(17:53248, 13:4096, 4096:1) = aten::add(%1, %130, %122), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention # transformers/modeling_albert.py:334:0
+    %131 : Tensor = prim::CallMethod[name="forward"](%3, %input.10)
+    %125 : (Float(17:53248, 13:4096, 4096:1), Float(4096:1)) = prim::TupleConstruct(%131, %b.1)
+    return (%125)
+
+AlbertLayer.ffn
+Linear._actual_script_module
+  graph(%self.20 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.20)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.20)
+    %4 : Float(4096:1, 16384:4096) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn # torch/nn/functional.py:1676:0
+    %output.5 : Float(17:212992, 13:16384, 16384:1) = aten::matmul(%1, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn # torch/nn/functional.py:1678:0
+    %x.7 : Float(17:212992, 13:16384, 16384:1) = aten::add_(%output.5, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn # torch/nn/functional.py:1678:0
+    return (%x.7)
+
+AlbertLayer.ffn_output
+Linear._actual_script_module
+  graph(%self.21 : __torch__.torch.nn.modules.linear.Linear,
+        %input.11 : Float(17:212992, 13:16384, 16384:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.21)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.21)
+    %4 : Float(16384:1, 4096:16384) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn_output # torch/nn/functional.py:1676:0
+    %output.6 : Float(17:53248, 13:4096, 4096:1) = aten::matmul(%input.11, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn_output # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn_output # torch/nn/functional.py:1678:0
+    %ffn_output.1 : Float(17:53248, 13:4096, 4096:1) = aten::add_(%output.6, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.ffn_output # torch/nn/functional.py:1678:0
+    return (%ffn_output.1)
+
+AlbertLayer.full_layer_layer_norm
+LayerNorm._actual_script_module
+  graph(%self.22 : __torch__.torch.nn.modules.normalization.LayerNorm,
+        %input.12 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.22)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.22)
+    %4 : int = prim::Constant[value=4096](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.full_layer_layer_norm # torch/nn/functional.py:2048:0
+    %5 : int[] = prim::ListConstruct(%4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.full_layer_layer_norm
+    %6 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.full_layer_layer_norm # torch/nn/functional.py:2048:0
+    %7 : bool = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.full_layer_layer_norm # torch/nn/functional.py:2048:0
+    %input.13 : Float(17:53248, 13:4096, 4096:1) = aten::layer_norm(%input.12, %5, %3, %2, %6, %7), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.full_layer_layer_norm # torch/nn/functional.py:2048:0
+    return (%input.13)
+
+AlbertAttention.LayerNorm
+LayerNorm._actual_script_module
+  graph(%self.19 : __torch__.torch.nn.modules.normalization.LayerNorm,
+        %input.10 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.19)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.19)
+    %4 : int = prim::Constant[value=4096](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.LayerNorm # torch/nn/functional.py:2048:0
+    %5 : int[] = prim::ListConstruct(%4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.LayerNorm
+    %6 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.LayerNorm # torch/nn/functional.py:2048:0
+    %7 : bool = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.LayerNorm # torch/nn/functional.py:2048:0
+    %input_tensor.1 : Float(17:53248, 13:4096, 4096:1) = aten::layer_norm(%input.10, %5, %3, %2, %6, %7), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.LayerNorm # torch/nn/functional.py:2048:0
+    return (%input_tensor.1)
+
+AlbertAttention.attention_dropout
+Dropout._actual_script_module
+  graph(%self.17 : __torch__.torch.nn.modules.dropout.Dropout,
+        %input.8 : Float(17:10816, 64:169, 13:13, 13:1)):
+    %2 : float = prim::Constant[value=0.](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.attention_dropout # torch/nn/functional.py:973:0
+    %3 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.attention_dropout # torch/nn/functional.py:973:0
+    %attention_probs.1 : Float(17:10816, 64:169, 13:13, 13:1) = aten::dropout(%input.8, %2, %3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.attention_dropout # torch/nn/functional.py:973:0
+    return (%attention_probs.1)
+
+AlbertAttention.key
+Linear._actual_script_module
+  graph(%self.15 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.15)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.15)
+    %4 : Float(4096:1, 4096:4096) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.key # torch/nn/functional.py:1676:0
+    %output.3 : Float(17:53248, 13:4096, 4096:1) = aten::matmul(%1, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.key # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.key # torch/nn/functional.py:1678:0
+    %x.3 : Float(17:53248, 13:4096, 4096:1) = aten::add_(%output.3, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.key # torch/nn/functional.py:1678:0
+    return (%x.3)
+
+AlbertAttention.output_dropout
+Dropout._actual_script_module
+  graph(%self.18 : __torch__.torch.nn.modules.dropout.Dropout,
+        %input.9 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : float = prim::Constant[value=0.](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.output_dropout # torch/nn/functional.py:973:0
+    %3 : bool = prim::Constant[value=0](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.output_dropout # torch/nn/functional.py:973:0
+    %projected_context_layer.1 : Float(17:53248, 13:4096, 4096:1) = aten::dropout(%input.9, %2, %3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.output_dropout # torch/nn/functional.py:973:0
+    return (%projected_context_layer.1)
+
+AlbertAttention.query
+Linear._actual_script_module
+  graph(%self.14 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.14)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.14)
+    %4 : Float(4096:1, 4096:4096) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.query # torch/nn/functional.py:1676:0
+    %output.2 : Float(17:53248, 13:4096, 4096:1) = aten::matmul(%1, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.query # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.query # torch/nn/functional.py:1678:0
+    %x.1 : Float(17:53248, 13:4096, 4096:1) = aten::add_(%output.2, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.query # torch/nn/functional.py:1678:0
+    return (%x.1)
+
+AlbertAttention.value
+Linear._actual_script_module
+  graph(%self.16 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.16)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.16)
+    %4 : Float(4096:1, 4096:4096) = aten::t(%3), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.value # torch/nn/functional.py:1676:0
+    %output.4 : Float(17:53248, 13:4096, 4096:1) = aten::matmul(%1, %4), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.value # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.value # torch/nn/functional.py:1678:0
+    %x.5 : Float(17:53248, 13:4096, 4096:1) = aten::add_(%output.4, %2, %6), scope: __module.albert/__module.albert.encoder/__module.albert.encoder.albert_layer_groups.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention/__module.albert.encoder.albert_layer_groups.0.albert_layers.0.attention.value # torch/nn/functional.py:1678:0
+    return (%x.5)
+
+AlbertMLMHead.LayerNorm
+LayerNorm._actual_script_module
+  graph(%self.157 : __torch__.torch.nn.modules.normalization.LayerNorm,
+        %input.91 : Float(17:1664, 13:128, 128:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.157)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.157)
+    %4 : int = prim::Constant[value=128](), scope: __module.predictions/__module.predictions.LayerNorm # torch/nn/functional.py:2048:0
+    %5 : int[] = prim::ListConstruct(%4), scope: __module.predictions/__module.predictions.LayerNorm
+    %6 : float = prim::Constant[value=1.0000000000000001e-05](), scope: __module.predictions/__module.predictions.LayerNorm # torch/nn/functional.py:2048:0
+    %7 : bool = prim::Constant[value=1](), scope: __module.predictions/__module.predictions.LayerNorm # torch/nn/functional.py:2048:0
+    %input : Float(17:1664, 13:128, 128:1) = aten::layer_norm(%input.91, %5, %3, %2, %6, %7), scope: __module.predictions/__module.predictions.LayerNorm # torch/nn/functional.py:2048:0
+    return (%input)
+
+AlbertMLMHead.decoder
+Linear._actual_script_module
+  graph(%self : __torch__.torch.nn.modules.linear.Linear,
+        %bias : Float(30000:1),
+        %2 : Float(17:1664, 13:128, 128:1)):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Float(128:1, 30000:128) = aten::t(%3), scope: __module.predictions/__module.predictions.decoder # torch/nn/functional.py:1676:0
+    %output : Float(17:390000, 13:30000, 30000:1) = aten::matmul(%2, %4), scope: __module.predictions/__module.predictions.decoder # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.predictions/__module.predictions.decoder # torch/nn/functional.py:1678:0
+    %7 : Float(17:390000, 13:30000, 30000:1) = aten::add_(%output, %bias, %6), scope: __module.predictions/__module.predictions.decoder # torch/nn/functional.py:1678:0
+    return (%7)
+
+AlbertMLMHead.dense
+Linear._actual_script_module
+  graph(%self.156 : __torch__.torch.nn.modules.linear.Linear,
+        %1 : Float(17:53248, 13:4096, 4096:1)):
+    %2 : Tensor = prim::GetAttr[name="bias"](%self.156)
+    %3 : Tensor = prim::GetAttr[name="weight"](%self.156)
+    %4 : Float(4096:1, 128:4096) = aten::t(%3), scope: __module.predictions/__module.predictions.dense # torch/nn/functional.py:1676:0
+    %output.62 : Float(17:1664, 13:128, 128:1) = aten::matmul(%1, %4), scope: __module.predictions/__module.predictions.dense # torch/nn/functional.py:1676:0
+    %6 : int = prim::Constant[value=1](), scope: __module.predictions/__module.predictions.dense # torch/nn/functional.py:1678:0
+    %x : Float(17:1664, 13:128, 128:1) = aten::add_(%output.62, %2, %6), scope: __module.predictions/__module.predictions.dense # torch/nn/functional.py:1678:0
+    return (%x)
+

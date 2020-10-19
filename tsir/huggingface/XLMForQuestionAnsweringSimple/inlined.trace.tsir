@@ -1,0 +1,1103 @@
+graph(%self.1 : __torch__.transformers.modeling_xlm.XLMForQuestionAnsweringSimple,
+      %input_ids : Long(17:13, 13:1),
+      %padding_mask : Long(17:13, 13:1)):
+  %3 : __torch__.torch.nn.modules.linear.___torch_mangle_36026.Linear = prim::GetAttr[name="qa_outputs"](%self.1)
+  %4 : __torch__.transformers.modeling_xlm.___torch_mangle_36025.XLMModel = prim::GetAttr[name="transformer"](%self.1)
+  %17 : int = prim::Constant[value=16](), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %18 : int = prim::Constant[value=128](), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %19 : Double() = prim::Constant[value={11.3137}](), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:188:0
+  %20 : int = prim::Constant[value=3](), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:189:0
+  %21 : float = prim::Constant[value=-inf](), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:191:0
+  %22 : None = prim::Constant(), scope: __module.transformer
+  %23 : int = prim::Constant[value=6](), scope: __module.transformer # transformers/modeling_xlm.py:580:0
+  %24 : float = prim::Constant[value=0.10000000000000001](), scope: __module.transformer # torch/nn/functional.py:973:0
+  %25 : int = prim::Constant[value=2048](), scope: __module.transformer/__module.transformer.layer_norm_emb # torch/nn/functional.py:2048:0
+  %26 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.transformer/__module.transformer.layer_norm_emb # torch/nn/functional.py:2048:0
+  %27 : bool = prim::Constant[value=1](), scope: __module.transformer/__module.transformer.layer_norm_emb # torch/nn/functional.py:2048:0
+  %28 : int = prim::Constant[value=-1](), scope: __module.transformer/__module.transformer.position_embeddings # torch/nn/functional.py:1814:0
+  %29 : int = prim::Constant[value=2](), scope: __module.transformer/__module.transformer.embeddings # torch/nn/functional.py:1814:0
+  %30 : bool = prim::Constant[value=0](), scope: __module.transformer/__module.transformer.embeddings # torch/nn/functional.py:1814:0
+  %31 : int = prim::Constant[value=9223372036854775807](), scope: __module.transformer # transformers/modeling_xlm.py:546:0
+  %32 : int = prim::Constant[value=0](), scope: __module.transformer # transformers/modeling_xlm.py:546:0
+  %33 : int = prim::Constant[value=1](), scope: __module.transformer # transformers/modeling_xlm.py:517:0
+  %34 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %35 : __torch__.torch.nn.modules.normalization.___torch_mangle_36023.LayerNorm = prim::GetAttr[name="11"](%34)
+  %36 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %37 : __torch__.transformers.modeling_xlm.___torch_mangle_36010.TransformerFFN = prim::GetAttr[name="11"](%36)
+  %38 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %39 : __torch__.torch.nn.modules.normalization.___torch_mangle_35973.LayerNorm = prim::GetAttr[name="11"](%38)
+  %40 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %41 : __torch__.transformers.modeling_xlm.___torch_mangle_35960.MultiHeadAttention = prim::GetAttr[name="11"](%40)
+  %42 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %43 : __torch__.torch.nn.modules.normalization.___torch_mangle_36022.LayerNorm = prim::GetAttr[name="10"](%42)
+  %44 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %45 : __torch__.transformers.modeling_xlm.___torch_mangle_36007.TransformerFFN = prim::GetAttr[name="10"](%44)
+  %46 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %47 : __torch__.torch.nn.modules.normalization.___torch_mangle_35972.LayerNorm = prim::GetAttr[name="10"](%46)
+  %48 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %49 : __torch__.transformers.modeling_xlm.___torch_mangle_35955.MultiHeadAttention = prim::GetAttr[name="10"](%48)
+  %50 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %51 : __torch__.torch.nn.modules.normalization.___torch_mangle_36021.LayerNorm = prim::GetAttr[name="9"](%50)
+  %52 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %53 : __torch__.transformers.modeling_xlm.___torch_mangle_36004.TransformerFFN = prim::GetAttr[name="9"](%52)
+  %54 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %55 : __torch__.torch.nn.modules.normalization.___torch_mangle_35971.LayerNorm = prim::GetAttr[name="9"](%54)
+  %56 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %57 : __torch__.transformers.modeling_xlm.___torch_mangle_35950.MultiHeadAttention = prim::GetAttr[name="9"](%56)
+  %58 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %59 : __torch__.torch.nn.modules.normalization.___torch_mangle_36020.LayerNorm = prim::GetAttr[name="8"](%58)
+  %60 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %61 : __torch__.transformers.modeling_xlm.___torch_mangle_36001.TransformerFFN = prim::GetAttr[name="8"](%60)
+  %62 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %63 : __torch__.torch.nn.modules.normalization.___torch_mangle_35970.LayerNorm = prim::GetAttr[name="8"](%62)
+  %64 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %65 : __torch__.transformers.modeling_xlm.___torch_mangle_35945.MultiHeadAttention = prim::GetAttr[name="8"](%64)
+  %66 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %67 : __torch__.torch.nn.modules.normalization.___torch_mangle_36019.LayerNorm = prim::GetAttr[name="7"](%66)
+  %68 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %69 : __torch__.transformers.modeling_xlm.___torch_mangle_35998.TransformerFFN = prim::GetAttr[name="7"](%68)
+  %70 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %71 : __torch__.torch.nn.modules.normalization.___torch_mangle_35969.LayerNorm = prim::GetAttr[name="7"](%70)
+  %72 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %73 : __torch__.transformers.modeling_xlm.___torch_mangle_35940.MultiHeadAttention = prim::GetAttr[name="7"](%72)
+  %74 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %75 : __torch__.torch.nn.modules.normalization.___torch_mangle_36018.LayerNorm = prim::GetAttr[name="6"](%74)
+  %76 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %77 : __torch__.transformers.modeling_xlm.___torch_mangle_35995.TransformerFFN = prim::GetAttr[name="6"](%76)
+  %78 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %79 : __torch__.torch.nn.modules.normalization.___torch_mangle_35968.LayerNorm = prim::GetAttr[name="6"](%78)
+  %80 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %81 : __torch__.transformers.modeling_xlm.___torch_mangle_35935.MultiHeadAttention = prim::GetAttr[name="6"](%80)
+  %82 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %83 : __torch__.torch.nn.modules.normalization.___torch_mangle_36017.LayerNorm = prim::GetAttr[name="5"](%82)
+  %84 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %85 : __torch__.transformers.modeling_xlm.___torch_mangle_35992.TransformerFFN = prim::GetAttr[name="5"](%84)
+  %86 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %87 : __torch__.torch.nn.modules.normalization.___torch_mangle_35967.LayerNorm = prim::GetAttr[name="5"](%86)
+  %88 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %89 : __torch__.transformers.modeling_xlm.___torch_mangle_35930.MultiHeadAttention = prim::GetAttr[name="5"](%88)
+  %90 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %91 : __torch__.torch.nn.modules.normalization.___torch_mangle_36016.LayerNorm = prim::GetAttr[name="4"](%90)
+  %92 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %93 : __torch__.transformers.modeling_xlm.___torch_mangle_35989.TransformerFFN = prim::GetAttr[name="4"](%92)
+  %94 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %95 : __torch__.torch.nn.modules.normalization.___torch_mangle_35966.LayerNorm = prim::GetAttr[name="4"](%94)
+  %96 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %97 : __torch__.transformers.modeling_xlm.___torch_mangle_35925.MultiHeadAttention = prim::GetAttr[name="4"](%96)
+  %98 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %99 : __torch__.torch.nn.modules.normalization.___torch_mangle_36015.LayerNorm = prim::GetAttr[name="3"](%98)
+  %100 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %101 : __torch__.transformers.modeling_xlm.___torch_mangle_35986.TransformerFFN = prim::GetAttr[name="3"](%100)
+  %102 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %103 : __torch__.torch.nn.modules.normalization.___torch_mangle_35965.LayerNorm = prim::GetAttr[name="3"](%102)
+  %104 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %105 : __torch__.transformers.modeling_xlm.___torch_mangle_35920.MultiHeadAttention = prim::GetAttr[name="3"](%104)
+  %106 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %107 : __torch__.torch.nn.modules.normalization.___torch_mangle_36014.LayerNorm = prim::GetAttr[name="2"](%106)
+  %108 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %109 : __torch__.transformers.modeling_xlm.___torch_mangle_35983.TransformerFFN = prim::GetAttr[name="2"](%108)
+  %110 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %111 : __torch__.torch.nn.modules.normalization.___torch_mangle_35964.LayerNorm = prim::GetAttr[name="2"](%110)
+  %112 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %113 : __torch__.transformers.modeling_xlm.___torch_mangle_35915.MultiHeadAttention = prim::GetAttr[name="2"](%112)
+  %114 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %115 : __torch__.torch.nn.modules.normalization.___torch_mangle_36013.LayerNorm = prim::GetAttr[name="1"](%114)
+  %116 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %117 : __torch__.transformers.modeling_xlm.___torch_mangle_35980.TransformerFFN = prim::GetAttr[name="1"](%116)
+  %118 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %119 : __torch__.torch.nn.modules.normalization.___torch_mangle_35963.LayerNorm = prim::GetAttr[name="1"](%118)
+  %120 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %121 : __torch__.transformers.modeling_xlm.___torch_mangle_35910.MultiHeadAttention = prim::GetAttr[name="1"](%120)
+  %122 : __torch__.torch.nn.modules.container.___torch_mangle_36024.ModuleList = prim::GetAttr[name="layer_norm2"](%4)
+  %123 : __torch__.torch.nn.modules.normalization.___torch_mangle_36012.LayerNorm = prim::GetAttr[name="0"](%122)
+  %124 : __torch__.torch.nn.modules.container.___torch_mangle_36011.ModuleList = prim::GetAttr[name="ffns"](%4)
+  %125 : __torch__.transformers.modeling_xlm.___torch_mangle_35977.TransformerFFN = prim::GetAttr[name="0"](%124)
+  %126 : __torch__.torch.nn.modules.container.___torch_mangle_35974.ModuleList = prim::GetAttr[name="layer_norm1"](%4)
+  %127 : __torch__.torch.nn.modules.normalization.___torch_mangle_35962.LayerNorm = prim::GetAttr[name="0"](%126)
+  %128 : __torch__.torch.nn.modules.container.___torch_mangle_35961.ModuleList = prim::GetAttr[name="attentions"](%4)
+  %129 : __torch__.transformers.modeling_xlm.___torch_mangle_35905.MultiHeadAttention = prim::GetAttr[name="0"](%128)
+  %130 : __torch__.torch.nn.modules.normalization.___torch_mangle_35900.LayerNorm = prim::GetAttr[name="layer_norm_emb"](%4)
+  %131 : __torch__.torch.nn.modules.sparse.___torch_mangle_35898.Embedding = prim::GetAttr[name="position_embeddings"](%4)
+  %132 : __torch__.torch.nn.modules.sparse.___torch_mangle_35899.Embedding = prim::GetAttr[name="embeddings"](%4)
+  %133 : Tensor = prim::GetAttr[name="position_ids"](%4)
+  %134 : int = aten::size(%input_ids, %33), scope: __module.transformer # transformers/modeling_xlm.py:517:0
+  %135 : Long(1:512, 512:1) = aten::slice(%133, %32, %32, %31, %33), scope: __module.transformer # transformers/modeling_xlm.py:546:0
+  %input.1 : Long(1:512, 13:1) = aten::slice(%135, %33, %32, %134, %33), scope: __module.transformer # transformers/modeling_xlm.py:546:0
+  %137 : Tensor = prim::GetAttr[name="weight"](%132)
+  %inputs_embeds : Float(17:26624, 13:2048, 2048:1) = aten::embedding(%137, %input_ids, %29, %30, %30), scope: __module.transformer/__module.transformer.embeddings # torch/nn/functional.py:1814:0
+  %139 : Tensor = prim::GetAttr[name="weight"](%131)
+  %140 : Float(1:26624, 13:2048, 2048:1) = aten::embedding(%139, %input.1, %28, %30, %30), scope: __module.transformer/__module.transformer.position_embeddings # torch/nn/functional.py:1814:0
+  %141 : Float(17:0, 13:2048, 2048:1) = aten::expand_as(%140, %inputs_embeds), scope: __module.transformer # transformers/modeling_xlm.py:573:0
+  %input.2 : Float(17:26624, 13:2048, 2048:1) = aten::add(%inputs_embeds, %141, %33), scope: __module.transformer # transformers/modeling_xlm.py:573:0
+  %143 : Tensor = prim::GetAttr[name="bias"](%130)
+  %144 : Tensor = prim::GetAttr[name="weight"](%130)
+  %145 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm_emb
+  %input.3 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.2, %145, %144, %143, %26, %27), scope: __module.transformer/__module.transformer.layer_norm_emb # torch/nn/functional.py:2048:0
+  %tensor.1 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.3, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %148 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:580:0
+  %149 : Float(17:13, 13:1, 1:1) = aten::to(%148, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:580:0
+  %input.4 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.1, %149), scope: __module.transformer # transformers/modeling_xlm.py:580:0
+  %151 : __torch__.torch.nn.modules.linear.___torch_mangle_35904.Linear = prim::GetAttr[name="out_lin"](%129)
+  %152 : __torch__.torch.nn.modules.linear.___torch_mangle_35903.Linear = prim::GetAttr[name="v_lin"](%129)
+  %153 : __torch__.torch.nn.modules.linear.___torch_mangle_35902.Linear = prim::GetAttr[name="k_lin"](%129)
+  %154 : __torch__.torch.nn.modules.linear.___torch_mangle_35901.Linear = prim::GetAttr[name="q_lin"](%129)
+  %155 : int = aten::size(%input.4, %32), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:151:0
+  %156 : int = aten::size(%input.4, %33), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:151:0
+  %157 : Tensor = prim::GetAttr[name="bias"](%154)
+  %158 : Tensor = prim::GetAttr[name="weight"](%154)
+  %159 : Float(2048:1, 2048:2048) = aten::t(%158), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.q_lin # torch/nn/functional.py:1676:0
+  %output.1 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.4, %159), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.q_lin # torch/nn/functional.py:1676:0
+  %x.1 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.1, %157, %33), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.q_lin # torch/nn/functional.py:1678:0
+  %162 : int[] = prim::ListConstruct(%155, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.0
+  %163 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.1, %162), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %q.1 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%163, %33, %29), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %165 : Tensor = prim::GetAttr[name="bias"](%153)
+  %166 : Tensor = prim::GetAttr[name="weight"](%153)
+  %167 : Float(2048:1, 2048:2048) = aten::t(%166), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.k_lin # torch/nn/functional.py:1676:0
+  %output.2 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.4, %167), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.k_lin # torch/nn/functional.py:1676:0
+  %x.2 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.2, %165, %33), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.k_lin # torch/nn/functional.py:1678:0
+  %170 : int[] = prim::ListConstruct(%155, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.0
+  %171 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.2, %170), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %k.1 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%171, %33, %29), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %173 : Tensor = prim::GetAttr[name="bias"](%152)
+  %174 : Tensor = prim::GetAttr[name="weight"](%152)
+  %175 : Float(2048:1, 2048:2048) = aten::t(%174), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.v_lin # torch/nn/functional.py:1676:0
+  %output.3 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.4, %175), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.v_lin # torch/nn/functional.py:1676:0
+  %x.3 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.3, %173, %33), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.v_lin # torch/nn/functional.py:1678:0
+  %178 : int[] = prim::ListConstruct(%155, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.0
+  %179 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.3, %178), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %v.1 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%179, %33, %29), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:163:0
+  %q.2 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.1, %19), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:188:0
+  %182 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.1, %29, %20), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:189:0
+  %scores.1 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.2, %182), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:189:0
+  %184 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.0 # torch/tensor.py:22:0
+  %185 : int[] = prim::ListConstruct(%155, %33, %33, %156), scope: __module.transformer/__module.transformer.attentions.0
+  %186 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%184, %185), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:190:0
+  %mask.1 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%186, %scores.1), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:190:0
+  %scores.2 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.1, %mask.1, %21), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:191:0
+  %input.5 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.2, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:193:0
+  %190 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.5, %28, %22), scope: __module.transformer/__module.transformer.attentions.0 # torch/nn/functional.py:1498:0
+  %weights.1 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%190, %24, %30), scope: __module.transformer/__module.transformer.attentions.0 # torch/nn/functional.py:973:0
+  %x.4 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.1, %v.1), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:200:0
+  %193 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.4, %33, %29), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:167:0
+  %194 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%193, %32), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:167:0
+  %195 : int[] = prim::ListConstruct(%155, %28, %25), scope: __module.transformer/__module.transformer.attentions.0
+  %input.7 : Float(17:26624, 13:2048, 2048:1) = aten::view(%194, %195), scope: __module.transformer/__module.transformer.attentions.0 # transformers/modeling_xlm.py:167:0
+  %197 : Tensor = prim::GetAttr[name="bias"](%151)
+  %198 : Tensor = prim::GetAttr[name="weight"](%151)
+  %199 : Float(2048:1, 2048:2048) = aten::t(%198), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.out_lin # torch/nn/functional.py:1676:0
+  %output.4 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.7, %199), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.out_lin # torch/nn/functional.py:1676:0
+  %input.8 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.4, %197, %33), scope: __module.transformer/__module.transformer.attentions.0/__module.transformer.attentions.0.out_lin # torch/nn/functional.py:1678:0
+  %attn.1 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.8, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.9 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.4, %attn.1, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %204 : Tensor = prim::GetAttr[name="bias"](%127)
+  %205 : Tensor = prim::GetAttr[name="weight"](%127)
+  %206 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.0
+  %input_tensor.1 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.9, %206, %205, %204, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.0 # torch/nn/functional.py:2048:0
+  %208 : __torch__.torch.nn.modules.linear.___torch_mangle_35976.Linear = prim::GetAttr[name="lin2"](%125)
+  %209 : __torch__.torch.nn.modules.linear.___torch_mangle_35975.Linear = prim::GetAttr[name="lin1"](%125)
+  %210 : Tensor = prim::GetAttr[name="bias"](%209)
+  %211 : Tensor = prim::GetAttr[name="weight"](%209)
+  %212 : Float(2048:1, 8192:2048) = aten::t(%211), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin1 # torch/nn/functional.py:1676:0
+  %output.5 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.1, %212), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin1 # torch/nn/functional.py:1676:0
+  %input.10 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.5, %210, %33), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin1 # torch/nn/functional.py:1678:0
+  %input.11 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.10), scope: __module.transformer/__module.transformer.ffns.0 # torch/nn/functional.py:1369:0
+  %216 : Tensor = prim::GetAttr[name="bias"](%208)
+  %217 : Tensor = prim::GetAttr[name="weight"](%208)
+  %218 : Float(8192:1, 2048:8192) = aten::t(%217), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin2 # torch/nn/functional.py:1676:0
+  %output.6 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.11, %218), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin2 # torch/nn/functional.py:1676:0
+  %input.12 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.6, %216, %33), scope: __module.transformer/__module.transformer.ffns.0/__module.transformer.ffns.0.lin2 # torch/nn/functional.py:1678:0
+  %221 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.12, %24, %30), scope: __module.transformer/__module.transformer.ffns.0 # torch/nn/functional.py:973:0
+  %input.13 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.1, %221, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %223 : Tensor = prim::GetAttr[name="bias"](%123)
+  %224 : Tensor = prim::GetAttr[name="weight"](%123)
+  %225 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.0
+  %tensor.2 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.13, %225, %224, %223, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.0 # torch/nn/functional.py:2048:0
+  %227 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %228 : Float(17:13, 13:1, 1:1) = aten::to(%227, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.14 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.2, %228), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %230 : __torch__.torch.nn.modules.linear.___torch_mangle_35909.Linear = prim::GetAttr[name="out_lin"](%121)
+  %231 : __torch__.torch.nn.modules.linear.___torch_mangle_35908.Linear = prim::GetAttr[name="v_lin"](%121)
+  %232 : __torch__.torch.nn.modules.linear.___torch_mangle_35907.Linear = prim::GetAttr[name="k_lin"](%121)
+  %233 : __torch__.torch.nn.modules.linear.___torch_mangle_35906.Linear = prim::GetAttr[name="q_lin"](%121)
+  %234 : int = aten::size(%input.14, %32), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:151:0
+  %235 : int = aten::size(%input.14, %33), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:151:0
+  %236 : Tensor = prim::GetAttr[name="bias"](%233)
+  %237 : Tensor = prim::GetAttr[name="weight"](%233)
+  %238 : Float(2048:1, 2048:2048) = aten::t(%237), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.q_lin # torch/nn/functional.py:1676:0
+  %output.7 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.14, %238), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.q_lin # torch/nn/functional.py:1676:0
+  %x.5 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.7, %236, %33), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.q_lin # torch/nn/functional.py:1678:0
+  %241 : int[] = prim::ListConstruct(%234, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.1
+  %242 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.5, %241), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %q.3 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%242, %33, %29), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %244 : Tensor = prim::GetAttr[name="bias"](%232)
+  %245 : Tensor = prim::GetAttr[name="weight"](%232)
+  %246 : Float(2048:1, 2048:2048) = aten::t(%245), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.k_lin # torch/nn/functional.py:1676:0
+  %output.8 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.14, %246), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.k_lin # torch/nn/functional.py:1676:0
+  %x.6 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.8, %244, %33), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.k_lin # torch/nn/functional.py:1678:0
+  %249 : int[] = prim::ListConstruct(%234, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.1
+  %250 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.6, %249), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %k.2 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%250, %33, %29), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %252 : Tensor = prim::GetAttr[name="bias"](%231)
+  %253 : Tensor = prim::GetAttr[name="weight"](%231)
+  %254 : Float(2048:1, 2048:2048) = aten::t(%253), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.v_lin # torch/nn/functional.py:1676:0
+  %output.9 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.14, %254), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.v_lin # torch/nn/functional.py:1676:0
+  %x.7 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.9, %252, %33), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.v_lin # torch/nn/functional.py:1678:0
+  %257 : int[] = prim::ListConstruct(%234, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.1
+  %258 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.7, %257), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %v.2 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%258, %33, %29), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:163:0
+  %q.4 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.3, %19), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:188:0
+  %261 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.2, %29, %20), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:189:0
+  %scores.3 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.4, %261), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:189:0
+  %263 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.1 # torch/tensor.py:22:0
+  %264 : int[] = prim::ListConstruct(%234, %33, %33, %235), scope: __module.transformer/__module.transformer.attentions.1
+  %265 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%263, %264), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:190:0
+  %mask.2 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%265, %scores.3), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:190:0
+  %scores.4 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.3, %mask.2, %21), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:191:0
+  %input.15 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.4, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:193:0
+  %269 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.15, %28, %22), scope: __module.transformer/__module.transformer.attentions.1 # torch/nn/functional.py:1498:0
+  %weights.2 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%269, %24, %30), scope: __module.transformer/__module.transformer.attentions.1 # torch/nn/functional.py:973:0
+  %x.8 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.2, %v.2), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:200:0
+  %272 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.8, %33, %29), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:167:0
+  %273 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%272, %32), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:167:0
+  %274 : int[] = prim::ListConstruct(%234, %28, %25), scope: __module.transformer/__module.transformer.attentions.1
+  %input.17 : Float(17:26624, 13:2048, 2048:1) = aten::view(%273, %274), scope: __module.transformer/__module.transformer.attentions.1 # transformers/modeling_xlm.py:167:0
+  %276 : Tensor = prim::GetAttr[name="bias"](%230)
+  %277 : Tensor = prim::GetAttr[name="weight"](%230)
+  %278 : Float(2048:1, 2048:2048) = aten::t(%277), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.out_lin # torch/nn/functional.py:1676:0
+  %output.10 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.17, %278), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.out_lin # torch/nn/functional.py:1676:0
+  %input.18 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.10, %276, %33), scope: __module.transformer/__module.transformer.attentions.1/__module.transformer.attentions.1.out_lin # torch/nn/functional.py:1678:0
+  %attn.2 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.18, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.19 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.14, %attn.2, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %283 : Tensor = prim::GetAttr[name="bias"](%119)
+  %284 : Tensor = prim::GetAttr[name="weight"](%119)
+  %285 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.1
+  %input_tensor.2 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.19, %285, %284, %283, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.1 # torch/nn/functional.py:2048:0
+  %287 : __torch__.torch.nn.modules.linear.___torch_mangle_35979.Linear = prim::GetAttr[name="lin2"](%117)
+  %288 : __torch__.torch.nn.modules.linear.___torch_mangle_35978.Linear = prim::GetAttr[name="lin1"](%117)
+  %289 : Tensor = prim::GetAttr[name="bias"](%288)
+  %290 : Tensor = prim::GetAttr[name="weight"](%288)
+  %291 : Float(2048:1, 8192:2048) = aten::t(%290), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin1 # torch/nn/functional.py:1676:0
+  %output.11 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.2, %291), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin1 # torch/nn/functional.py:1676:0
+  %input.20 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.11, %289, %33), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin1 # torch/nn/functional.py:1678:0
+  %input.21 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.20), scope: __module.transformer/__module.transformer.ffns.1 # torch/nn/functional.py:1369:0
+  %295 : Tensor = prim::GetAttr[name="bias"](%287)
+  %296 : Tensor = prim::GetAttr[name="weight"](%287)
+  %297 : Float(8192:1, 2048:8192) = aten::t(%296), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin2 # torch/nn/functional.py:1676:0
+  %output.12 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.21, %297), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin2 # torch/nn/functional.py:1676:0
+  %input.22 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.12, %295, %33), scope: __module.transformer/__module.transformer.ffns.1/__module.transformer.ffns.1.lin2 # torch/nn/functional.py:1678:0
+  %300 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.22, %24, %30), scope: __module.transformer/__module.transformer.ffns.1 # torch/nn/functional.py:973:0
+  %input.23 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.2, %300, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %302 : Tensor = prim::GetAttr[name="bias"](%115)
+  %303 : Tensor = prim::GetAttr[name="weight"](%115)
+  %304 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.1
+  %tensor.3 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.23, %304, %303, %302, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.1 # torch/nn/functional.py:2048:0
+  %306 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %307 : Float(17:13, 13:1, 1:1) = aten::to(%306, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.24 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.3, %307), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %309 : __torch__.torch.nn.modules.linear.___torch_mangle_35914.Linear = prim::GetAttr[name="out_lin"](%113)
+  %310 : __torch__.torch.nn.modules.linear.___torch_mangle_35913.Linear = prim::GetAttr[name="v_lin"](%113)
+  %311 : __torch__.torch.nn.modules.linear.___torch_mangle_35912.Linear = prim::GetAttr[name="k_lin"](%113)
+  %312 : __torch__.torch.nn.modules.linear.___torch_mangle_35911.Linear = prim::GetAttr[name="q_lin"](%113)
+  %313 : int = aten::size(%input.24, %32), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:151:0
+  %314 : int = aten::size(%input.24, %33), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:151:0
+  %315 : Tensor = prim::GetAttr[name="bias"](%312)
+  %316 : Tensor = prim::GetAttr[name="weight"](%312)
+  %317 : Float(2048:1, 2048:2048) = aten::t(%316), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.q_lin # torch/nn/functional.py:1676:0
+  %output.13 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.24, %317), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.q_lin # torch/nn/functional.py:1676:0
+  %x.9 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.13, %315, %33), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.q_lin # torch/nn/functional.py:1678:0
+  %320 : int[] = prim::ListConstruct(%313, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.2
+  %321 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.9, %320), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %q.5 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%321, %33, %29), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %323 : Tensor = prim::GetAttr[name="bias"](%311)
+  %324 : Tensor = prim::GetAttr[name="weight"](%311)
+  %325 : Float(2048:1, 2048:2048) = aten::t(%324), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.k_lin # torch/nn/functional.py:1676:0
+  %output.14 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.24, %325), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.k_lin # torch/nn/functional.py:1676:0
+  %x.10 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.14, %323, %33), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.k_lin # torch/nn/functional.py:1678:0
+  %328 : int[] = prim::ListConstruct(%313, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.2
+  %329 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.10, %328), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %k.3 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%329, %33, %29), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %331 : Tensor = prim::GetAttr[name="bias"](%310)
+  %332 : Tensor = prim::GetAttr[name="weight"](%310)
+  %333 : Float(2048:1, 2048:2048) = aten::t(%332), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.v_lin # torch/nn/functional.py:1676:0
+  %output.15 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.24, %333), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.v_lin # torch/nn/functional.py:1676:0
+  %x.11 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.15, %331, %33), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.v_lin # torch/nn/functional.py:1678:0
+  %336 : int[] = prim::ListConstruct(%313, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.2
+  %337 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.11, %336), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %v.3 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%337, %33, %29), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:163:0
+  %q.6 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.5, %19), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:188:0
+  %340 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.3, %29, %20), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:189:0
+  %scores.5 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.6, %340), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:189:0
+  %342 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.2 # torch/tensor.py:22:0
+  %343 : int[] = prim::ListConstruct(%313, %33, %33, %314), scope: __module.transformer/__module.transformer.attentions.2
+  %344 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%342, %343), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:190:0
+  %mask.3 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%344, %scores.5), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:190:0
+  %scores.6 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.5, %mask.3, %21), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:191:0
+  %input.25 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.6, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:193:0
+  %348 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.25, %28, %22), scope: __module.transformer/__module.transformer.attentions.2 # torch/nn/functional.py:1498:0
+  %weights.3 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%348, %24, %30), scope: __module.transformer/__module.transformer.attentions.2 # torch/nn/functional.py:973:0
+  %x.12 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.3, %v.3), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:200:0
+  %351 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.12, %33, %29), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:167:0
+  %352 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%351, %32), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:167:0
+  %353 : int[] = prim::ListConstruct(%313, %28, %25), scope: __module.transformer/__module.transformer.attentions.2
+  %input.27 : Float(17:26624, 13:2048, 2048:1) = aten::view(%352, %353), scope: __module.transformer/__module.transformer.attentions.2 # transformers/modeling_xlm.py:167:0
+  %355 : Tensor = prim::GetAttr[name="bias"](%309)
+  %356 : Tensor = prim::GetAttr[name="weight"](%309)
+  %357 : Float(2048:1, 2048:2048) = aten::t(%356), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.out_lin # torch/nn/functional.py:1676:0
+  %output.16 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.27, %357), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.out_lin # torch/nn/functional.py:1676:0
+  %input.28 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.16, %355, %33), scope: __module.transformer/__module.transformer.attentions.2/__module.transformer.attentions.2.out_lin # torch/nn/functional.py:1678:0
+  %attn.3 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.28, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.29 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.24, %attn.3, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %362 : Tensor = prim::GetAttr[name="bias"](%111)
+  %363 : Tensor = prim::GetAttr[name="weight"](%111)
+  %364 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.2
+  %input_tensor.3 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.29, %364, %363, %362, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.2 # torch/nn/functional.py:2048:0
+  %366 : __torch__.torch.nn.modules.linear.___torch_mangle_35982.Linear = prim::GetAttr[name="lin2"](%109)
+  %367 : __torch__.torch.nn.modules.linear.___torch_mangle_35981.Linear = prim::GetAttr[name="lin1"](%109)
+  %368 : Tensor = prim::GetAttr[name="bias"](%367)
+  %369 : Tensor = prim::GetAttr[name="weight"](%367)
+  %370 : Float(2048:1, 8192:2048) = aten::t(%369), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin1 # torch/nn/functional.py:1676:0
+  %output.17 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.3, %370), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin1 # torch/nn/functional.py:1676:0
+  %input.30 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.17, %368, %33), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin1 # torch/nn/functional.py:1678:0
+  %input.31 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.30), scope: __module.transformer/__module.transformer.ffns.2 # torch/nn/functional.py:1369:0
+  %374 : Tensor = prim::GetAttr[name="bias"](%366)
+  %375 : Tensor = prim::GetAttr[name="weight"](%366)
+  %376 : Float(8192:1, 2048:8192) = aten::t(%375), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin2 # torch/nn/functional.py:1676:0
+  %output.18 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.31, %376), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin2 # torch/nn/functional.py:1676:0
+  %input.32 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.18, %374, %33), scope: __module.transformer/__module.transformer.ffns.2/__module.transformer.ffns.2.lin2 # torch/nn/functional.py:1678:0
+  %379 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.32, %24, %30), scope: __module.transformer/__module.transformer.ffns.2 # torch/nn/functional.py:973:0
+  %input.33 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.3, %379, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %381 : Tensor = prim::GetAttr[name="bias"](%107)
+  %382 : Tensor = prim::GetAttr[name="weight"](%107)
+  %383 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.2
+  %tensor.4 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.33, %383, %382, %381, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.2 # torch/nn/functional.py:2048:0
+  %385 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %386 : Float(17:13, 13:1, 1:1) = aten::to(%385, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.34 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.4, %386), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %388 : __torch__.torch.nn.modules.linear.___torch_mangle_35919.Linear = prim::GetAttr[name="out_lin"](%105)
+  %389 : __torch__.torch.nn.modules.linear.___torch_mangle_35918.Linear = prim::GetAttr[name="v_lin"](%105)
+  %390 : __torch__.torch.nn.modules.linear.___torch_mangle_35917.Linear = prim::GetAttr[name="k_lin"](%105)
+  %391 : __torch__.torch.nn.modules.linear.___torch_mangle_35916.Linear = prim::GetAttr[name="q_lin"](%105)
+  %392 : int = aten::size(%input.34, %32), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:151:0
+  %393 : int = aten::size(%input.34, %33), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:151:0
+  %394 : Tensor = prim::GetAttr[name="bias"](%391)
+  %395 : Tensor = prim::GetAttr[name="weight"](%391)
+  %396 : Float(2048:1, 2048:2048) = aten::t(%395), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.q_lin # torch/nn/functional.py:1676:0
+  %output.19 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.34, %396), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.q_lin # torch/nn/functional.py:1676:0
+  %x.13 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.19, %394, %33), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.q_lin # torch/nn/functional.py:1678:0
+  %399 : int[] = prim::ListConstruct(%392, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.3
+  %400 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.13, %399), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %q.7 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%400, %33, %29), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %402 : Tensor = prim::GetAttr[name="bias"](%390)
+  %403 : Tensor = prim::GetAttr[name="weight"](%390)
+  %404 : Float(2048:1, 2048:2048) = aten::t(%403), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.k_lin # torch/nn/functional.py:1676:0
+  %output.20 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.34, %404), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.k_lin # torch/nn/functional.py:1676:0
+  %x.14 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.20, %402, %33), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.k_lin # torch/nn/functional.py:1678:0
+  %407 : int[] = prim::ListConstruct(%392, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.3
+  %408 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.14, %407), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %k.4 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%408, %33, %29), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %410 : Tensor = prim::GetAttr[name="bias"](%389)
+  %411 : Tensor = prim::GetAttr[name="weight"](%389)
+  %412 : Float(2048:1, 2048:2048) = aten::t(%411), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.v_lin # torch/nn/functional.py:1676:0
+  %output.21 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.34, %412), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.v_lin # torch/nn/functional.py:1676:0
+  %x.15 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.21, %410, %33), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.v_lin # torch/nn/functional.py:1678:0
+  %415 : int[] = prim::ListConstruct(%392, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.3
+  %416 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.15, %415), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %v.4 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%416, %33, %29), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:163:0
+  %q.8 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.7, %19), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:188:0
+  %419 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.4, %29, %20), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:189:0
+  %scores.7 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.8, %419), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:189:0
+  %421 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.3 # torch/tensor.py:22:0
+  %422 : int[] = prim::ListConstruct(%392, %33, %33, %393), scope: __module.transformer/__module.transformer.attentions.3
+  %423 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%421, %422), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:190:0
+  %mask.4 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%423, %scores.7), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:190:0
+  %scores.8 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.7, %mask.4, %21), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:191:0
+  %input.35 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.8, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:193:0
+  %427 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.35, %28, %22), scope: __module.transformer/__module.transformer.attentions.3 # torch/nn/functional.py:1498:0
+  %weights.4 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%427, %24, %30), scope: __module.transformer/__module.transformer.attentions.3 # torch/nn/functional.py:973:0
+  %x.16 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.4, %v.4), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:200:0
+  %430 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.16, %33, %29), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:167:0
+  %431 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%430, %32), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:167:0
+  %432 : int[] = prim::ListConstruct(%392, %28, %25), scope: __module.transformer/__module.transformer.attentions.3
+  %input.37 : Float(17:26624, 13:2048, 2048:1) = aten::view(%431, %432), scope: __module.transformer/__module.transformer.attentions.3 # transformers/modeling_xlm.py:167:0
+  %434 : Tensor = prim::GetAttr[name="bias"](%388)
+  %435 : Tensor = prim::GetAttr[name="weight"](%388)
+  %436 : Float(2048:1, 2048:2048) = aten::t(%435), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.out_lin # torch/nn/functional.py:1676:0
+  %output.22 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.37, %436), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.out_lin # torch/nn/functional.py:1676:0
+  %input.38 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.22, %434, %33), scope: __module.transformer/__module.transformer.attentions.3/__module.transformer.attentions.3.out_lin # torch/nn/functional.py:1678:0
+  %attn.4 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.38, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.39 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.34, %attn.4, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %441 : Tensor = prim::GetAttr[name="bias"](%103)
+  %442 : Tensor = prim::GetAttr[name="weight"](%103)
+  %443 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.3
+  %input_tensor.4 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.39, %443, %442, %441, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.3 # torch/nn/functional.py:2048:0
+  %445 : __torch__.torch.nn.modules.linear.___torch_mangle_35985.Linear = prim::GetAttr[name="lin2"](%101)
+  %446 : __torch__.torch.nn.modules.linear.___torch_mangle_35984.Linear = prim::GetAttr[name="lin1"](%101)
+  %447 : Tensor = prim::GetAttr[name="bias"](%446)
+  %448 : Tensor = prim::GetAttr[name="weight"](%446)
+  %449 : Float(2048:1, 8192:2048) = aten::t(%448), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin1 # torch/nn/functional.py:1676:0
+  %output.23 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.4, %449), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin1 # torch/nn/functional.py:1676:0
+  %input.40 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.23, %447, %33), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin1 # torch/nn/functional.py:1678:0
+  %input.41 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.40), scope: __module.transformer/__module.transformer.ffns.3 # torch/nn/functional.py:1369:0
+  %453 : Tensor = prim::GetAttr[name="bias"](%445)
+  %454 : Tensor = prim::GetAttr[name="weight"](%445)
+  %455 : Float(8192:1, 2048:8192) = aten::t(%454), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin2 # torch/nn/functional.py:1676:0
+  %output.24 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.41, %455), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin2 # torch/nn/functional.py:1676:0
+  %input.42 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.24, %453, %33), scope: __module.transformer/__module.transformer.ffns.3/__module.transformer.ffns.3.lin2 # torch/nn/functional.py:1678:0
+  %458 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.42, %24, %30), scope: __module.transformer/__module.transformer.ffns.3 # torch/nn/functional.py:973:0
+  %input.43 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.4, %458, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %460 : Tensor = prim::GetAttr[name="bias"](%99)
+  %461 : Tensor = prim::GetAttr[name="weight"](%99)
+  %462 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.3
+  %tensor.5 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.43, %462, %461, %460, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.3 # torch/nn/functional.py:2048:0
+  %464 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %465 : Float(17:13, 13:1, 1:1) = aten::to(%464, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.44 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.5, %465), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %467 : __torch__.torch.nn.modules.linear.___torch_mangle_35924.Linear = prim::GetAttr[name="out_lin"](%97)
+  %468 : __torch__.torch.nn.modules.linear.___torch_mangle_35923.Linear = prim::GetAttr[name="v_lin"](%97)
+  %469 : __torch__.torch.nn.modules.linear.___torch_mangle_35922.Linear = prim::GetAttr[name="k_lin"](%97)
+  %470 : __torch__.torch.nn.modules.linear.___torch_mangle_35921.Linear = prim::GetAttr[name="q_lin"](%97)
+  %471 : int = aten::size(%input.44, %32), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:151:0
+  %472 : int = aten::size(%input.44, %33), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:151:0
+  %473 : Tensor = prim::GetAttr[name="bias"](%470)
+  %474 : Tensor = prim::GetAttr[name="weight"](%470)
+  %475 : Float(2048:1, 2048:2048) = aten::t(%474), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.q_lin # torch/nn/functional.py:1676:0
+  %output.25 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.44, %475), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.q_lin # torch/nn/functional.py:1676:0
+  %x.17 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.25, %473, %33), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.q_lin # torch/nn/functional.py:1678:0
+  %478 : int[] = prim::ListConstruct(%471, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.4
+  %479 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.17, %478), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %q.9 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%479, %33, %29), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %481 : Tensor = prim::GetAttr[name="bias"](%469)
+  %482 : Tensor = prim::GetAttr[name="weight"](%469)
+  %483 : Float(2048:1, 2048:2048) = aten::t(%482), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.k_lin # torch/nn/functional.py:1676:0
+  %output.26 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.44, %483), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.k_lin # torch/nn/functional.py:1676:0
+  %x.18 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.26, %481, %33), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.k_lin # torch/nn/functional.py:1678:0
+  %486 : int[] = prim::ListConstruct(%471, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.4
+  %487 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.18, %486), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %k.5 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%487, %33, %29), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %489 : Tensor = prim::GetAttr[name="bias"](%468)
+  %490 : Tensor = prim::GetAttr[name="weight"](%468)
+  %491 : Float(2048:1, 2048:2048) = aten::t(%490), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.v_lin # torch/nn/functional.py:1676:0
+  %output.27 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.44, %491), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.v_lin # torch/nn/functional.py:1676:0
+  %x.19 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.27, %489, %33), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.v_lin # torch/nn/functional.py:1678:0
+  %494 : int[] = prim::ListConstruct(%471, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.4
+  %495 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.19, %494), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %v.5 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%495, %33, %29), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:163:0
+  %q.10 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.9, %19), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:188:0
+  %498 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.5, %29, %20), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:189:0
+  %scores.9 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.10, %498), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:189:0
+  %500 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.4 # torch/tensor.py:22:0
+  %501 : int[] = prim::ListConstruct(%471, %33, %33, %472), scope: __module.transformer/__module.transformer.attentions.4
+  %502 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%500, %501), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:190:0
+  %mask.5 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%502, %scores.9), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:190:0
+  %scores.10 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.9, %mask.5, %21), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:191:0
+  %input.45 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.10, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:193:0
+  %506 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.45, %28, %22), scope: __module.transformer/__module.transformer.attentions.4 # torch/nn/functional.py:1498:0
+  %weights.5 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%506, %24, %30), scope: __module.transformer/__module.transformer.attentions.4 # torch/nn/functional.py:973:0
+  %x.20 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.5, %v.5), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:200:0
+  %509 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.20, %33, %29), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:167:0
+  %510 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%509, %32), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:167:0
+  %511 : int[] = prim::ListConstruct(%471, %28, %25), scope: __module.transformer/__module.transformer.attentions.4
+  %input.47 : Float(17:26624, 13:2048, 2048:1) = aten::view(%510, %511), scope: __module.transformer/__module.transformer.attentions.4 # transformers/modeling_xlm.py:167:0
+  %513 : Tensor = prim::GetAttr[name="bias"](%467)
+  %514 : Tensor = prim::GetAttr[name="weight"](%467)
+  %515 : Float(2048:1, 2048:2048) = aten::t(%514), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.out_lin # torch/nn/functional.py:1676:0
+  %output.28 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.47, %515), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.out_lin # torch/nn/functional.py:1676:0
+  %input.48 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.28, %513, %33), scope: __module.transformer/__module.transformer.attentions.4/__module.transformer.attentions.4.out_lin # torch/nn/functional.py:1678:0
+  %attn.5 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.48, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.49 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.44, %attn.5, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %520 : Tensor = prim::GetAttr[name="bias"](%95)
+  %521 : Tensor = prim::GetAttr[name="weight"](%95)
+  %522 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.4
+  %input_tensor.5 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.49, %522, %521, %520, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.4 # torch/nn/functional.py:2048:0
+  %524 : __torch__.torch.nn.modules.linear.___torch_mangle_35988.Linear = prim::GetAttr[name="lin2"](%93)
+  %525 : __torch__.torch.nn.modules.linear.___torch_mangle_35987.Linear = prim::GetAttr[name="lin1"](%93)
+  %526 : Tensor = prim::GetAttr[name="bias"](%525)
+  %527 : Tensor = prim::GetAttr[name="weight"](%525)
+  %528 : Float(2048:1, 8192:2048) = aten::t(%527), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin1 # torch/nn/functional.py:1676:0
+  %output.29 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.5, %528), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin1 # torch/nn/functional.py:1676:0
+  %input.50 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.29, %526, %33), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin1 # torch/nn/functional.py:1678:0
+  %input.51 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.50), scope: __module.transformer/__module.transformer.ffns.4 # torch/nn/functional.py:1369:0
+  %532 : Tensor = prim::GetAttr[name="bias"](%524)
+  %533 : Tensor = prim::GetAttr[name="weight"](%524)
+  %534 : Float(8192:1, 2048:8192) = aten::t(%533), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin2 # torch/nn/functional.py:1676:0
+  %output.30 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.51, %534), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin2 # torch/nn/functional.py:1676:0
+  %input.52 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.30, %532, %33), scope: __module.transformer/__module.transformer.ffns.4/__module.transformer.ffns.4.lin2 # torch/nn/functional.py:1678:0
+  %537 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.52, %24, %30), scope: __module.transformer/__module.transformer.ffns.4 # torch/nn/functional.py:973:0
+  %input.53 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.5, %537, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %539 : Tensor = prim::GetAttr[name="bias"](%91)
+  %540 : Tensor = prim::GetAttr[name="weight"](%91)
+  %541 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.4
+  %tensor.6 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.53, %541, %540, %539, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.4 # torch/nn/functional.py:2048:0
+  %543 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %544 : Float(17:13, 13:1, 1:1) = aten::to(%543, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.54 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.6, %544), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %546 : __torch__.torch.nn.modules.linear.___torch_mangle_35929.Linear = prim::GetAttr[name="out_lin"](%89)
+  %547 : __torch__.torch.nn.modules.linear.___torch_mangle_35928.Linear = prim::GetAttr[name="v_lin"](%89)
+  %548 : __torch__.torch.nn.modules.linear.___torch_mangle_35927.Linear = prim::GetAttr[name="k_lin"](%89)
+  %549 : __torch__.torch.nn.modules.linear.___torch_mangle_35926.Linear = prim::GetAttr[name="q_lin"](%89)
+  %550 : int = aten::size(%input.54, %32), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:151:0
+  %551 : int = aten::size(%input.54, %33), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:151:0
+  %552 : Tensor = prim::GetAttr[name="bias"](%549)
+  %553 : Tensor = prim::GetAttr[name="weight"](%549)
+  %554 : Float(2048:1, 2048:2048) = aten::t(%553), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.q_lin # torch/nn/functional.py:1676:0
+  %output.31 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.54, %554), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.q_lin # torch/nn/functional.py:1676:0
+  %x.21 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.31, %552, %33), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.q_lin # torch/nn/functional.py:1678:0
+  %557 : int[] = prim::ListConstruct(%550, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.5
+  %558 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.21, %557), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %q.11 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%558, %33, %29), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %560 : Tensor = prim::GetAttr[name="bias"](%548)
+  %561 : Tensor = prim::GetAttr[name="weight"](%548)
+  %562 : Float(2048:1, 2048:2048) = aten::t(%561), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.k_lin # torch/nn/functional.py:1676:0
+  %output.32 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.54, %562), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.k_lin # torch/nn/functional.py:1676:0
+  %x.22 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.32, %560, %33), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.k_lin # torch/nn/functional.py:1678:0
+  %565 : int[] = prim::ListConstruct(%550, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.5
+  %566 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.22, %565), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %k.6 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%566, %33, %29), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %568 : Tensor = prim::GetAttr[name="bias"](%547)
+  %569 : Tensor = prim::GetAttr[name="weight"](%547)
+  %570 : Float(2048:1, 2048:2048) = aten::t(%569), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.v_lin # torch/nn/functional.py:1676:0
+  %output.33 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.54, %570), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.v_lin # torch/nn/functional.py:1676:0
+  %x.23 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.33, %568, %33), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.v_lin # torch/nn/functional.py:1678:0
+  %573 : int[] = prim::ListConstruct(%550, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.5
+  %574 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.23, %573), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %v.6 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%574, %33, %29), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:163:0
+  %q.12 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.11, %19), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:188:0
+  %577 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.6, %29, %20), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:189:0
+  %scores.11 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.12, %577), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:189:0
+  %579 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.5 # torch/tensor.py:22:0
+  %580 : int[] = prim::ListConstruct(%550, %33, %33, %551), scope: __module.transformer/__module.transformer.attentions.5
+  %581 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%579, %580), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:190:0
+  %mask.6 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%581, %scores.11), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:190:0
+  %scores.12 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.11, %mask.6, %21), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:191:0
+  %input.55 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.12, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:193:0
+  %585 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.55, %28, %22), scope: __module.transformer/__module.transformer.attentions.5 # torch/nn/functional.py:1498:0
+  %weights.6 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%585, %24, %30), scope: __module.transformer/__module.transformer.attentions.5 # torch/nn/functional.py:973:0
+  %x.24 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.6, %v.6), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:200:0
+  %588 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.24, %33, %29), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:167:0
+  %589 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%588, %32), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:167:0
+  %590 : int[] = prim::ListConstruct(%550, %28, %25), scope: __module.transformer/__module.transformer.attentions.5
+  %input.57 : Float(17:26624, 13:2048, 2048:1) = aten::view(%589, %590), scope: __module.transformer/__module.transformer.attentions.5 # transformers/modeling_xlm.py:167:0
+  %592 : Tensor = prim::GetAttr[name="bias"](%546)
+  %593 : Tensor = prim::GetAttr[name="weight"](%546)
+  %594 : Float(2048:1, 2048:2048) = aten::t(%593), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.out_lin # torch/nn/functional.py:1676:0
+  %output.34 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.57, %594), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.out_lin # torch/nn/functional.py:1676:0
+  %input.58 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.34, %592, %33), scope: __module.transformer/__module.transformer.attentions.5/__module.transformer.attentions.5.out_lin # torch/nn/functional.py:1678:0
+  %attn.6 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.58, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.59 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.54, %attn.6, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %599 : Tensor = prim::GetAttr[name="bias"](%87)
+  %600 : Tensor = prim::GetAttr[name="weight"](%87)
+  %601 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.5
+  %input_tensor.6 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.59, %601, %600, %599, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.5 # torch/nn/functional.py:2048:0
+  %603 : __torch__.torch.nn.modules.linear.___torch_mangle_35991.Linear = prim::GetAttr[name="lin2"](%85)
+  %604 : __torch__.torch.nn.modules.linear.___torch_mangle_35990.Linear = prim::GetAttr[name="lin1"](%85)
+  %605 : Tensor = prim::GetAttr[name="bias"](%604)
+  %606 : Tensor = prim::GetAttr[name="weight"](%604)
+  %607 : Float(2048:1, 8192:2048) = aten::t(%606), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin1 # torch/nn/functional.py:1676:0
+  %output.35 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.6, %607), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin1 # torch/nn/functional.py:1676:0
+  %input.60 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.35, %605, %33), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin1 # torch/nn/functional.py:1678:0
+  %input.61 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.60), scope: __module.transformer/__module.transformer.ffns.5 # torch/nn/functional.py:1369:0
+  %611 : Tensor = prim::GetAttr[name="bias"](%603)
+  %612 : Tensor = prim::GetAttr[name="weight"](%603)
+  %613 : Float(8192:1, 2048:8192) = aten::t(%612), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin2 # torch/nn/functional.py:1676:0
+  %output.36 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.61, %613), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin2 # torch/nn/functional.py:1676:0
+  %input.62 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.36, %611, %33), scope: __module.transformer/__module.transformer.ffns.5/__module.transformer.ffns.5.lin2 # torch/nn/functional.py:1678:0
+  %616 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.62, %24, %30), scope: __module.transformer/__module.transformer.ffns.5 # torch/nn/functional.py:973:0
+  %input.63 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.6, %616, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %618 : Tensor = prim::GetAttr[name="bias"](%83)
+  %619 : Tensor = prim::GetAttr[name="weight"](%83)
+  %620 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.5
+  %tensor.7 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.63, %620, %619, %618, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.5 # torch/nn/functional.py:2048:0
+  %622 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %623 : Float(17:13, 13:1, 1:1) = aten::to(%622, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.64 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.7, %623), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %625 : __torch__.torch.nn.modules.linear.___torch_mangle_35934.Linear = prim::GetAttr[name="out_lin"](%81)
+  %626 : __torch__.torch.nn.modules.linear.___torch_mangle_35933.Linear = prim::GetAttr[name="v_lin"](%81)
+  %627 : __torch__.torch.nn.modules.linear.___torch_mangle_35932.Linear = prim::GetAttr[name="k_lin"](%81)
+  %628 : __torch__.torch.nn.modules.linear.___torch_mangle_35931.Linear = prim::GetAttr[name="q_lin"](%81)
+  %629 : int = aten::size(%input.64, %32), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:151:0
+  %630 : int = aten::size(%input.64, %33), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:151:0
+  %631 : Tensor = prim::GetAttr[name="bias"](%628)
+  %632 : Tensor = prim::GetAttr[name="weight"](%628)
+  %633 : Float(2048:1, 2048:2048) = aten::t(%632), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.q_lin # torch/nn/functional.py:1676:0
+  %output.37 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.64, %633), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.q_lin # torch/nn/functional.py:1676:0
+  %x.25 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.37, %631, %33), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.q_lin # torch/nn/functional.py:1678:0
+  %636 : int[] = prim::ListConstruct(%629, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.6
+  %637 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.25, %636), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %q.13 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%637, %33, %29), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %639 : Tensor = prim::GetAttr[name="bias"](%627)
+  %640 : Tensor = prim::GetAttr[name="weight"](%627)
+  %641 : Float(2048:1, 2048:2048) = aten::t(%640), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.k_lin # torch/nn/functional.py:1676:0
+  %output.38 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.64, %641), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.k_lin # torch/nn/functional.py:1676:0
+  %x.26 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.38, %639, %33), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.k_lin # torch/nn/functional.py:1678:0
+  %644 : int[] = prim::ListConstruct(%629, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.6
+  %645 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.26, %644), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %k.7 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%645, %33, %29), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %647 : Tensor = prim::GetAttr[name="bias"](%626)
+  %648 : Tensor = prim::GetAttr[name="weight"](%626)
+  %649 : Float(2048:1, 2048:2048) = aten::t(%648), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.v_lin # torch/nn/functional.py:1676:0
+  %output.39 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.64, %649), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.v_lin # torch/nn/functional.py:1676:0
+  %x.27 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.39, %647, %33), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.v_lin # torch/nn/functional.py:1678:0
+  %652 : int[] = prim::ListConstruct(%629, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.6
+  %653 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.27, %652), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %v.7 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%653, %33, %29), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:163:0
+  %q.14 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.13, %19), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:188:0
+  %656 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.7, %29, %20), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:189:0
+  %scores.13 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.14, %656), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:189:0
+  %658 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.6 # torch/tensor.py:22:0
+  %659 : int[] = prim::ListConstruct(%629, %33, %33, %630), scope: __module.transformer/__module.transformer.attentions.6
+  %660 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%658, %659), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:190:0
+  %mask.7 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%660, %scores.13), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:190:0
+  %scores.14 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.13, %mask.7, %21), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:191:0
+  %input.65 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.14, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:193:0
+  %664 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.65, %28, %22), scope: __module.transformer/__module.transformer.attentions.6 # torch/nn/functional.py:1498:0
+  %weights.7 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%664, %24, %30), scope: __module.transformer/__module.transformer.attentions.6 # torch/nn/functional.py:973:0
+  %x.28 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.7, %v.7), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:200:0
+  %667 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.28, %33, %29), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:167:0
+  %668 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%667, %32), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:167:0
+  %669 : int[] = prim::ListConstruct(%629, %28, %25), scope: __module.transformer/__module.transformer.attentions.6
+  %input.67 : Float(17:26624, 13:2048, 2048:1) = aten::view(%668, %669), scope: __module.transformer/__module.transformer.attentions.6 # transformers/modeling_xlm.py:167:0
+  %671 : Tensor = prim::GetAttr[name="bias"](%625)
+  %672 : Tensor = prim::GetAttr[name="weight"](%625)
+  %673 : Float(2048:1, 2048:2048) = aten::t(%672), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.out_lin # torch/nn/functional.py:1676:0
+  %output.40 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.67, %673), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.out_lin # torch/nn/functional.py:1676:0
+  %input.68 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.40, %671, %33), scope: __module.transformer/__module.transformer.attentions.6/__module.transformer.attentions.6.out_lin # torch/nn/functional.py:1678:0
+  %attn.7 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.68, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.69 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.64, %attn.7, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %678 : Tensor = prim::GetAttr[name="bias"](%79)
+  %679 : Tensor = prim::GetAttr[name="weight"](%79)
+  %680 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.6
+  %input_tensor.7 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.69, %680, %679, %678, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.6 # torch/nn/functional.py:2048:0
+  %682 : __torch__.torch.nn.modules.linear.___torch_mangle_35994.Linear = prim::GetAttr[name="lin2"](%77)
+  %683 : __torch__.torch.nn.modules.linear.___torch_mangle_35993.Linear = prim::GetAttr[name="lin1"](%77)
+  %684 : Tensor = prim::GetAttr[name="bias"](%683)
+  %685 : Tensor = prim::GetAttr[name="weight"](%683)
+  %686 : Float(2048:1, 8192:2048) = aten::t(%685), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin1 # torch/nn/functional.py:1676:0
+  %output.41 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.7, %686), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin1 # torch/nn/functional.py:1676:0
+  %input.70 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.41, %684, %33), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin1 # torch/nn/functional.py:1678:0
+  %input.71 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.70), scope: __module.transformer/__module.transformer.ffns.6 # torch/nn/functional.py:1369:0
+  %690 : Tensor = prim::GetAttr[name="bias"](%682)
+  %691 : Tensor = prim::GetAttr[name="weight"](%682)
+  %692 : Float(8192:1, 2048:8192) = aten::t(%691), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin2 # torch/nn/functional.py:1676:0
+  %output.42 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.71, %692), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin2 # torch/nn/functional.py:1676:0
+  %input.72 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.42, %690, %33), scope: __module.transformer/__module.transformer.ffns.6/__module.transformer.ffns.6.lin2 # torch/nn/functional.py:1678:0
+  %695 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.72, %24, %30), scope: __module.transformer/__module.transformer.ffns.6 # torch/nn/functional.py:973:0
+  %input.73 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.7, %695, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %697 : Tensor = prim::GetAttr[name="bias"](%75)
+  %698 : Tensor = prim::GetAttr[name="weight"](%75)
+  %699 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.6
+  %tensor.8 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.73, %699, %698, %697, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.6 # torch/nn/functional.py:2048:0
+  %701 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %702 : Float(17:13, 13:1, 1:1) = aten::to(%701, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.74 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.8, %702), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %704 : __torch__.torch.nn.modules.linear.___torch_mangle_35939.Linear = prim::GetAttr[name="out_lin"](%73)
+  %705 : __torch__.torch.nn.modules.linear.___torch_mangle_35938.Linear = prim::GetAttr[name="v_lin"](%73)
+  %706 : __torch__.torch.nn.modules.linear.___torch_mangle_35937.Linear = prim::GetAttr[name="k_lin"](%73)
+  %707 : __torch__.torch.nn.modules.linear.___torch_mangle_35936.Linear = prim::GetAttr[name="q_lin"](%73)
+  %708 : int = aten::size(%input.74, %32), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:151:0
+  %709 : int = aten::size(%input.74, %33), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:151:0
+  %710 : Tensor = prim::GetAttr[name="bias"](%707)
+  %711 : Tensor = prim::GetAttr[name="weight"](%707)
+  %712 : Float(2048:1, 2048:2048) = aten::t(%711), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.q_lin # torch/nn/functional.py:1676:0
+  %output.43 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.74, %712), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.q_lin # torch/nn/functional.py:1676:0
+  %x.29 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.43, %710, %33), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.q_lin # torch/nn/functional.py:1678:0
+  %715 : int[] = prim::ListConstruct(%708, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.7
+  %716 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.29, %715), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %q.15 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%716, %33, %29), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %718 : Tensor = prim::GetAttr[name="bias"](%706)
+  %719 : Tensor = prim::GetAttr[name="weight"](%706)
+  %720 : Float(2048:1, 2048:2048) = aten::t(%719), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.k_lin # torch/nn/functional.py:1676:0
+  %output.44 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.74, %720), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.k_lin # torch/nn/functional.py:1676:0
+  %x.30 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.44, %718, %33), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.k_lin # torch/nn/functional.py:1678:0
+  %723 : int[] = prim::ListConstruct(%708, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.7
+  %724 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.30, %723), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %k.8 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%724, %33, %29), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %726 : Tensor = prim::GetAttr[name="bias"](%705)
+  %727 : Tensor = prim::GetAttr[name="weight"](%705)
+  %728 : Float(2048:1, 2048:2048) = aten::t(%727), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.v_lin # torch/nn/functional.py:1676:0
+  %output.45 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.74, %728), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.v_lin # torch/nn/functional.py:1676:0
+  %x.31 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.45, %726, %33), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.v_lin # torch/nn/functional.py:1678:0
+  %731 : int[] = prim::ListConstruct(%708, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.7
+  %732 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.31, %731), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %v.8 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%732, %33, %29), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:163:0
+  %q.16 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.15, %19), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:188:0
+  %735 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.8, %29, %20), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:189:0
+  %scores.15 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.16, %735), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:189:0
+  %737 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.7 # torch/tensor.py:22:0
+  %738 : int[] = prim::ListConstruct(%708, %33, %33, %709), scope: __module.transformer/__module.transformer.attentions.7
+  %739 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%737, %738), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:190:0
+  %mask.8 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%739, %scores.15), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:190:0
+  %scores.16 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.15, %mask.8, %21), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:191:0
+  %input.75 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.16, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:193:0
+  %743 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.75, %28, %22), scope: __module.transformer/__module.transformer.attentions.7 # torch/nn/functional.py:1498:0
+  %weights.8 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%743, %24, %30), scope: __module.transformer/__module.transformer.attentions.7 # torch/nn/functional.py:973:0
+  %x.32 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.8, %v.8), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:200:0
+  %746 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.32, %33, %29), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:167:0
+  %747 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%746, %32), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:167:0
+  %748 : int[] = prim::ListConstruct(%708, %28, %25), scope: __module.transformer/__module.transformer.attentions.7
+  %input.77 : Float(17:26624, 13:2048, 2048:1) = aten::view(%747, %748), scope: __module.transformer/__module.transformer.attentions.7 # transformers/modeling_xlm.py:167:0
+  %750 : Tensor = prim::GetAttr[name="bias"](%704)
+  %751 : Tensor = prim::GetAttr[name="weight"](%704)
+  %752 : Float(2048:1, 2048:2048) = aten::t(%751), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.out_lin # torch/nn/functional.py:1676:0
+  %output.46 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.77, %752), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.out_lin # torch/nn/functional.py:1676:0
+  %input.78 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.46, %750, %33), scope: __module.transformer/__module.transformer.attentions.7/__module.transformer.attentions.7.out_lin # torch/nn/functional.py:1678:0
+  %attn.8 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.78, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.79 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.74, %attn.8, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %757 : Tensor = prim::GetAttr[name="bias"](%71)
+  %758 : Tensor = prim::GetAttr[name="weight"](%71)
+  %759 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.7
+  %input_tensor.8 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.79, %759, %758, %757, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.7 # torch/nn/functional.py:2048:0
+  %761 : __torch__.torch.nn.modules.linear.___torch_mangle_35997.Linear = prim::GetAttr[name="lin2"](%69)
+  %762 : __torch__.torch.nn.modules.linear.___torch_mangle_35996.Linear = prim::GetAttr[name="lin1"](%69)
+  %763 : Tensor = prim::GetAttr[name="bias"](%762)
+  %764 : Tensor = prim::GetAttr[name="weight"](%762)
+  %765 : Float(2048:1, 8192:2048) = aten::t(%764), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin1 # torch/nn/functional.py:1676:0
+  %output.47 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.8, %765), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin1 # torch/nn/functional.py:1676:0
+  %input.80 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.47, %763, %33), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin1 # torch/nn/functional.py:1678:0
+  %input.81 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.80), scope: __module.transformer/__module.transformer.ffns.7 # torch/nn/functional.py:1369:0
+  %769 : Tensor = prim::GetAttr[name="bias"](%761)
+  %770 : Tensor = prim::GetAttr[name="weight"](%761)
+  %771 : Float(8192:1, 2048:8192) = aten::t(%770), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin2 # torch/nn/functional.py:1676:0
+  %output.48 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.81, %771), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin2 # torch/nn/functional.py:1676:0
+  %input.82 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.48, %769, %33), scope: __module.transformer/__module.transformer.ffns.7/__module.transformer.ffns.7.lin2 # torch/nn/functional.py:1678:0
+  %774 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.82, %24, %30), scope: __module.transformer/__module.transformer.ffns.7 # torch/nn/functional.py:973:0
+  %input.83 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.8, %774, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %776 : Tensor = prim::GetAttr[name="bias"](%67)
+  %777 : Tensor = prim::GetAttr[name="weight"](%67)
+  %778 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.7
+  %tensor.9 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.83, %778, %777, %776, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.7 # torch/nn/functional.py:2048:0
+  %780 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %781 : Float(17:13, 13:1, 1:1) = aten::to(%780, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.84 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.9, %781), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %783 : __torch__.torch.nn.modules.linear.___torch_mangle_35944.Linear = prim::GetAttr[name="out_lin"](%65)
+  %784 : __torch__.torch.nn.modules.linear.___torch_mangle_35943.Linear = prim::GetAttr[name="v_lin"](%65)
+  %785 : __torch__.torch.nn.modules.linear.___torch_mangle_35942.Linear = prim::GetAttr[name="k_lin"](%65)
+  %786 : __torch__.torch.nn.modules.linear.___torch_mangle_35941.Linear = prim::GetAttr[name="q_lin"](%65)
+  %787 : int = aten::size(%input.84, %32), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:151:0
+  %788 : int = aten::size(%input.84, %33), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:151:0
+  %789 : Tensor = prim::GetAttr[name="bias"](%786)
+  %790 : Tensor = prim::GetAttr[name="weight"](%786)
+  %791 : Float(2048:1, 2048:2048) = aten::t(%790), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.q_lin # torch/nn/functional.py:1676:0
+  %output.49 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.84, %791), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.q_lin # torch/nn/functional.py:1676:0
+  %x.33 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.49, %789, %33), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.q_lin # torch/nn/functional.py:1678:0
+  %794 : int[] = prim::ListConstruct(%787, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.8
+  %795 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.33, %794), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %q.17 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%795, %33, %29), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %797 : Tensor = prim::GetAttr[name="bias"](%785)
+  %798 : Tensor = prim::GetAttr[name="weight"](%785)
+  %799 : Float(2048:1, 2048:2048) = aten::t(%798), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.k_lin # torch/nn/functional.py:1676:0
+  %output.50 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.84, %799), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.k_lin # torch/nn/functional.py:1676:0
+  %x.34 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.50, %797, %33), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.k_lin # torch/nn/functional.py:1678:0
+  %802 : int[] = prim::ListConstruct(%787, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.8
+  %803 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.34, %802), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %k.9 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%803, %33, %29), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %805 : Tensor = prim::GetAttr[name="bias"](%784)
+  %806 : Tensor = prim::GetAttr[name="weight"](%784)
+  %807 : Float(2048:1, 2048:2048) = aten::t(%806), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.v_lin # torch/nn/functional.py:1676:0
+  %output.51 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.84, %807), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.v_lin # torch/nn/functional.py:1676:0
+  %x.35 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.51, %805, %33), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.v_lin # torch/nn/functional.py:1678:0
+  %810 : int[] = prim::ListConstruct(%787, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.8
+  %811 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.35, %810), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %v.9 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%811, %33, %29), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:163:0
+  %q.18 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.17, %19), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:188:0
+  %814 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.9, %29, %20), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:189:0
+  %scores.17 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.18, %814), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:189:0
+  %816 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.8 # torch/tensor.py:22:0
+  %817 : int[] = prim::ListConstruct(%787, %33, %33, %788), scope: __module.transformer/__module.transformer.attentions.8
+  %818 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%816, %817), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:190:0
+  %mask.9 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%818, %scores.17), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:190:0
+  %scores.18 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.17, %mask.9, %21), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:191:0
+  %input.85 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.18, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:193:0
+  %822 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.85, %28, %22), scope: __module.transformer/__module.transformer.attentions.8 # torch/nn/functional.py:1498:0
+  %weights.9 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%822, %24, %30), scope: __module.transformer/__module.transformer.attentions.8 # torch/nn/functional.py:973:0
+  %x.36 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.9, %v.9), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:200:0
+  %825 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.36, %33, %29), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:167:0
+  %826 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%825, %32), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:167:0
+  %827 : int[] = prim::ListConstruct(%787, %28, %25), scope: __module.transformer/__module.transformer.attentions.8
+  %input.87 : Float(17:26624, 13:2048, 2048:1) = aten::view(%826, %827), scope: __module.transformer/__module.transformer.attentions.8 # transformers/modeling_xlm.py:167:0
+  %829 : Tensor = prim::GetAttr[name="bias"](%783)
+  %830 : Tensor = prim::GetAttr[name="weight"](%783)
+  %831 : Float(2048:1, 2048:2048) = aten::t(%830), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.out_lin # torch/nn/functional.py:1676:0
+  %output.52 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.87, %831), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.out_lin # torch/nn/functional.py:1676:0
+  %input.88 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.52, %829, %33), scope: __module.transformer/__module.transformer.attentions.8/__module.transformer.attentions.8.out_lin # torch/nn/functional.py:1678:0
+  %attn.9 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.88, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.89 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.84, %attn.9, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %836 : Tensor = prim::GetAttr[name="bias"](%63)
+  %837 : Tensor = prim::GetAttr[name="weight"](%63)
+  %838 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.8
+  %input_tensor.9 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.89, %838, %837, %836, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.8 # torch/nn/functional.py:2048:0
+  %840 : __torch__.torch.nn.modules.linear.___torch_mangle_36000.Linear = prim::GetAttr[name="lin2"](%61)
+  %841 : __torch__.torch.nn.modules.linear.___torch_mangle_35999.Linear = prim::GetAttr[name="lin1"](%61)
+  %842 : Tensor = prim::GetAttr[name="bias"](%841)
+  %843 : Tensor = prim::GetAttr[name="weight"](%841)
+  %844 : Float(2048:1, 8192:2048) = aten::t(%843), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin1 # torch/nn/functional.py:1676:0
+  %output.53 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.9, %844), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin1 # torch/nn/functional.py:1676:0
+  %input.90 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.53, %842, %33), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin1 # torch/nn/functional.py:1678:0
+  %input.91 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.90), scope: __module.transformer/__module.transformer.ffns.8 # torch/nn/functional.py:1369:0
+  %848 : Tensor = prim::GetAttr[name="bias"](%840)
+  %849 : Tensor = prim::GetAttr[name="weight"](%840)
+  %850 : Float(8192:1, 2048:8192) = aten::t(%849), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin2 # torch/nn/functional.py:1676:0
+  %output.54 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.91, %850), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin2 # torch/nn/functional.py:1676:0
+  %input.92 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.54, %848, %33), scope: __module.transformer/__module.transformer.ffns.8/__module.transformer.ffns.8.lin2 # torch/nn/functional.py:1678:0
+  %853 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.92, %24, %30), scope: __module.transformer/__module.transformer.ffns.8 # torch/nn/functional.py:973:0
+  %input.93 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.9, %853, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %855 : Tensor = prim::GetAttr[name="bias"](%59)
+  %856 : Tensor = prim::GetAttr[name="weight"](%59)
+  %857 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.8
+  %tensor.10 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.93, %857, %856, %855, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.8 # torch/nn/functional.py:2048:0
+  %859 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %860 : Float(17:13, 13:1, 1:1) = aten::to(%859, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.94 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.10, %860), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %862 : __torch__.torch.nn.modules.linear.___torch_mangle_35949.Linear = prim::GetAttr[name="out_lin"](%57)
+  %863 : __torch__.torch.nn.modules.linear.___torch_mangle_35948.Linear = prim::GetAttr[name="v_lin"](%57)
+  %864 : __torch__.torch.nn.modules.linear.___torch_mangle_35947.Linear = prim::GetAttr[name="k_lin"](%57)
+  %865 : __torch__.torch.nn.modules.linear.___torch_mangle_35946.Linear = prim::GetAttr[name="q_lin"](%57)
+  %866 : int = aten::size(%input.94, %32), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:151:0
+  %867 : int = aten::size(%input.94, %33), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:151:0
+  %868 : Tensor = prim::GetAttr[name="bias"](%865)
+  %869 : Tensor = prim::GetAttr[name="weight"](%865)
+  %870 : Float(2048:1, 2048:2048) = aten::t(%869), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.q_lin # torch/nn/functional.py:1676:0
+  %output.55 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.94, %870), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.q_lin # torch/nn/functional.py:1676:0
+  %x.37 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.55, %868, %33), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.q_lin # torch/nn/functional.py:1678:0
+  %873 : int[] = prim::ListConstruct(%866, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.9
+  %874 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.37, %873), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %q.19 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%874, %33, %29), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %876 : Tensor = prim::GetAttr[name="bias"](%864)
+  %877 : Tensor = prim::GetAttr[name="weight"](%864)
+  %878 : Float(2048:1, 2048:2048) = aten::t(%877), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.k_lin # torch/nn/functional.py:1676:0
+  %output.56 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.94, %878), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.k_lin # torch/nn/functional.py:1676:0
+  %x.38 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.56, %876, %33), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.k_lin # torch/nn/functional.py:1678:0
+  %881 : int[] = prim::ListConstruct(%866, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.9
+  %882 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.38, %881), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %k.10 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%882, %33, %29), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %884 : Tensor = prim::GetAttr[name="bias"](%863)
+  %885 : Tensor = prim::GetAttr[name="weight"](%863)
+  %886 : Float(2048:1, 2048:2048) = aten::t(%885), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.v_lin # torch/nn/functional.py:1676:0
+  %output.57 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.94, %886), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.v_lin # torch/nn/functional.py:1676:0
+  %x.39 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.57, %884, %33), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.v_lin # torch/nn/functional.py:1678:0
+  %889 : int[] = prim::ListConstruct(%866, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.9
+  %890 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.39, %889), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %v.10 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%890, %33, %29), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:163:0
+  %q.20 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.19, %19), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:188:0
+  %893 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.10, %29, %20), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:189:0
+  %scores.19 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.20, %893), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:189:0
+  %895 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.9 # torch/tensor.py:22:0
+  %896 : int[] = prim::ListConstruct(%866, %33, %33, %867), scope: __module.transformer/__module.transformer.attentions.9
+  %897 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%895, %896), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:190:0
+  %mask.10 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%897, %scores.19), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:190:0
+  %scores.20 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.19, %mask.10, %21), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:191:0
+  %input.95 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.20, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:193:0
+  %901 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.95, %28, %22), scope: __module.transformer/__module.transformer.attentions.9 # torch/nn/functional.py:1498:0
+  %weights.10 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%901, %24, %30), scope: __module.transformer/__module.transformer.attentions.9 # torch/nn/functional.py:973:0
+  %x.40 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.10, %v.10), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:200:0
+  %904 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.40, %33, %29), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:167:0
+  %905 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%904, %32), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:167:0
+  %906 : int[] = prim::ListConstruct(%866, %28, %25), scope: __module.transformer/__module.transformer.attentions.9
+  %input.97 : Float(17:26624, 13:2048, 2048:1) = aten::view(%905, %906), scope: __module.transformer/__module.transformer.attentions.9 # transformers/modeling_xlm.py:167:0
+  %908 : Tensor = prim::GetAttr[name="bias"](%862)
+  %909 : Tensor = prim::GetAttr[name="weight"](%862)
+  %910 : Float(2048:1, 2048:2048) = aten::t(%909), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.out_lin # torch/nn/functional.py:1676:0
+  %output.58 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.97, %910), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.out_lin # torch/nn/functional.py:1676:0
+  %input.98 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.58, %908, %33), scope: __module.transformer/__module.transformer.attentions.9/__module.transformer.attentions.9.out_lin # torch/nn/functional.py:1678:0
+  %attn.10 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.98, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.99 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.94, %attn.10, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %915 : Tensor = prim::GetAttr[name="bias"](%55)
+  %916 : Tensor = prim::GetAttr[name="weight"](%55)
+  %917 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.9
+  %input_tensor.10 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.99, %917, %916, %915, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.9 # torch/nn/functional.py:2048:0
+  %919 : __torch__.torch.nn.modules.linear.___torch_mangle_36003.Linear = prim::GetAttr[name="lin2"](%53)
+  %920 : __torch__.torch.nn.modules.linear.___torch_mangle_36002.Linear = prim::GetAttr[name="lin1"](%53)
+  %921 : Tensor = prim::GetAttr[name="bias"](%920)
+  %922 : Tensor = prim::GetAttr[name="weight"](%920)
+  %923 : Float(2048:1, 8192:2048) = aten::t(%922), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin1 # torch/nn/functional.py:1676:0
+  %output.59 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.10, %923), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin1 # torch/nn/functional.py:1676:0
+  %input.100 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.59, %921, %33), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin1 # torch/nn/functional.py:1678:0
+  %input.101 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.100), scope: __module.transformer/__module.transformer.ffns.9 # torch/nn/functional.py:1369:0
+  %927 : Tensor = prim::GetAttr[name="bias"](%919)
+  %928 : Tensor = prim::GetAttr[name="weight"](%919)
+  %929 : Float(8192:1, 2048:8192) = aten::t(%928), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin2 # torch/nn/functional.py:1676:0
+  %output.60 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.101, %929), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin2 # torch/nn/functional.py:1676:0
+  %input.102 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.60, %927, %33), scope: __module.transformer/__module.transformer.ffns.9/__module.transformer.ffns.9.lin2 # torch/nn/functional.py:1678:0
+  %932 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.102, %24, %30), scope: __module.transformer/__module.transformer.ffns.9 # torch/nn/functional.py:973:0
+  %input.103 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.10, %932, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %934 : Tensor = prim::GetAttr[name="bias"](%51)
+  %935 : Tensor = prim::GetAttr[name="weight"](%51)
+  %936 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.9
+  %tensor.11 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.103, %936, %935, %934, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.9 # torch/nn/functional.py:2048:0
+  %938 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %939 : Float(17:13, 13:1, 1:1) = aten::to(%938, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.104 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.11, %939), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %941 : __torch__.torch.nn.modules.linear.___torch_mangle_35954.Linear = prim::GetAttr[name="out_lin"](%49)
+  %942 : __torch__.torch.nn.modules.linear.___torch_mangle_35953.Linear = prim::GetAttr[name="v_lin"](%49)
+  %943 : __torch__.torch.nn.modules.linear.___torch_mangle_35952.Linear = prim::GetAttr[name="k_lin"](%49)
+  %944 : __torch__.torch.nn.modules.linear.___torch_mangle_35951.Linear = prim::GetAttr[name="q_lin"](%49)
+  %945 : int = aten::size(%input.104, %32), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:151:0
+  %946 : int = aten::size(%input.104, %33), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:151:0
+  %947 : Tensor = prim::GetAttr[name="bias"](%944)
+  %948 : Tensor = prim::GetAttr[name="weight"](%944)
+  %949 : Float(2048:1, 2048:2048) = aten::t(%948), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.q_lin # torch/nn/functional.py:1676:0
+  %output.61 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.104, %949), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.q_lin # torch/nn/functional.py:1676:0
+  %x.41 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.61, %947, %33), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.q_lin # torch/nn/functional.py:1678:0
+  %952 : int[] = prim::ListConstruct(%945, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.10
+  %953 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.41, %952), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %q.21 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%953, %33, %29), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %955 : Tensor = prim::GetAttr[name="bias"](%943)
+  %956 : Tensor = prim::GetAttr[name="weight"](%943)
+  %957 : Float(2048:1, 2048:2048) = aten::t(%956), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.k_lin # torch/nn/functional.py:1676:0
+  %output.62 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.104, %957), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.k_lin # torch/nn/functional.py:1676:0
+  %x.42 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.62, %955, %33), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.k_lin # torch/nn/functional.py:1678:0
+  %960 : int[] = prim::ListConstruct(%945, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.10
+  %961 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.42, %960), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %k.11 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%961, %33, %29), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %963 : Tensor = prim::GetAttr[name="bias"](%942)
+  %964 : Tensor = prim::GetAttr[name="weight"](%942)
+  %965 : Float(2048:1, 2048:2048) = aten::t(%964), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.v_lin # torch/nn/functional.py:1676:0
+  %output.63 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.104, %965), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.v_lin # torch/nn/functional.py:1676:0
+  %x.43 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.63, %963, %33), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.v_lin # torch/nn/functional.py:1678:0
+  %968 : int[] = prim::ListConstruct(%945, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.10
+  %969 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.43, %968), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %v.11 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%969, %33, %29), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:163:0
+  %q.22 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.21, %19), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:188:0
+  %972 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k.11, %29, %20), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:189:0
+  %scores.21 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q.22, %972), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:189:0
+  %974 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.10 # torch/tensor.py:22:0
+  %975 : int[] = prim::ListConstruct(%945, %33, %33, %946), scope: __module.transformer/__module.transformer.attentions.10
+  %976 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%974, %975), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:190:0
+  %mask.11 : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%976, %scores.21), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:190:0
+  %scores.22 : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.21, %mask.11, %21), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:191:0
+  %input.105 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores.22, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:193:0
+  %980 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.105, %28, %22), scope: __module.transformer/__module.transformer.attentions.10 # torch/nn/functional.py:1498:0
+  %weights.11 : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%980, %24, %30), scope: __module.transformer/__module.transformer.attentions.10 # torch/nn/functional.py:973:0
+  %x.44 : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights.11, %v.11), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:200:0
+  %983 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x.44, %33, %29), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:167:0
+  %984 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%983, %32), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:167:0
+  %985 : int[] = prim::ListConstruct(%945, %28, %25), scope: __module.transformer/__module.transformer.attentions.10
+  %input.107 : Float(17:26624, 13:2048, 2048:1) = aten::view(%984, %985), scope: __module.transformer/__module.transformer.attentions.10 # transformers/modeling_xlm.py:167:0
+  %987 : Tensor = prim::GetAttr[name="bias"](%941)
+  %988 : Tensor = prim::GetAttr[name="weight"](%941)
+  %989 : Float(2048:1, 2048:2048) = aten::t(%988), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.out_lin # torch/nn/functional.py:1676:0
+  %output.64 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.107, %989), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.out_lin # torch/nn/functional.py:1676:0
+  %input.108 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.64, %987, %33), scope: __module.transformer/__module.transformer.attentions.10/__module.transformer.attentions.10.out_lin # torch/nn/functional.py:1678:0
+  %attn.11 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.108, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.109 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.104, %attn.11, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %994 : Tensor = prim::GetAttr[name="bias"](%47)
+  %995 : Tensor = prim::GetAttr[name="weight"](%47)
+  %996 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.10
+  %input_tensor.11 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.109, %996, %995, %994, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.10 # torch/nn/functional.py:2048:0
+  %998 : __torch__.torch.nn.modules.linear.___torch_mangle_36006.Linear = prim::GetAttr[name="lin2"](%45)
+  %999 : __torch__.torch.nn.modules.linear.___torch_mangle_36005.Linear = prim::GetAttr[name="lin1"](%45)
+  %1000 : Tensor = prim::GetAttr[name="bias"](%999)
+  %1001 : Tensor = prim::GetAttr[name="weight"](%999)
+  %1002 : Float(2048:1, 8192:2048) = aten::t(%1001), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin1 # torch/nn/functional.py:1676:0
+  %output.65 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor.11, %1002), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin1 # torch/nn/functional.py:1676:0
+  %input.110 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.65, %1000, %33), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin1 # torch/nn/functional.py:1678:0
+  %input.111 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.110), scope: __module.transformer/__module.transformer.ffns.10 # torch/nn/functional.py:1369:0
+  %1006 : Tensor = prim::GetAttr[name="bias"](%998)
+  %1007 : Tensor = prim::GetAttr[name="weight"](%998)
+  %1008 : Float(8192:1, 2048:8192) = aten::t(%1007), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin2 # torch/nn/functional.py:1676:0
+  %output.66 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.111, %1008), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin2 # torch/nn/functional.py:1676:0
+  %input.112 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.66, %1006, %33), scope: __module.transformer/__module.transformer.ffns.10/__module.transformer.ffns.10.lin2 # torch/nn/functional.py:1678:0
+  %1011 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.112, %24, %30), scope: __module.transformer/__module.transformer.ffns.10 # torch/nn/functional.py:973:0
+  %input.113 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor.11, %1011, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %1013 : Tensor = prim::GetAttr[name="bias"](%43)
+  %1014 : Tensor = prim::GetAttr[name="weight"](%43)
+  %1015 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.10
+  %tensor.12 : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.113, %1015, %1014, %1013, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.10 # torch/nn/functional.py:2048:0
+  %1017 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %1018 : Float(17:13, 13:1, 1:1) = aten::to(%1017, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input.114 : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor.12, %1018), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %1020 : __torch__.torch.nn.modules.linear.___torch_mangle_35959.Linear = prim::GetAttr[name="out_lin"](%41)
+  %1021 : __torch__.torch.nn.modules.linear.___torch_mangle_35958.Linear = prim::GetAttr[name="v_lin"](%41)
+  %1022 : __torch__.torch.nn.modules.linear.___torch_mangle_35957.Linear = prim::GetAttr[name="k_lin"](%41)
+  %1023 : __torch__.torch.nn.modules.linear.___torch_mangle_35956.Linear = prim::GetAttr[name="q_lin"](%41)
+  %1024 : int = aten::size(%input.114, %32), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:151:0
+  %1025 : int = aten::size(%input.114, %33), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:151:0
+  %1026 : Tensor = prim::GetAttr[name="bias"](%1023)
+  %1027 : Tensor = prim::GetAttr[name="weight"](%1023)
+  %1028 : Float(2048:1, 2048:2048) = aten::t(%1027), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.q_lin # torch/nn/functional.py:1676:0
+  %output.67 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.114, %1028), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.q_lin # torch/nn/functional.py:1676:0
+  %x.45 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.67, %1026, %33), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.q_lin # torch/nn/functional.py:1678:0
+  %1031 : int[] = prim::ListConstruct(%1024, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.11
+  %1032 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.45, %1031), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %q.23 : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%1032, %33, %29), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %1034 : Tensor = prim::GetAttr[name="bias"](%1022)
+  %1035 : Tensor = prim::GetAttr[name="weight"](%1022)
+  %1036 : Float(2048:1, 2048:2048) = aten::t(%1035), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.k_lin # torch/nn/functional.py:1676:0
+  %output.68 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.114, %1036), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.k_lin # torch/nn/functional.py:1676:0
+  %x.46 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.68, %1034, %33), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.k_lin # torch/nn/functional.py:1678:0
+  %1039 : int[] = prim::ListConstruct(%1024, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.11
+  %1040 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.46, %1039), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %k : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%1040, %33, %29), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %1042 : Tensor = prim::GetAttr[name="bias"](%1021)
+  %1043 : Tensor = prim::GetAttr[name="weight"](%1021)
+  %1044 : Float(2048:1, 2048:2048) = aten::t(%1043), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.v_lin # torch/nn/functional.py:1676:0
+  %output.69 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.114, %1044), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.v_lin # torch/nn/functional.py:1676:0
+  %x.47 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.69, %1042, %33), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.v_lin # torch/nn/functional.py:1678:0
+  %1047 : int[] = prim::ListConstruct(%1024, %28, %17, %18), scope: __module.transformer/__module.transformer.attentions.11
+  %1048 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::view(%x.47, %1047), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %v : Float(17:26624, 16:128, 13:2048, 128:1) = aten::transpose(%1048, %33, %29), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:163:0
+  %q : Float(17:26624, 16:128, 13:2048, 128:1) = aten::div(%q.23, %19), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:188:0
+  %1051 : Float(17:26624, 16:128, 128:1, 13:2048) = aten::transpose(%k, %29, %20), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:189:0
+  %scores.23 : Float(17:2704, 16:169, 13:13, 13:1) = aten::matmul(%q, %1051), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:189:0
+  %1053 : Bool(17:13, 13:1) = aten::eq(%padding_mask, %32), scope: __module.transformer/__module.transformer.attentions.11 # torch/tensor.py:22:0
+  %1054 : int[] = prim::ListConstruct(%1024, %33, %33, %1025), scope: __module.transformer/__module.transformer.attentions.11
+  %1055 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%1053, %1054), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:190:0
+  %mask : Bool(17:13, 16:0, 13:0, 13:1) = aten::expand_as(%1055, %scores.23), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:190:0
+  %scores : Float(17:2704, 16:169, 13:13, 13:1) = aten::masked_fill_(%scores.23, %mask, %21), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:191:0
+  %input.115 : Float(17:2704, 16:169, 13:13, 13:1) = aten::to(%scores, %23, %30, %30, %22), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:193:0
+  %1059 : Float(17:2704, 16:169, 13:13, 13:1) = aten::softmax(%input.115, %28, %22), scope: __module.transformer/__module.transformer.attentions.11 # torch/nn/functional.py:1498:0
+  %weights : Float(17:2704, 16:169, 13:13, 13:1) = aten::dropout(%1059, %24, %30), scope: __module.transformer/__module.transformer.attentions.11 # torch/nn/functional.py:973:0
+  %x : Float(17:26624, 16:1664, 13:128, 128:1) = aten::matmul(%weights, %v), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:200:0
+  %1062 : Float(17:26624, 13:128, 16:1664, 128:1) = aten::transpose(%x, %33, %29), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:167:0
+  %1063 : Float(17:26624, 13:2048, 16:128, 128:1) = aten::contiguous(%1062, %32), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:167:0
+  %1064 : int[] = prim::ListConstruct(%1024, %28, %25), scope: __module.transformer/__module.transformer.attentions.11
+  %input.117 : Float(17:26624, 13:2048, 2048:1) = aten::view(%1063, %1064), scope: __module.transformer/__module.transformer.attentions.11 # transformers/modeling_xlm.py:167:0
+  %1066 : Tensor = prim::GetAttr[name="bias"](%1020)
+  %1067 : Tensor = prim::GetAttr[name="weight"](%1020)
+  %1068 : Float(2048:1, 2048:2048) = aten::t(%1067), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.out_lin # torch/nn/functional.py:1676:0
+  %output.70 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.117, %1068), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.out_lin # torch/nn/functional.py:1676:0
+  %input.118 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.70, %1066, %33), scope: __module.transformer/__module.transformer.attentions.11/__module.transformer.attentions.11.out_lin # torch/nn/functional.py:1678:0
+  %attn : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.118, %24, %30), scope: __module.transformer # torch/nn/functional.py:973:0
+  %input.119 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input.114, %attn, %33), scope: __module.transformer # transformers/modeling_xlm.py:601:0
+  %1073 : Tensor = prim::GetAttr[name="bias"](%39)
+  %1074 : Tensor = prim::GetAttr[name="weight"](%39)
+  %1075 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm1.11
+  %input_tensor : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.119, %1075, %1074, %1073, %26, %27), scope: __module.transformer/__module.transformer.layer_norm1.11 # torch/nn/functional.py:2048:0
+  %1077 : __torch__.torch.nn.modules.linear.___torch_mangle_36009.Linear = prim::GetAttr[name="lin2"](%37)
+  %1078 : __torch__.torch.nn.modules.linear.___torch_mangle_36008.Linear = prim::GetAttr[name="lin1"](%37)
+  %1079 : Tensor = prim::GetAttr[name="bias"](%1078)
+  %1080 : Tensor = prim::GetAttr[name="weight"](%1078)
+  %1081 : Float(2048:1, 8192:2048) = aten::t(%1080), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin1 # torch/nn/functional.py:1676:0
+  %output.71 : Float(17:106496, 13:8192, 8192:1) = aten::matmul(%input_tensor, %1081), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin1 # torch/nn/functional.py:1676:0
+  %input.120 : Float(17:106496, 13:8192, 8192:1) = aten::add_(%output.71, %1079, %33), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin1 # torch/nn/functional.py:1678:0
+  %input.121 : Float(17:106496, 13:8192, 8192:1) = aten::gelu(%input.120), scope: __module.transformer/__module.transformer.ffns.11 # torch/nn/functional.py:1369:0
+  %1085 : Tensor = prim::GetAttr[name="bias"](%1077)
+  %1086 : Tensor = prim::GetAttr[name="weight"](%1077)
+  %1087 : Float(8192:1, 2048:8192) = aten::t(%1086), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin2 # torch/nn/functional.py:1676:0
+  %output.72 : Float(17:26624, 13:2048, 2048:1) = aten::matmul(%input.121, %1087), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin2 # torch/nn/functional.py:1676:0
+  %input.122 : Float(17:26624, 13:2048, 2048:1) = aten::add_(%output.72, %1085, %33), scope: __module.transformer/__module.transformer.ffns.11/__module.transformer.ffns.11.lin2 # torch/nn/functional.py:1678:0
+  %1090 : Float(17:26624, 13:2048, 2048:1) = aten::dropout(%input.122, %24, %30), scope: __module.transformer/__module.transformer.ffns.11 # torch/nn/functional.py:973:0
+  %input.123 : Float(17:26624, 13:2048, 2048:1) = aten::add(%input_tensor, %1090, %33), scope: __module.transformer # transformers/modeling_xlm.py:612:0
+  %1092 : Tensor = prim::GetAttr[name="bias"](%35)
+  %1093 : Tensor = prim::GetAttr[name="weight"](%35)
+  %1094 : int[] = prim::ListConstruct(%25), scope: __module.transformer/__module.transformer.layer_norm2.11
+  %tensor : Float(17:26624, 13:2048, 2048:1) = aten::layer_norm(%input.123, %1094, %1093, %1092, %26, %27), scope: __module.transformer/__module.transformer.layer_norm2.11 # torch/nn/functional.py:2048:0
+  %1096 : Long(17:13, 13:1, 1:1) = aten::unsqueeze(%padding_mask, %28), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %1097 : Float(17:13, 13:1, 1:1) = aten::to(%1096, %23, %30, %30, %22), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %input : Float(17:26624, 13:2048, 2048:1) = aten::mul_(%tensor, %1097), scope: __module.transformer # transformers/modeling_xlm.py:614:0
+  %1099 : int = prim::Constant[value=1](), scope: __module.qa_outputs # torch/nn/functional.py:1678:0
+  %1100 : Tensor = prim::GetAttr[name="bias"](%3)
+  %1101 : Tensor = prim::GetAttr[name="weight"](%3)
+  %1102 : Float(2048:1, 2:2048) = aten::t(%1101), scope: __module.qa_outputs # torch/nn/functional.py:1676:0
+  %output : Float(17:26, 13:2, 2:1) = aten::matmul(%input, %1102), scope: __module.qa_outputs # torch/nn/functional.py:1676:0
+  %1104 : Float(17:26, 13:2, 2:1) = aten::add_(%output, %1100, %1099), scope: __module.qa_outputs # torch/nn/functional.py:1678:0
+  %7 : int = prim::Constant[value=1]() # torch/tensor.py:371:0
+  %8 : int = prim::Constant[value=-1]() # torch/tensor.py:371:0
+  %9 : Tensor[] = aten::split(%1104, %7, %8) # torch/tensor.py:371:0
+  %start_logits : Float(17:26, 13:2, 1:1), %end_logits : Float(17:26, 13:2, 1:1) = prim::ListUnpack(%9)
+  %12 : int = prim::Constant[value=-1]() # transformers/modeling_xlm.py:921:0
+  %13 : Float(17:26, 13:2) = aten::squeeze(%start_logits, %12) # transformers/modeling_xlm.py:921:0
+  %14 : int = prim::Constant[value=-1]() # transformers/modeling_xlm.py:922:0
+  %15 : Float(17:26, 13:2) = aten::squeeze(%end_logits, %14) # transformers/modeling_xlm.py:922:0
+  %16 : (Float(17:26, 13:2), Float(17:26, 13:2)) = prim::TupleConstruct(%13, %15)
+  return (%16)

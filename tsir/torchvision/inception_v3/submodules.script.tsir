@@ -1,0 +1,667 @@
+Inception3(
+  (Conv2d_1a_3x3): BasicConv2d(
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (Conv2d_2a_3x3): BasicConv2d(
+    (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (Conv2d_2b_3x3): BasicConv2d(
+    (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (maxpool1): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (Conv2d_3b_1x1): BasicConv2d(
+    (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (Conv2d_4a_3x3): BasicConv2d(
+    (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+    (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (maxpool2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (Mixed_5b): InceptionA(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_1): BasicConv2d(
+      (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_2): BasicConv2d(
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3): BasicConv2d(
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_5c): InceptionA(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_1): BasicConv2d(
+      (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_2): BasicConv2d(
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3): BasicConv2d(
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_5d): InceptionA(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_1): BasicConv2d(
+      (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch5x5_2): BasicConv2d(
+      (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3): BasicConv2d(
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_6a): InceptionB(
+    (branch3x3): BasicConv2d(
+      (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3): BasicConv2d(
+      (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_6b): InceptionC(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_1): BasicConv2d(
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_2): BasicConv2d(
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_3): BasicConv2d(
+      (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_1): BasicConv2d(
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_2): BasicConv2d(
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_3): BasicConv2d(
+      (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_4): BasicConv2d(
+      (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_5): BasicConv2d(
+      (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_6c): InceptionC(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_1): BasicConv2d(
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_2): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_3): BasicConv2d(
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_1): BasicConv2d(
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_2): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_3): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_4): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_5): BasicConv2d(
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_6d): InceptionC(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_1): BasicConv2d(
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_2): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_3): BasicConv2d(
+      (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_1): BasicConv2d(
+      (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_2): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_3): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_4): BasicConv2d(
+      (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_5): BasicConv2d(
+      (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_6e): InceptionC(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_2): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7_3): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_2): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_3): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_4): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7dbl_5): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (AuxLogits): InceptionAux(
+    (conv0): BasicConv2d(
+      (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (conv1): BasicConv2d(
+      (conv): Conv2d(128, 768, kernel_size=(5, 5), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(768, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (fc): Linear(in_features=768, out_features=1000, bias=True)
+  )
+  (Mixed_7a): InceptionD(
+    (branch3x3_1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_2): BasicConv2d(
+      (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7x3_1): BasicConv2d(
+      (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7x3_2): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7x3_3): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch7x7x3_4): BasicConv2d(
+      (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_7b): InceptionE(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_1): BasicConv2d(
+      (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_2a): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_2b): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (Mixed_7c): InceptionE(
+    (branch1x1): BasicConv2d(
+      (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_1): BasicConv2d(
+      (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_2a): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3_2b): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_1): BasicConv2d(
+      (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_2): BasicConv2d(
+      (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3a): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch3x3dbl_3b): BasicConv2d(
+      (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+      (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (branch_pool): BasicConv2d(
+      (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+  (dropout): Dropout(p=0.5, inplace=False)
+  (fc): Linear(in_features=2048, out_features=1000, bias=True)
+)
+
+Inception3.AuxLogits
+InceptionAux.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionAux,
+        %x.1 : Tensor):
+    %31 : int = prim::Constant[value=-1]()
+    %28 : Function = prim::Constant[name="adaptive_avg_pool2d"]()
+    %16 : None = prim::Constant()
+    %15 : bool = prim::Constant[value=1]()
+    %14 : bool = prim::Constant[value=0]()
+    %13 : int[] = prim::Constant[value=[0, 0]]()
+    %3 : int = prim::Constant[value=5]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:415:40
+    %4 : int = prim::Constant[value=3]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:415:50
+    %25 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:422:38
+    %11 : int[] = prim::ListConstruct(%3, %3)
+    %12 : int[] = prim::ListConstruct(%4, %4)
+    %x.3 : Tensor = aten::avg_pool2d(%x.1, %11, %12, %13, %14, %15, %16) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:415:12
+    %18 : __torch__.torchvision.models.inception.BasicConv2d = prim::GetAttr[name="conv0"](%self)
+    %x.5 : Tensor = prim::CallMethod[name="forward"](%18, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:417:12
+    %21 : __torch__.torchvision.models.inception.BasicConv2d = prim::GetAttr[name="conv1"](%self)
+    %x.7 : Tensor = prim::CallMethod[name="forward"](%21, %x.5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:419:12
+    %27 : int[] = prim::ListConstruct(%25, %25)
+    %x.9 : Tensor = prim::CallFunction(%28, %x.7, %27) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:422:12
+    %x.11 : Tensor = aten::flatten(%x.9, %25, %31) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:424:12
+    %33 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="fc"](%self)
+    %x.13 : Tensor = prim::CallMethod[name="forward"](%33, %x.11) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:426:12
+    return (%x.13)
+
+Inception3.Conv2d_1a_3x3
+Inception3.Conv2d_2a_3x3
+Inception3.Conv2d_2b_3x3
+Inception3.Conv2d_3b_1x1
+Inception3.Conv2d_4a_3x3
+BasicConv2d.forward
+InceptionA.branch1x1
+InceptionA.branch3x3dbl_1
+InceptionA.branch3x3dbl_2
+InceptionA.branch3x3dbl_3
+InceptionA.branch5x5_1
+InceptionA.branch5x5_2
+InceptionA.branch_pool
+InceptionB.branch3x3
+InceptionB.branch3x3dbl_1
+InceptionB.branch3x3dbl_2
+InceptionB.branch3x3dbl_3
+InceptionC.branch1x1
+InceptionC.branch7x7_1
+InceptionC.branch7x7_2
+InceptionC.branch7x7_3
+InceptionC.branch7x7dbl_1
+InceptionC.branch7x7dbl_2
+InceptionC.branch7x7dbl_3
+InceptionC.branch7x7dbl_4
+InceptionC.branch7x7dbl_5
+InceptionC.branch_pool
+InceptionAux.conv0
+InceptionAux.conv1
+InceptionD.branch3x3_1
+InceptionD.branch3x3_2
+InceptionD.branch7x7x3_1
+InceptionD.branch7x7x3_2
+InceptionD.branch7x7x3_3
+InceptionD.branch7x7x3_4
+InceptionE.branch1x1
+InceptionE.branch3x3_1
+InceptionE.branch3x3_2a
+InceptionE.branch3x3_2b
+InceptionE.branch3x3dbl_1
+InceptionE.branch3x3dbl_2
+InceptionE.branch3x3dbl_3a
+InceptionE.branch3x3dbl_3b
+InceptionE.branch_pool
+  graph(%self : __torch__.torchvision.models.inception.BasicConv2d,
+        %x.1 : Tensor):
+    %10 : Function = prim::Constant[name="relu"]()
+    %9 : bool = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:441:33
+    %2 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv"](%self)
+    %x.3 : Tensor = prim::CallMethod[name="forward"](%2, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:439:12
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn"](%self)
+    %x.5 : Tensor = prim::CallMethod[name="forward"](%5, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:440:12
+    %11 : Tensor = prim::CallFunction(%10, %x.5, %9) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:441:15
+    return (%11)
+
+Inception3.Mixed_5b
+Inception3.Mixed_5c
+Inception3.Mixed_5d
+InceptionA.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionA,
+        %x.1 : Tensor):
+    %5 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:244:34
+    %outputs.1 : Tensor[] = prim::CallMethod[name="_forward"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:243:18
+    %6 : Tensor = aten::cat(%outputs.1, %5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:244:15
+    return (%6)
+
+Inception3.Mixed_6a
+InceptionB.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionB,
+        %x.1 : Tensor):
+    %5 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:273:34
+    %outputs.1 : Tensor[] = prim::CallMethod[name="_forward"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:272:18
+    %6 : Tensor = aten::cat(%outputs.1, %5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:273:15
+    return (%6)
+
+Inception3.Mixed_6b
+Inception3.Mixed_6c
+Inception3.Mixed_6d
+Inception3.Mixed_6e
+InceptionC.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionC,
+        %x.1 : Tensor):
+    %5 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:318:34
+    %outputs.1 : Tensor[] = prim::CallMethod[name="_forward"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:317:18
+    %6 : Tensor = aten::cat(%outputs.1, %5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:318:15
+    return (%6)
+
+Inception3.Mixed_7a
+InceptionD.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionD,
+        %x.1 : Tensor):
+    %5 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:350:34
+    %outputs.1 : Tensor[] = prim::CallMethod[name="_forward"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:349:18
+    %6 : Tensor = aten::cat(%outputs.1, %5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:350:15
+    return (%6)
+
+Inception3.Mixed_7b
+Inception3.Mixed_7c
+InceptionE.forward
+  graph(%self : __torch__.torchvision.models.inception.InceptionE,
+        %x.1 : Tensor):
+    %5 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:398:34
+    %outputs.1 : Tensor[] = prim::CallMethod[name="_forward"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:397:18
+    %6 : Tensor = aten::cat(%outputs.1, %5) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:398:15
+    return (%6)
+
+Inception3.avgpool
+AdaptiveAvgPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.AdaptiveAvgPool2d,
+        %input.1 : Tensor):
+    %7 : Function = prim::Constant[name="adaptive_avg_pool2d"]()
+    %3 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:1111:44
+    %6 : int[] = prim::ListConstruct(%3, %3)
+    %8 : Tensor = prim::CallFunction(%7, %input.1, %6) # torch/nn/modules/pooling.py:1111:15
+    return (%8)
+
+Inception3.dropout
+Dropout.forward
+  graph(%self : __torch__.torch.nn.modules.dropout.Dropout,
+        %input.1 : Tensor):
+    %6 : Function = prim::Constant[name="dropout"]()
+    %5 : bool = prim::Constant[value=0]() # torch/nn/modules/dropout.py:58:55
+    %3 : float = prim::Constant[value=0.5]() # torch/nn/modules/dropout.py:58:32
+    %4 : bool = prim::GetAttr[name="training"](%self)
+    %7 : Tensor = prim::CallFunction(%6, %input.1, %3, %4, %5) # torch/nn/modules/dropout.py:58:15
+    return (%7)
+
+Inception3.fc
+InceptionAux.fc
+Linear.forward
+  graph(%self : __torch__.torch.nn.modules.linear.Linear,
+        %input.1 : Tensor):
+    %5 : Function = prim::Constant[name="linear"]()
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::GetAttr[name="bias"](%self)
+    %6 : Tensor = prim::CallFunction(%5, %input.1, %3, %4) # torch/nn/modules/linear.py:91:15
+    return (%6)
+
+Inception3.forward
+  graph(%self : __torch__.torchvision.models.inception.Inception3,
+        %x.1 : Tensor):
+    %16 : int = prim::Constant[value=2]()
+    %15 : str = prim::Constant[value="Scripted Inception3 always returns Inception3 Tuple"]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:203:30
+    %10 : bool = prim::Constant[value=0]() # torch/hub/pytorch_vision_master/torchvision/models/inception.py:200:22
+    %x.3 : Tensor = prim::CallMethod[name="_transform_input"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:198:12
+    %5 : (Tensor, Tensor?) = prim::CallMethod[name="_forward"](%self, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:199:17
+    %x.5 : Tensor, %aux.1 : Tensor? = prim::TupleUnpack(%5)
+    %8 : bool = prim::GetAttr[name="training"](%self)
+    %aux_defined.1 : bool = prim::If(%8) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:200:22
+      block0():
+        %9 : bool = prim::GetAttr[name="aux_logits"](%self)
+        -> (%9)
+      block1():
+        -> (%10)
+    %14 : bool = aten::__not__(%aux_defined.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:202:15
+     = prim::If(%14) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:202:12
+      block0():
+         = aten::warn(%15, %16) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:203:16
+        -> ()
+      block1():
+        -> ()
+    %20 : NamedTuple(logits : Tensor, aux_logits : Tensor?) = prim::TupleConstruct(%x.5, %aux.1) # torch/hub/pytorch_vision_master/torchvision/models/inception.py:204:19
+    return (%20)
+
+Inception3.maxpool1
+Inception3.maxpool2
+MaxPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.MaxPool2d,
+        %input.1 : Tensor):
+    %13 : Function = prim::Constant[name="_max_pool2d"]()
+    %7 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:57
+    %6 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:42
+    %5 : int = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:28
+    %4 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:157:53
+    %3 : int = prim::Constant[value=3]() # torch/nn/modules/pooling.py:157:35
+    %9 : int[] = prim::ListConstruct(%3, %3)
+    %10 : int[] = prim::ListConstruct(%4, %4)
+    %11 : int[] = prim::ListConstruct(%5, %5)
+    %12 : int[] = prim::ListConstruct(%6, %6)
+    %14 : Tensor = prim::CallFunction(%13, %input.1, %9, %10, %11, %12, %7, %7) # torch/nn/modules/pooling.py:157:15
+    return (%14)
+
+BasicConv2d.bn
+BatchNorm2d.forward
+  graph(%self : __torch__.torch.nn.modules.batchnorm.BatchNorm2d,
+        %input.1 : Tensor):
+    %65 : Function = prim::Constant[name="batch_norm"]()
+    %64 : float = prim::Constant[value=0.001]() # torch/nn/modules/batchnorm.py:136:77
+    %32 : bool = prim::Constant[value=0]() # torch/nn/modules/batchnorm.py:125:27
+    %bn_training.1 : bool = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:123:26
+    %exponential_average_factor.1 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/batchnorm.py:108:41
+    %16 : int = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:113:70
+    %3 : None = prim::CallMethod[name="_check_input_dim"](%self, %input.1) # torch/nn/modules/batchnorm.py:100:8
+    %8 : bool = prim::GetAttr[name="training"](%self)
+     = prim::If(%8) # torch/nn/modules/batchnorm.py:110:11
+      block0():
+        %85 : Tensor = prim::GetAttr[name="num_batches_tracked"](%self)
+        %87 : Tensor = aten::add(%85, %16, %16) # torch/nn/modules/batchnorm.py:113:43
+         = prim::SetAttr[name="num_batches_tracked"](%self, %87)
+        -> ()
+      block1():
+        -> ()
+    %28 : bool = prim::GetAttr[name="training"](%self)
+    %bn_training : bool = prim::If(%28) # torch/nn/modules/batchnorm.py:122:8
+      block0():
+        -> (%bn_training.1)
+      block1():
+        -> (%32)
+    %49 : Tensor = prim::GetAttr[name="running_mean"](%self)
+    %57 : Tensor = prim::GetAttr[name="running_var"](%self)
+    %60 : Tensor = prim::GetAttr[name="weight"](%self)
+    %61 : Tensor = prim::GetAttr[name="bias"](%self)
+    %66 : Tensor = prim::CallFunction(%65, %input.1, %49, %57, %60, %61, %bn_training, %exponential_average_factor.1, %64) # torch/nn/modules/batchnorm.py:131:15
+    return (%66)
+
+BasicConv2d.conv
+Conv2d.forward
+  graph(%self : __torch__.torch.nn.modules.conv.Conv2d,
+        %input.1 : Tensor):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::CallMethod[name="_conv_forward"](%self, %input.1, %3) # torch/nn/modules/conv.py:419:15
+    return (%4)
+

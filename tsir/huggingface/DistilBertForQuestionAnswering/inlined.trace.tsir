@@ -1,0 +1,541 @@
+graph(%self.1 : __torch__.transformers.modeling_distilbert.DistilBertForQuestionAnswering,
+      %input_ids : Long(17:13, 13:1),
+      %2 : Long(17:13, 13:1)):
+  %3 : __torch__.torch.nn.modules.linear.___torch_mangle_14360.Linear = prim::GetAttr[name="qa_outputs"](%self.1)
+  %4 : __torch__.torch.nn.modules.dropout.___torch_mangle_14361.Dropout = prim::GetAttr[name="dropout"](%self.1)
+  %5 : __torch__.transformers.modeling_distilbert.___torch_mangle_14359.DistilBertModel = prim::GetAttr[name="distilbert"](%self.1)
+  %19 : int = prim::Constant[value=12](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %20 : int = prim::Constant[value=64](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %21 : int = prim::Constant[value=2](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %22 : Double() = prim::Constant[value={8}](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:190:0
+  %23 : int = prim::Constant[value=3](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:191:0
+  %24 : float = prim::Constant[value=-inf](), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:193:0
+  %25 : None = prim::Constant(), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %26 : int = prim::Constant[value=1](), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:108:0
+  %27 : int = prim::Constant[value=4](), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:109:0
+  %28 : int = prim::Constant[value=0](), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:109:0
+  %29 : Device = prim::Constant[value="cpu"](), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:109:0
+  %30 : bool = prim::Constant[value=0](), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:109:0
+  %31 : int = prim::Constant[value=-1](), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+  %32 : bool = prim::Constant[value=1](), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+  %33 : float = prim::Constant[value=9.9999999999999998e-13](), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+  %34 : int = prim::Constant[value=768](), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+  %35 : float = prim::Constant[value=0.10000000000000001](), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.dropout # torch/nn/functional.py:973:0
+  %36 : __torch__.transformers.modeling_distilbert.___torch_mangle_14358.Transformer = prim::GetAttr[name="transformer"](%5)
+  %37 : __torch__.transformers.modeling_distilbert.___torch_mangle_14278.Embeddings = prim::GetAttr[name="embeddings"](%5)
+  %38 : __torch__.torch.nn.modules.normalization.___torch_mangle_14276.LayerNorm = prim::GetAttr[name="LayerNorm"](%37)
+  %39 : __torch__.torch.nn.modules.sparse.___torch_mangle_14275.Embedding = prim::GetAttr[name="position_embeddings"](%37)
+  %40 : __torch__.torch.nn.modules.sparse.___torch_mangle_14274.Embedding = prim::GetAttr[name="word_embeddings"](%37)
+  %41 : int = aten::size(%input_ids, %26), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:108:0
+  %position_ids : Long(13:1) = aten::arange(%41, %27, %28, %29, %30), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:109:0
+  %43 : Long(1:13, 13:1) = aten::unsqueeze(%position_ids, %28), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:110:0
+  %input.1 : Long(17:0, 13:1) = aten::expand_as(%43, %input_ids), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:110:0
+  %45 : Tensor = prim::GetAttr[name="weight"](%40)
+  %word_embeddings : Float(17:9984, 13:768, 768:1) = aten::embedding(%45, %input_ids, %28, %30, %30), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.word_embeddings # torch/nn/functional.py:1814:0
+  %47 : Tensor = prim::GetAttr[name="weight"](%39)
+  %position_embeddings : Float(17:9984, 13:768, 768:1) = aten::embedding(%47, %input.1, %31, %30, %30), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.position_embeddings # torch/nn/functional.py:1814:0
+  %input.2 : Float(17:9984, 13:768, 768:1) = aten::add(%word_embeddings, %position_embeddings, %26), scope: __module.distilbert/__module.distilbert.embeddings # transformers/modeling_distilbert.py:115:0
+  %50 : Tensor = prim::GetAttr[name="bias"](%38)
+  %51 : Tensor = prim::GetAttr[name="weight"](%38)
+  %52 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.LayerNorm
+  %input.3 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.2, %52, %51, %50, %33, %32), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.LayerNorm # torch/nn/functional.py:2048:0
+  %query.1 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.3, %35, %30), scope: __module.distilbert/__module.distilbert.embeddings/__module.distilbert.embeddings.dropout # torch/nn/functional.py:973:0
+  %55 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %56 : __torch__.transformers.modeling_distilbert.___torch_mangle_14356.TransformerBlock = prim::GetAttr[name="5"](%55)
+  %57 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %58 : __torch__.transformers.modeling_distilbert.___torch_mangle_14343.TransformerBlock = prim::GetAttr[name="4"](%57)
+  %59 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %60 : __torch__.transformers.modeling_distilbert.___torch_mangle_14330.TransformerBlock = prim::GetAttr[name="3"](%59)
+  %61 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %62 : __torch__.transformers.modeling_distilbert.___torch_mangle_14317.TransformerBlock = prim::GetAttr[name="2"](%61)
+  %63 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %64 : __torch__.transformers.modeling_distilbert.___torch_mangle_14304.TransformerBlock = prim::GetAttr[name="1"](%63)
+  %65 : __torch__.torch.nn.modules.container.___torch_mangle_14357.ModuleList = prim::GetAttr[name="layer"](%36)
+  %66 : __torch__.transformers.modeling_distilbert.___torch_mangle_14291.TransformerBlock = prim::GetAttr[name="0"](%65)
+  %67 : __torch__.torch.nn.modules.normalization.___torch_mangle_14290.LayerNorm = prim::GetAttr[name="output_layer_norm"](%66)
+  %68 : __torch__.transformers.modeling_distilbert.___torch_mangle_14289.FFN = prim::GetAttr[name="ffn"](%66)
+  %69 : __torch__.torch.nn.modules.normalization.___torch_mangle_14285.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%66)
+  %70 : __torch__.transformers.modeling_distilbert.___torch_mangle_14284.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%66)
+  %71 : __torch__.torch.nn.modules.linear.___torch_mangle_14283.Linear = prim::GetAttr[name="out_lin"](%70)
+  %72 : __torch__.torch.nn.modules.linear.___torch_mangle_14282.Linear = prim::GetAttr[name="v_lin"](%70)
+  %73 : __torch__.torch.nn.modules.linear.___torch_mangle_14281.Linear = prim::GetAttr[name="k_lin"](%70)
+  %74 : __torch__.torch.nn.modules.linear.___torch_mangle_14280.Linear = prim::GetAttr[name="q_lin"](%70)
+  %75 : int = aten::size(%query.1, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:169:0
+  %76 : int = aten::size(%query.1, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:170:0
+  %77 : Tensor = prim::GetAttr[name="bias"](%74)
+  %78 : Tensor = prim::GetAttr[name="weight"](%74)
+  %79 : Float(768:1, 768:768) = aten::t(%78), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.1 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.1, %79), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.1 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.1, %77, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.q_lin # torch/nn/functional.py:1678:0
+  %82 : int[] = prim::ListConstruct(%75, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %83 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.1, %82), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %q.1 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%83, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %85 : Tensor = prim::GetAttr[name="bias"](%73)
+  %86 : Tensor = prim::GetAttr[name="weight"](%73)
+  %87 : Float(768:1, 768:768) = aten::t(%86), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.2 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.1, %87), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.2 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.2, %85, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.k_lin # torch/nn/functional.py:1678:0
+  %90 : int[] = prim::ListConstruct(%75, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %91 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.2, %90), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %k.1 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%91, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %93 : Tensor = prim::GetAttr[name="bias"](%72)
+  %94 : Tensor = prim::GetAttr[name="weight"](%72)
+  %95 : Float(768:1, 768:768) = aten::t(%94), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.3 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.1, %95), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.3 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.3, %93, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.v_lin # torch/nn/functional.py:1678:0
+  %98 : int[] = prim::ListConstruct(%75, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %99 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.3, %98), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %v.1 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%99, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:180:0
+  %q.2 : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.1, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:190:0
+  %102 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k.1, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:191:0
+  %scores.1 : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q.2, %102), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:191:0
+  %104 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # torch/tensor.py:22:0
+  %105 : int[] = prim::ListConstruct(%75, %26, %26, %76), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %106 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%104, %105), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:192:0
+  %mask.1 : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%106, %scores.1), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:192:0
+  %input.4 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores.1, %mask.1, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:193:0
+  %input.5 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.4, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # torch/nn/functional.py:1498:0
+  %weights.1 : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.5, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.dropout # torch/nn/functional.py:973:0
+  %x.4 : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights.1, %v.1), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:202:0
+  %112 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x.4, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:184:0
+  %113 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%112, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:184:0
+  %114 : int[] = prim::ListConstruct(%75, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention
+  %input.6 : Float(17:9984, 13:768, 768:1) = aten::view(%113, %114), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention # transformers/modeling_distilbert.py:184:0
+  %116 : Tensor = prim::GetAttr[name="bias"](%71)
+  %117 : Tensor = prim::GetAttr[name="weight"](%71)
+  %118 : Float(768:1, 768:768) = aten::t(%117), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.4 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.6, %118), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output.1 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.4, %116, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.attention/__module.distilbert.transformer.layer.0.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.7 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output.1, %query.1, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0 # transformers/modeling_distilbert.py:276:0
+  %122 : Tensor = prim::GetAttr[name="bias"](%69)
+  %123 : Tensor = prim::GetAttr[name="weight"](%69)
+  %124 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.sa_layer_norm
+  %input_tensor.1 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.7, %124, %123, %122, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.sa_layer_norm # torch/nn/functional.py:2048:0
+  %126 : __torch__.torch.nn.modules.linear.___torch_mangle_14288.Linear = prim::GetAttr[name="lin2"](%68)
+  %127 : __torch__.torch.nn.modules.linear.___torch_mangle_14287.Linear = prim::GetAttr[name="lin1"](%68)
+  %128 : Tensor = prim::GetAttr[name="bias"](%127)
+  %129 : Tensor = prim::GetAttr[name="weight"](%127)
+  %130 : Float(768:1, 3072:768) = aten::t(%129), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.5 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor.1, %130), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.8 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.5, %128, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.9 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.8), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn # torch/nn/functional.py:1369:0
+  %134 : Tensor = prim::GetAttr[name="bias"](%126)
+  %135 : Tensor = prim::GetAttr[name="weight"](%126)
+  %136 : Float(3072:1, 768:3072) = aten::t(%135), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.6 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.9, %136), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.10 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.6, %134, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output.1 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.10, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.ffn/__module.distilbert.transformer.layer.0.ffn.dropout # torch/nn/functional.py:973:0
+  %input.11 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output.1, %input_tensor.1, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0 # transformers/modeling_distilbert.py:280:0
+  %141 : Tensor = prim::GetAttr[name="bias"](%67)
+  %142 : Tensor = prim::GetAttr[name="weight"](%67)
+  %143 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.output_layer_norm
+  %query.2 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.11, %143, %142, %141, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.0/__module.distilbert.transformer.layer.0.output_layer_norm # torch/nn/functional.py:2048:0
+  %145 : __torch__.torch.nn.modules.normalization.___torch_mangle_14303.LayerNorm = prim::GetAttr[name="output_layer_norm"](%64)
+  %146 : __torch__.transformers.modeling_distilbert.___torch_mangle_14302.FFN = prim::GetAttr[name="ffn"](%64)
+  %147 : __torch__.torch.nn.modules.normalization.___torch_mangle_14298.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%64)
+  %148 : __torch__.transformers.modeling_distilbert.___torch_mangle_14297.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%64)
+  %149 : __torch__.torch.nn.modules.linear.___torch_mangle_14296.Linear = prim::GetAttr[name="out_lin"](%148)
+  %150 : __torch__.torch.nn.modules.linear.___torch_mangle_14295.Linear = prim::GetAttr[name="v_lin"](%148)
+  %151 : __torch__.torch.nn.modules.linear.___torch_mangle_14294.Linear = prim::GetAttr[name="k_lin"](%148)
+  %152 : __torch__.torch.nn.modules.linear.___torch_mangle_14293.Linear = prim::GetAttr[name="q_lin"](%148)
+  %153 : int = aten::size(%query.2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:169:0
+  %154 : int = aten::size(%query.2, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:170:0
+  %155 : Tensor = prim::GetAttr[name="bias"](%152)
+  %156 : Tensor = prim::GetAttr[name="weight"](%152)
+  %157 : Float(768:1, 768:768) = aten::t(%156), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.7 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.2, %157), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.5 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.7, %155, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.q_lin # torch/nn/functional.py:1678:0
+  %160 : int[] = prim::ListConstruct(%153, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention
+  %161 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.5, %160), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %q.3 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%161, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %163 : Tensor = prim::GetAttr[name="bias"](%151)
+  %164 : Tensor = prim::GetAttr[name="weight"](%151)
+  %165 : Float(768:1, 768:768) = aten::t(%164), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.8 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.2, %165), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.6 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.8, %163, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.k_lin # torch/nn/functional.py:1678:0
+  %168 : int[] = prim::ListConstruct(%153, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention
+  %169 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.6, %168), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %k.2 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%169, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %171 : Tensor = prim::GetAttr[name="bias"](%150)
+  %172 : Tensor = prim::GetAttr[name="weight"](%150)
+  %173 : Float(768:1, 768:768) = aten::t(%172), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.9 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.2, %173), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.7 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.9, %171, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.v_lin # torch/nn/functional.py:1678:0
+  %176 : int[] = prim::ListConstruct(%153, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention
+  %177 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.7, %176), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %v.2 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%177, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:180:0
+  %q.4 : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.3, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:190:0
+  %180 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k.2, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:191:0
+  %scores.2 : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q.4, %180), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:191:0
+  %182 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # torch/tensor.py:22:0
+  %183 : int[] = prim::ListConstruct(%153, %26, %26, %154), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention
+  %184 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%182, %183), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:192:0
+  %mask.2 : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%184, %scores.2), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:192:0
+  %input.12 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores.2, %mask.2, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:193:0
+  %input.13 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.12, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # torch/nn/functional.py:1498:0
+  %weights.2 : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.13, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.dropout # torch/nn/functional.py:973:0
+  %x.8 : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights.2, %v.2), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:202:0
+  %190 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x.8, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:184:0
+  %191 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%190, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:184:0
+  %192 : int[] = prim::ListConstruct(%153, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention
+  %input.14 : Float(17:9984, 13:768, 768:1) = aten::view(%191, %192), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention # transformers/modeling_distilbert.py:184:0
+  %194 : Tensor = prim::GetAttr[name="bias"](%149)
+  %195 : Tensor = prim::GetAttr[name="weight"](%149)
+  %196 : Float(768:1, 768:768) = aten::t(%195), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.10 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.14, %196), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output.2 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.10, %194, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.attention/__module.distilbert.transformer.layer.1.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.15 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output.2, %query.2, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1 # transformers/modeling_distilbert.py:276:0
+  %200 : Tensor = prim::GetAttr[name="bias"](%147)
+  %201 : Tensor = prim::GetAttr[name="weight"](%147)
+  %202 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.sa_layer_norm
+  %input_tensor.2 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.15, %202, %201, %200, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.sa_layer_norm # torch/nn/functional.py:2048:0
+  %204 : __torch__.torch.nn.modules.linear.___torch_mangle_14301.Linear = prim::GetAttr[name="lin2"](%146)
+  %205 : __torch__.torch.nn.modules.linear.___torch_mangle_14300.Linear = prim::GetAttr[name="lin1"](%146)
+  %206 : Tensor = prim::GetAttr[name="bias"](%205)
+  %207 : Tensor = prim::GetAttr[name="weight"](%205)
+  %208 : Float(768:1, 3072:768) = aten::t(%207), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.11 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor.2, %208), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.16 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.11, %206, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.17 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.16), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn # torch/nn/functional.py:1369:0
+  %212 : Tensor = prim::GetAttr[name="bias"](%204)
+  %213 : Tensor = prim::GetAttr[name="weight"](%204)
+  %214 : Float(3072:1, 768:3072) = aten::t(%213), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.12 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.17, %214), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.18 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.12, %212, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output.2 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.18, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.ffn/__module.distilbert.transformer.layer.1.ffn.dropout # torch/nn/functional.py:973:0
+  %input.19 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output.2, %input_tensor.2, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1 # transformers/modeling_distilbert.py:280:0
+  %219 : Tensor = prim::GetAttr[name="bias"](%145)
+  %220 : Tensor = prim::GetAttr[name="weight"](%145)
+  %221 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.output_layer_norm
+  %query.3 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.19, %221, %220, %219, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.1/__module.distilbert.transformer.layer.1.output_layer_norm # torch/nn/functional.py:2048:0
+  %223 : __torch__.torch.nn.modules.normalization.___torch_mangle_14316.LayerNorm = prim::GetAttr[name="output_layer_norm"](%62)
+  %224 : __torch__.transformers.modeling_distilbert.___torch_mangle_14315.FFN = prim::GetAttr[name="ffn"](%62)
+  %225 : __torch__.torch.nn.modules.normalization.___torch_mangle_14311.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%62)
+  %226 : __torch__.transformers.modeling_distilbert.___torch_mangle_14310.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%62)
+  %227 : __torch__.torch.nn.modules.linear.___torch_mangle_14309.Linear = prim::GetAttr[name="out_lin"](%226)
+  %228 : __torch__.torch.nn.modules.linear.___torch_mangle_14308.Linear = prim::GetAttr[name="v_lin"](%226)
+  %229 : __torch__.torch.nn.modules.linear.___torch_mangle_14307.Linear = prim::GetAttr[name="k_lin"](%226)
+  %230 : __torch__.torch.nn.modules.linear.___torch_mangle_14306.Linear = prim::GetAttr[name="q_lin"](%226)
+  %231 : int = aten::size(%query.3, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:169:0
+  %232 : int = aten::size(%query.3, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:170:0
+  %233 : Tensor = prim::GetAttr[name="bias"](%230)
+  %234 : Tensor = prim::GetAttr[name="weight"](%230)
+  %235 : Float(768:1, 768:768) = aten::t(%234), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.13 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.3, %235), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.9 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.13, %233, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.q_lin # torch/nn/functional.py:1678:0
+  %238 : int[] = prim::ListConstruct(%231, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention
+  %239 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.9, %238), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %q.5 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%239, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %241 : Tensor = prim::GetAttr[name="bias"](%229)
+  %242 : Tensor = prim::GetAttr[name="weight"](%229)
+  %243 : Float(768:1, 768:768) = aten::t(%242), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.14 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.3, %243), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.10 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.14, %241, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.k_lin # torch/nn/functional.py:1678:0
+  %246 : int[] = prim::ListConstruct(%231, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention
+  %247 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.10, %246), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %k.3 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%247, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %249 : Tensor = prim::GetAttr[name="bias"](%228)
+  %250 : Tensor = prim::GetAttr[name="weight"](%228)
+  %251 : Float(768:1, 768:768) = aten::t(%250), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.15 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.3, %251), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.11 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.15, %249, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.v_lin # torch/nn/functional.py:1678:0
+  %254 : int[] = prim::ListConstruct(%231, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention
+  %255 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.11, %254), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %v.3 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%255, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:180:0
+  %q.6 : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.5, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:190:0
+  %258 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k.3, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:191:0
+  %scores.3 : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q.6, %258), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:191:0
+  %260 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # torch/tensor.py:22:0
+  %261 : int[] = prim::ListConstruct(%231, %26, %26, %232), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention
+  %262 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%260, %261), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:192:0
+  %mask.3 : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%262, %scores.3), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:192:0
+  %input.20 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores.3, %mask.3, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:193:0
+  %input.21 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.20, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # torch/nn/functional.py:1498:0
+  %weights.3 : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.21, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.dropout # torch/nn/functional.py:973:0
+  %x.12 : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights.3, %v.3), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:202:0
+  %268 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x.12, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:184:0
+  %269 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%268, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:184:0
+  %270 : int[] = prim::ListConstruct(%231, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention
+  %input.22 : Float(17:9984, 13:768, 768:1) = aten::view(%269, %270), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention # transformers/modeling_distilbert.py:184:0
+  %272 : Tensor = prim::GetAttr[name="bias"](%227)
+  %273 : Tensor = prim::GetAttr[name="weight"](%227)
+  %274 : Float(768:1, 768:768) = aten::t(%273), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.16 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.22, %274), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output.3 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.16, %272, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.attention/__module.distilbert.transformer.layer.2.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.23 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output.3, %query.3, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2 # transformers/modeling_distilbert.py:276:0
+  %278 : Tensor = prim::GetAttr[name="bias"](%225)
+  %279 : Tensor = prim::GetAttr[name="weight"](%225)
+  %280 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.sa_layer_norm
+  %input_tensor.3 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.23, %280, %279, %278, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.sa_layer_norm # torch/nn/functional.py:2048:0
+  %282 : __torch__.torch.nn.modules.linear.___torch_mangle_14314.Linear = prim::GetAttr[name="lin2"](%224)
+  %283 : __torch__.torch.nn.modules.linear.___torch_mangle_14313.Linear = prim::GetAttr[name="lin1"](%224)
+  %284 : Tensor = prim::GetAttr[name="bias"](%283)
+  %285 : Tensor = prim::GetAttr[name="weight"](%283)
+  %286 : Float(768:1, 3072:768) = aten::t(%285), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.17 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor.3, %286), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.24 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.17, %284, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.25 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn # torch/nn/functional.py:1369:0
+  %290 : Tensor = prim::GetAttr[name="bias"](%282)
+  %291 : Tensor = prim::GetAttr[name="weight"](%282)
+  %292 : Float(3072:1, 768:3072) = aten::t(%291), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.18 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.25, %292), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.26 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.18, %290, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output.3 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.26, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.ffn/__module.distilbert.transformer.layer.2.ffn.dropout # torch/nn/functional.py:973:0
+  %input.27 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output.3, %input_tensor.3, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2 # transformers/modeling_distilbert.py:280:0
+  %297 : Tensor = prim::GetAttr[name="bias"](%223)
+  %298 : Tensor = prim::GetAttr[name="weight"](%223)
+  %299 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.output_layer_norm
+  %query.4 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.27, %299, %298, %297, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.2/__module.distilbert.transformer.layer.2.output_layer_norm # torch/nn/functional.py:2048:0
+  %301 : __torch__.torch.nn.modules.normalization.___torch_mangle_14329.LayerNorm = prim::GetAttr[name="output_layer_norm"](%60)
+  %302 : __torch__.transformers.modeling_distilbert.___torch_mangle_14328.FFN = prim::GetAttr[name="ffn"](%60)
+  %303 : __torch__.torch.nn.modules.normalization.___torch_mangle_14324.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%60)
+  %304 : __torch__.transformers.modeling_distilbert.___torch_mangle_14323.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%60)
+  %305 : __torch__.torch.nn.modules.linear.___torch_mangle_14322.Linear = prim::GetAttr[name="out_lin"](%304)
+  %306 : __torch__.torch.nn.modules.linear.___torch_mangle_14321.Linear = prim::GetAttr[name="v_lin"](%304)
+  %307 : __torch__.torch.nn.modules.linear.___torch_mangle_14320.Linear = prim::GetAttr[name="k_lin"](%304)
+  %308 : __torch__.torch.nn.modules.linear.___torch_mangle_14319.Linear = prim::GetAttr[name="q_lin"](%304)
+  %309 : int = aten::size(%query.4, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:169:0
+  %310 : int = aten::size(%query.4, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:170:0
+  %311 : Tensor = prim::GetAttr[name="bias"](%308)
+  %312 : Tensor = prim::GetAttr[name="weight"](%308)
+  %313 : Float(768:1, 768:768) = aten::t(%312), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.19 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.4, %313), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.13 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.19, %311, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.q_lin # torch/nn/functional.py:1678:0
+  %316 : int[] = prim::ListConstruct(%309, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention
+  %317 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.13, %316), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %q.7 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%317, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %319 : Tensor = prim::GetAttr[name="bias"](%307)
+  %320 : Tensor = prim::GetAttr[name="weight"](%307)
+  %321 : Float(768:1, 768:768) = aten::t(%320), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.20 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.4, %321), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.14 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.20, %319, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.k_lin # torch/nn/functional.py:1678:0
+  %324 : int[] = prim::ListConstruct(%309, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention
+  %325 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.14, %324), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %k.4 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%325, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %327 : Tensor = prim::GetAttr[name="bias"](%306)
+  %328 : Tensor = prim::GetAttr[name="weight"](%306)
+  %329 : Float(768:1, 768:768) = aten::t(%328), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.21 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.4, %329), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.15 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.21, %327, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.v_lin # torch/nn/functional.py:1678:0
+  %332 : int[] = prim::ListConstruct(%309, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention
+  %333 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.15, %332), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %v.4 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%333, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:180:0
+  %q.8 : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.7, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:190:0
+  %336 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k.4, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:191:0
+  %scores.4 : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q.8, %336), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:191:0
+  %338 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # torch/tensor.py:22:0
+  %339 : int[] = prim::ListConstruct(%309, %26, %26, %310), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention
+  %340 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%338, %339), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:192:0
+  %mask.4 : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%340, %scores.4), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:192:0
+  %input.28 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores.4, %mask.4, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:193:0
+  %input.29 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.28, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # torch/nn/functional.py:1498:0
+  %weights.4 : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.29, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.dropout # torch/nn/functional.py:973:0
+  %x.16 : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights.4, %v.4), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:202:0
+  %346 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x.16, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:184:0
+  %347 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%346, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:184:0
+  %348 : int[] = prim::ListConstruct(%309, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention
+  %input.30 : Float(17:9984, 13:768, 768:1) = aten::view(%347, %348), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention # transformers/modeling_distilbert.py:184:0
+  %350 : Tensor = prim::GetAttr[name="bias"](%305)
+  %351 : Tensor = prim::GetAttr[name="weight"](%305)
+  %352 : Float(768:1, 768:768) = aten::t(%351), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.22 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.30, %352), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output.4 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.22, %350, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.attention/__module.distilbert.transformer.layer.3.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.31 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output.4, %query.4, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3 # transformers/modeling_distilbert.py:276:0
+  %356 : Tensor = prim::GetAttr[name="bias"](%303)
+  %357 : Tensor = prim::GetAttr[name="weight"](%303)
+  %358 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.sa_layer_norm
+  %input_tensor.4 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.31, %358, %357, %356, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.sa_layer_norm # torch/nn/functional.py:2048:0
+  %360 : __torch__.torch.nn.modules.linear.___torch_mangle_14327.Linear = prim::GetAttr[name="lin2"](%302)
+  %361 : __torch__.torch.nn.modules.linear.___torch_mangle_14326.Linear = prim::GetAttr[name="lin1"](%302)
+  %362 : Tensor = prim::GetAttr[name="bias"](%361)
+  %363 : Tensor = prim::GetAttr[name="weight"](%361)
+  %364 : Float(768:1, 3072:768) = aten::t(%363), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.23 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor.4, %364), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.32 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.23, %362, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.33 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn # torch/nn/functional.py:1369:0
+  %368 : Tensor = prim::GetAttr[name="bias"](%360)
+  %369 : Tensor = prim::GetAttr[name="weight"](%360)
+  %370 : Float(3072:1, 768:3072) = aten::t(%369), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.24 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.33, %370), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.34 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.24, %368, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output.4 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.34, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.ffn/__module.distilbert.transformer.layer.3.ffn.dropout # torch/nn/functional.py:973:0
+  %input.35 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output.4, %input_tensor.4, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3 # transformers/modeling_distilbert.py:280:0
+  %375 : Tensor = prim::GetAttr[name="bias"](%301)
+  %376 : Tensor = prim::GetAttr[name="weight"](%301)
+  %377 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.output_layer_norm
+  %query.5 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.35, %377, %376, %375, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.3/__module.distilbert.transformer.layer.3.output_layer_norm # torch/nn/functional.py:2048:0
+  %379 : __torch__.torch.nn.modules.normalization.___torch_mangle_14342.LayerNorm = prim::GetAttr[name="output_layer_norm"](%58)
+  %380 : __torch__.transformers.modeling_distilbert.___torch_mangle_14341.FFN = prim::GetAttr[name="ffn"](%58)
+  %381 : __torch__.torch.nn.modules.normalization.___torch_mangle_14337.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%58)
+  %382 : __torch__.transformers.modeling_distilbert.___torch_mangle_14336.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%58)
+  %383 : __torch__.torch.nn.modules.linear.___torch_mangle_14335.Linear = prim::GetAttr[name="out_lin"](%382)
+  %384 : __torch__.torch.nn.modules.linear.___torch_mangle_14334.Linear = prim::GetAttr[name="v_lin"](%382)
+  %385 : __torch__.torch.nn.modules.linear.___torch_mangle_14333.Linear = prim::GetAttr[name="k_lin"](%382)
+  %386 : __torch__.torch.nn.modules.linear.___torch_mangle_14332.Linear = prim::GetAttr[name="q_lin"](%382)
+  %387 : int = aten::size(%query.5, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:169:0
+  %388 : int = aten::size(%query.5, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:170:0
+  %389 : Tensor = prim::GetAttr[name="bias"](%386)
+  %390 : Tensor = prim::GetAttr[name="weight"](%386)
+  %391 : Float(768:1, 768:768) = aten::t(%390), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.25 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.5, %391), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.17 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.25, %389, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.q_lin # torch/nn/functional.py:1678:0
+  %394 : int[] = prim::ListConstruct(%387, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention
+  %395 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.17, %394), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %q.9 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%395, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %397 : Tensor = prim::GetAttr[name="bias"](%385)
+  %398 : Tensor = prim::GetAttr[name="weight"](%385)
+  %399 : Float(768:1, 768:768) = aten::t(%398), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.26 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.5, %399), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.18 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.26, %397, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.k_lin # torch/nn/functional.py:1678:0
+  %402 : int[] = prim::ListConstruct(%387, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention
+  %403 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.18, %402), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %k.5 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%403, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %405 : Tensor = prim::GetAttr[name="bias"](%384)
+  %406 : Tensor = prim::GetAttr[name="weight"](%384)
+  %407 : Float(768:1, 768:768) = aten::t(%406), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.27 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query.5, %407), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.19 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.27, %405, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.v_lin # torch/nn/functional.py:1678:0
+  %410 : int[] = prim::ListConstruct(%387, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention
+  %411 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.19, %410), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %v.5 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%411, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:180:0
+  %q.10 : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.9, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:190:0
+  %414 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k.5, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:191:0
+  %scores.5 : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q.10, %414), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:191:0
+  %416 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # torch/tensor.py:22:0
+  %417 : int[] = prim::ListConstruct(%387, %26, %26, %388), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention
+  %418 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%416, %417), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:192:0
+  %mask.5 : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%418, %scores.5), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:192:0
+  %input.36 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores.5, %mask.5, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:193:0
+  %input.37 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.36, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # torch/nn/functional.py:1498:0
+  %weights.5 : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.37, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.dropout # torch/nn/functional.py:973:0
+  %x.20 : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights.5, %v.5), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:202:0
+  %424 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x.20, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:184:0
+  %425 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%424, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:184:0
+  %426 : int[] = prim::ListConstruct(%387, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention
+  %input.38 : Float(17:9984, 13:768, 768:1) = aten::view(%425, %426), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention # transformers/modeling_distilbert.py:184:0
+  %428 : Tensor = prim::GetAttr[name="bias"](%383)
+  %429 : Tensor = prim::GetAttr[name="weight"](%383)
+  %430 : Float(768:1, 768:768) = aten::t(%429), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.28 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.38, %430), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output.5 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.28, %428, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.attention/__module.distilbert.transformer.layer.4.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.39 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output.5, %query.5, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4 # transformers/modeling_distilbert.py:276:0
+  %434 : Tensor = prim::GetAttr[name="bias"](%381)
+  %435 : Tensor = prim::GetAttr[name="weight"](%381)
+  %436 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.sa_layer_norm
+  %input_tensor.5 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.39, %436, %435, %434, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.sa_layer_norm # torch/nn/functional.py:2048:0
+  %438 : __torch__.torch.nn.modules.linear.___torch_mangle_14340.Linear = prim::GetAttr[name="lin2"](%380)
+  %439 : __torch__.torch.nn.modules.linear.___torch_mangle_14339.Linear = prim::GetAttr[name="lin1"](%380)
+  %440 : Tensor = prim::GetAttr[name="bias"](%439)
+  %441 : Tensor = prim::GetAttr[name="weight"](%439)
+  %442 : Float(768:1, 3072:768) = aten::t(%441), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.29 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor.5, %442), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.40 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.29, %440, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.41 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.40), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn # torch/nn/functional.py:1369:0
+  %446 : Tensor = prim::GetAttr[name="bias"](%438)
+  %447 : Tensor = prim::GetAttr[name="weight"](%438)
+  %448 : Float(3072:1, 768:3072) = aten::t(%447), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.30 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.41, %448), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.42 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.30, %446, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output.5 : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.42, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.ffn/__module.distilbert.transformer.layer.4.ffn.dropout # torch/nn/functional.py:973:0
+  %input.43 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output.5, %input_tensor.5, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4 # transformers/modeling_distilbert.py:280:0
+  %453 : Tensor = prim::GetAttr[name="bias"](%379)
+  %454 : Tensor = prim::GetAttr[name="weight"](%379)
+  %455 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.output_layer_norm
+  %query : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.43, %455, %454, %453, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.4/__module.distilbert.transformer.layer.4.output_layer_norm # torch/nn/functional.py:2048:0
+  %457 : __torch__.torch.nn.modules.normalization.___torch_mangle_14355.LayerNorm = prim::GetAttr[name="output_layer_norm"](%56)
+  %458 : __torch__.transformers.modeling_distilbert.___torch_mangle_14354.FFN = prim::GetAttr[name="ffn"](%56)
+  %459 : __torch__.torch.nn.modules.normalization.___torch_mangle_14350.LayerNorm = prim::GetAttr[name="sa_layer_norm"](%56)
+  %460 : __torch__.transformers.modeling_distilbert.___torch_mangle_14349.MultiHeadSelfAttention = prim::GetAttr[name="attention"](%56)
+  %461 : __torch__.torch.nn.modules.linear.___torch_mangle_14348.Linear = prim::GetAttr[name="out_lin"](%460)
+  %462 : __torch__.torch.nn.modules.linear.___torch_mangle_14347.Linear = prim::GetAttr[name="v_lin"](%460)
+  %463 : __torch__.torch.nn.modules.linear.___torch_mangle_14346.Linear = prim::GetAttr[name="k_lin"](%460)
+  %464 : __torch__.torch.nn.modules.linear.___torch_mangle_14345.Linear = prim::GetAttr[name="q_lin"](%460)
+  %465 : int = aten::size(%query, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:169:0
+  %466 : int = aten::size(%query, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:170:0
+  %467 : Tensor = prim::GetAttr[name="bias"](%464)
+  %468 : Tensor = prim::GetAttr[name="weight"](%464)
+  %469 : Float(768:1, 768:768) = aten::t(%468), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.q_lin # torch/nn/functional.py:1676:0
+  %output.31 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query, %469), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.q_lin # torch/nn/functional.py:1676:0
+  %x.21 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.31, %467, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.q_lin # torch/nn/functional.py:1678:0
+  %472 : int[] = prim::ListConstruct(%465, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention
+  %473 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.21, %472), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %q.11 : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%473, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %475 : Tensor = prim::GetAttr[name="bias"](%463)
+  %476 : Tensor = prim::GetAttr[name="weight"](%463)
+  %477 : Float(768:1, 768:768) = aten::t(%476), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.k_lin # torch/nn/functional.py:1676:0
+  %output.32 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query, %477), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.k_lin # torch/nn/functional.py:1676:0
+  %x.22 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.32, %475, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.k_lin # torch/nn/functional.py:1678:0
+  %480 : int[] = prim::ListConstruct(%465, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention
+  %481 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.22, %480), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %k : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%481, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %483 : Tensor = prim::GetAttr[name="bias"](%462)
+  %484 : Tensor = prim::GetAttr[name="weight"](%462)
+  %485 : Float(768:1, 768:768) = aten::t(%484), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.v_lin # torch/nn/functional.py:1676:0
+  %output.33 : Float(17:9984, 13:768, 768:1) = aten::matmul(%query, %485), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.v_lin # torch/nn/functional.py:1676:0
+  %x.23 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.33, %483, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.v_lin # torch/nn/functional.py:1678:0
+  %488 : int[] = prim::ListConstruct(%465, %31, %19, %20), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention
+  %489 : Float(17:9984, 13:768, 12:64, 64:1) = aten::view(%x.23, %488), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %v : Float(17:9984, 12:64, 13:768, 64:1) = aten::transpose(%489, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:180:0
+  %q : Float(17:9984, 12:64, 13:768, 64:1) = aten::div(%q.11, %22), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:190:0
+  %492 : Float(17:9984, 12:64, 64:1, 13:768) = aten::transpose(%k, %21, %23), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:191:0
+  %scores : Float(17:2028, 12:169, 13:13, 13:1) = aten::matmul(%q, %492), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:191:0
+  %494 : Bool(17:13, 13:1) = aten::eq(%2, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # torch/tensor.py:22:0
+  %495 : int[] = prim::ListConstruct(%465, %26, %26, %466), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention
+  %496 : Bool(17:13, 1:13, 1:13, 13:1) = aten::view(%494, %495), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:192:0
+  %mask : Bool(17:13, 12:0, 13:0, 13:1) = aten::expand_as(%496, %scores), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:192:0
+  %input.44 : Float(17:2028, 12:169, 13:13, 13:1) = aten::masked_fill_(%scores, %mask, %24), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:193:0
+  %input.45 : Float(17:2028, 12:169, 13:13, 13:1) = aten::softmax(%input.44, %31, %25), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # torch/nn/functional.py:1498:0
+  %weights : Float(17:2028, 12:169, 13:13, 13:1) = aten::dropout(%input.45, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.dropout # torch/nn/functional.py:973:0
+  %x : Float(17:9984, 12:832, 13:64, 64:1) = aten::matmul(%weights, %v), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:202:0
+  %502 : Float(17:9984, 13:64, 12:832, 64:1) = aten::transpose(%x, %26, %21), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:184:0
+  %503 : Float(17:9984, 13:768, 12:64, 64:1) = aten::contiguous(%502, %28), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:184:0
+  %504 : int[] = prim::ListConstruct(%465, %31, %34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention
+  %input.46 : Float(17:9984, 13:768, 768:1) = aten::view(%503, %504), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention # transformers/modeling_distilbert.py:184:0
+  %506 : Tensor = prim::GetAttr[name="bias"](%461)
+  %507 : Tensor = prim::GetAttr[name="weight"](%461)
+  %508 : Float(768:1, 768:768) = aten::t(%507), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.out_lin # torch/nn/functional.py:1676:0
+  %output.34 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.46, %508), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.out_lin # torch/nn/functional.py:1676:0
+  %sa_output : Float(17:9984, 13:768, 768:1) = aten::add_(%output.34, %506, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.attention/__module.distilbert.transformer.layer.5.attention.out_lin # torch/nn/functional.py:1678:0
+  %input.47 : Float(17:9984, 13:768, 768:1) = aten::add(%sa_output, %query, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5 # transformers/modeling_distilbert.py:276:0
+  %512 : Tensor = prim::GetAttr[name="bias"](%459)
+  %513 : Tensor = prim::GetAttr[name="weight"](%459)
+  %514 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.sa_layer_norm
+  %input_tensor : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.47, %514, %513, %512, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.sa_layer_norm # torch/nn/functional.py:2048:0
+  %516 : __torch__.torch.nn.modules.linear.___torch_mangle_14353.Linear = prim::GetAttr[name="lin2"](%458)
+  %517 : __torch__.torch.nn.modules.linear.___torch_mangle_14352.Linear = prim::GetAttr[name="lin1"](%458)
+  %518 : Tensor = prim::GetAttr[name="bias"](%517)
+  %519 : Tensor = prim::GetAttr[name="weight"](%517)
+  %520 : Float(768:1, 3072:768) = aten::t(%519), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin1 # torch/nn/functional.py:1676:0
+  %output.35 : Float(17:39936, 13:3072, 3072:1) = aten::matmul(%input_tensor, %520), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin1 # torch/nn/functional.py:1676:0
+  %input.48 : Float(17:39936, 13:3072, 3072:1) = aten::add_(%output.35, %518, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin1 # torch/nn/functional.py:1678:0
+  %input.49 : Float(17:39936, 13:3072, 3072:1) = aten::gelu(%input.48), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn # torch/nn/functional.py:1369:0
+  %524 : Tensor = prim::GetAttr[name="bias"](%516)
+  %525 : Tensor = prim::GetAttr[name="weight"](%516)
+  %526 : Float(3072:1, 768:3072) = aten::t(%525), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin2 # torch/nn/functional.py:1676:0
+  %output.36 : Float(17:9984, 13:768, 768:1) = aten::matmul(%input.49, %526), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin2 # torch/nn/functional.py:1676:0
+  %input.50 : Float(17:9984, 13:768, 768:1) = aten::add_(%output.36, %524, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.lin2 # torch/nn/functional.py:1678:0
+  %ffn_output : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.50, %35, %30), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.ffn/__module.distilbert.transformer.layer.5.ffn.dropout # torch/nn/functional.py:973:0
+  %input.51 : Float(17:9984, 13:768, 768:1) = aten::add(%ffn_output, %input_tensor, %26), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5 # transformers/modeling_distilbert.py:280:0
+  %531 : Tensor = prim::GetAttr[name="bias"](%457)
+  %532 : Tensor = prim::GetAttr[name="weight"](%457)
+  %533 : int[] = prim::ListConstruct(%34), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.output_layer_norm
+  %input.52 : Float(17:9984, 13:768, 768:1) = aten::layer_norm(%input.51, %533, %532, %531, %33, %32), scope: __module.distilbert/__module.distilbert.transformer/__module.distilbert.transformer.layer.5/__module.distilbert.transformer.layer.5.output_layer_norm # torch/nn/functional.py:2048:0
+  %535 : bool = prim::Constant[value=0](), scope: __module.dropout # torch/nn/functional.py:973:0
+  %536 : float = prim::Constant[value=0.10000000000000001](), scope: __module.dropout # torch/nn/functional.py:973:0
+  %input : Float(17:9984, 13:768, 768:1) = aten::dropout(%input.52, %536, %535), scope: __module.dropout # torch/nn/functional.py:973:0
+  %538 : int = prim::Constant[value=1](), scope: __module.qa_outputs # torch/nn/functional.py:1678:0
+  %539 : Tensor = prim::GetAttr[name="bias"](%3)
+  %540 : Tensor = prim::GetAttr[name="weight"](%3)
+  %541 : Float(768:1, 2:768) = aten::t(%540), scope: __module.qa_outputs # torch/nn/functional.py:1676:0
+  %output : Float(17:26, 13:2, 2:1) = aten::matmul(%input, %541), scope: __module.qa_outputs # torch/nn/functional.py:1676:0
+  %543 : Float(17:26, 13:2, 2:1) = aten::add_(%output, %539, %538), scope: __module.qa_outputs # torch/nn/functional.py:1678:0
+  %9 : int = prim::Constant[value=1]() # torch/tensor.py:371:0
+  %10 : int = prim::Constant[value=-1]() # torch/tensor.py:371:0
+  %11 : Tensor[] = aten::split(%543, %9, %10) # torch/tensor.py:371:0
+  %start_logits : Float(17:26, 13:2, 1:1), %end_logits : Float(17:26, 13:2, 1:1) = prim::ListUnpack(%11)
+  %14 : int = prim::Constant[value=-1]() # transformers/modeling_distilbert.py:739:0
+  %15 : Float(17:26, 13:2) = aten::squeeze(%start_logits, %14) # transformers/modeling_distilbert.py:739:0
+  %16 : int = prim::Constant[value=-1]() # transformers/modeling_distilbert.py:740:0
+  %17 : Float(17:26, 13:2) = aten::squeeze(%end_logits, %16) # transformers/modeling_distilbert.py:740:0
+  %18 : (Float(17:26, 13:2), Float(17:26, 13:2)) = prim::TupleConstruct(%15, %17)
+  return (%18)

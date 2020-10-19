@@ -1,0 +1,876 @@
+DenseNet(
+  (features): Sequential(
+    (conv0): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (norm0): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu0): ReLU(inplace=True)
+    (pool0): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (denseblock1): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(64, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(96, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(192, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(224, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition1): _Transition(
+      (norm): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock2): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(192, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(224, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(288, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(352, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(352, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(416, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(416, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(448, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(480, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(480, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition2): _Transition(
+      (norm): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock3): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(288, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(320, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(352, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(352, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(384, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(416, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(416, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(448, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(480, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(480, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(544, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(544, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(576, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(608, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(608, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer13): _DenseLayer(
+        (norm1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer14): _DenseLayer(
+        (norm1): BatchNorm2d(672, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(672, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer15): _DenseLayer(
+        (norm1): BatchNorm2d(704, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(704, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer16): _DenseLayer(
+        (norm1): BatchNorm2d(736, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(736, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer17): _DenseLayer(
+        (norm1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer18): _DenseLayer(
+        (norm1): BatchNorm2d(800, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(800, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer19): _DenseLayer(
+        (norm1): BatchNorm2d(832, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer20): _DenseLayer(
+        (norm1): BatchNorm2d(864, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(864, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer21): _DenseLayer(
+        (norm1): BatchNorm2d(896, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(896, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer22): _DenseLayer(
+        (norm1): BatchNorm2d(928, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(928, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer23): _DenseLayer(
+        (norm1): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer24): _DenseLayer(
+        (norm1): BatchNorm2d(992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(992, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (transition3): _Transition(
+      (norm): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): AvgPool2d(kernel_size=2, stride=2, padding=0)
+    )
+    (denseblock4): _DenseBlock(
+      (denselayer1): _DenseLayer(
+        (norm1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer2): _DenseLayer(
+        (norm1): BatchNorm2d(544, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(544, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer3): _DenseLayer(
+        (norm1): BatchNorm2d(576, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(576, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer4): _DenseLayer(
+        (norm1): BatchNorm2d(608, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(608, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer5): _DenseLayer(
+        (norm1): BatchNorm2d(640, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(640, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer6): _DenseLayer(
+        (norm1): BatchNorm2d(672, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(672, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer7): _DenseLayer(
+        (norm1): BatchNorm2d(704, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(704, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer8): _DenseLayer(
+        (norm1): BatchNorm2d(736, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(736, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer9): _DenseLayer(
+        (norm1): BatchNorm2d(768, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer10): _DenseLayer(
+        (norm1): BatchNorm2d(800, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(800, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer11): _DenseLayer(
+        (norm1): BatchNorm2d(832, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(832, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer12): _DenseLayer(
+        (norm1): BatchNorm2d(864, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(864, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer13): _DenseLayer(
+        (norm1): BatchNorm2d(896, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(896, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer14): _DenseLayer(
+        (norm1): BatchNorm2d(928, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(928, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer15): _DenseLayer(
+        (norm1): BatchNorm2d(960, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(960, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (denselayer16): _DenseLayer(
+        (norm1): BatchNorm2d(992, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu1): ReLU(inplace=True)
+        (conv1): Conv2d(992, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (norm2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu2): ReLU(inplace=True)
+        (conv2): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (norm5): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  )
+  (classifier): Linear(in_features=1024, out_features=1000, bias=True)
+)
+
+DenseNet.classifier
+Linear.forward
+  graph(%self : __torch__.torch.nn.modules.linear.Linear,
+        %input.1 : Tensor):
+    %5 : Function = prim::Constant[name="linear"]()
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::GetAttr[name="bias"](%self)
+    %6 : Tensor = prim::CallFunction(%5, %input.1, %3, %4) # torch/nn/modules/linear.py:91:15
+    return (%6)
+
+DenseNet.features
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="norm0"](%self)
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu0"](%self)
+    %9 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="pool0"](%self)
+    %11 : __torch__.torchvision.models.densenet._DenseBlock = prim::GetAttr[name="denseblock1"](%self)
+    %13 : __torch__.torchvision.models.densenet._Transition = prim::GetAttr[name="transition1"](%self)
+    %15 : __torch__.torchvision.models.densenet._DenseBlock = prim::GetAttr[name="denseblock2"](%self)
+    %17 : __torch__.torchvision.models.densenet._Transition = prim::GetAttr[name="transition2"](%self)
+    %19 : __torch__.torchvision.models.densenet._DenseBlock = prim::GetAttr[name="denseblock3"](%self)
+    %21 : __torch__.torchvision.models.densenet._Transition = prim::GetAttr[name="transition3"](%self)
+    %23 : __torch__.torchvision.models.densenet._DenseBlock = prim::GetAttr[name="denseblock4"](%self)
+    %25 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="norm5"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    %input.13 : Tensor = prim::CallMethod[name="forward"](%13, %input.11) # torch/nn/modules/container.py:117:20
+    %input.15 : Tensor = prim::CallMethod[name="forward"](%15, %input.13) # torch/nn/modules/container.py:117:20
+    %input.17 : Tensor = prim::CallMethod[name="forward"](%17, %input.15) # torch/nn/modules/container.py:117:20
+    %input.19 : Tensor = prim::CallMethod[name="forward"](%19, %input.17) # torch/nn/modules/container.py:117:20
+    %input.21 : Tensor = prim::CallMethod[name="forward"](%21, %input.19) # torch/nn/modules/container.py:117:20
+    %input.23 : Tensor = prim::CallMethod[name="forward"](%23, %input.21) # torch/nn/modules/container.py:117:20
+    %input.25 : Tensor = prim::CallMethod[name="forward"](%25, %input.23) # torch/nn/modules/container.py:117:20
+    return (%input.25)
+
+DenseNet.forward
+  graph(%self : __torch__.torchvision.models.densenet.DenseNet,
+        %x.1 : Tensor):
+    %16 : int = prim::Constant[value=-1]()
+    %13 : Function = prim::Constant[name="adaptive_avg_pool2d"]()
+    %7 : Function = prim::Constant[name="relu"]()
+    %6 : bool = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:193:39
+    %10 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:194:42
+    %2 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="features"](%self)
+    %features.1 : Tensor = prim::CallMethod[name="forward"](%2, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:192:19
+    %out.1 : Tensor = prim::CallFunction(%7, %features.1, %6) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:193:14
+    %12 : int[] = prim::ListConstruct(%10, %10)
+    %out.3 : Tensor = prim::CallFunction(%13, %out.1, %12) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:194:14
+    %out.5 : Tensor = aten::flatten(%out.3, %10, %16) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:195:14
+    %18 : __torch__.torch.nn.modules.linear.Linear = prim::GetAttr[name="classifier"](%self)
+    %out.7 : Tensor = prim::CallMethod[name="forward"](%18, %out.5) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:196:14
+    return (%out.7)
+
+Sequential.conv0
+Conv2d.forward
+_DenseLayer.conv1
+_DenseLayer.conv2
+_Transition.conv
+  graph(%self : __torch__.torch.nn.modules.conv.Conv2d,
+        %input.1 : Tensor):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::CallMethod[name="_conv_forward"](%self, %input.1, %3) # torch/nn/modules/conv.py:419:15
+    return (%4)
+
+Sequential.denseblock1
+_DenseBlock.forward
+  graph(%self : __torch__.torchvision.models.densenet._DenseBlock,
+        %init_features.1 : Tensor):
+    %22 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:110:8
+    %features.1 : Tensor[] = prim::ListConstruct(%init_features.1)
+    %5 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer1"](%self)
+    %7 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer2"](%self)
+    %9 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer3"](%self)
+    %11 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer4"](%self)
+    %13 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer5"](%self)
+    %15 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer6"](%self)
+    %new_features.1 : Tensor = prim::CallMethod[name="forward__0"](%5, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %21 : Tensor[] = aten::append(%features.1, %new_features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.3 : Tensor = prim::CallMethod[name="forward__0"](%7, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %27 : Tensor[] = aten::append(%features.1, %new_features.3) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.5 : Tensor = prim::CallMethod[name="forward__0"](%9, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %33 : Tensor[] = aten::append(%features.1, %new_features.5) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.7 : Tensor = prim::CallMethod[name="forward__0"](%11, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %39 : Tensor[] = aten::append(%features.1, %new_features.7) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.9 : Tensor = prim::CallMethod[name="forward__0"](%13, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %45 : Tensor[] = aten::append(%features.1, %new_features.9) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.11 : Tensor = prim::CallMethod[name="forward__0"](%15, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %51 : Tensor[] = aten::append(%features.1, %new_features.11) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %53 : Tensor = aten::cat(%features.1, %22) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:113:15
+    return (%53)
+
+Sequential.denseblock2
+_DenseBlock.forward
+  graph(%self : __torch__.torchvision.models.densenet._DenseBlock,
+        %init_features.1 : Tensor):
+    %34 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:110:8
+    %features.1 : Tensor[] = prim::ListConstruct(%init_features.1)
+    %5 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer1"](%self)
+    %7 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer2"](%self)
+    %9 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer3"](%self)
+    %11 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer4"](%self)
+    %13 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer5"](%self)
+    %15 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer6"](%self)
+    %17 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer7"](%self)
+    %19 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer8"](%self)
+    %21 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer9"](%self)
+    %23 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer10"](%self)
+    %25 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer11"](%self)
+    %27 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer12"](%self)
+    %new_features.1 : Tensor = prim::CallMethod[name="forward__0"](%5, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %33 : Tensor[] = aten::append(%features.1, %new_features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.3 : Tensor = prim::CallMethod[name="forward__0"](%7, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %39 : Tensor[] = aten::append(%features.1, %new_features.3) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.5 : Tensor = prim::CallMethod[name="forward__0"](%9, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %45 : Tensor[] = aten::append(%features.1, %new_features.5) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.7 : Tensor = prim::CallMethod[name="forward__0"](%11, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %51 : Tensor[] = aten::append(%features.1, %new_features.7) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.9 : Tensor = prim::CallMethod[name="forward__0"](%13, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %57 : Tensor[] = aten::append(%features.1, %new_features.9) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.11 : Tensor = prim::CallMethod[name="forward__0"](%15, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %63 : Tensor[] = aten::append(%features.1, %new_features.11) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.13 : Tensor = prim::CallMethod[name="forward__0"](%17, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %69 : Tensor[] = aten::append(%features.1, %new_features.13) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.15 : Tensor = prim::CallMethod[name="forward__0"](%19, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %75 : Tensor[] = aten::append(%features.1, %new_features.15) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.17 : Tensor = prim::CallMethod[name="forward__0"](%21, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %81 : Tensor[] = aten::append(%features.1, %new_features.17) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.19 : Tensor = prim::CallMethod[name="forward__0"](%23, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %87 : Tensor[] = aten::append(%features.1, %new_features.19) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.21 : Tensor = prim::CallMethod[name="forward__0"](%25, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %93 : Tensor[] = aten::append(%features.1, %new_features.21) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.23 : Tensor = prim::CallMethod[name="forward__0"](%27, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %99 : Tensor[] = aten::append(%features.1, %new_features.23) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %101 : Tensor = aten::cat(%features.1, %34) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:113:15
+    return (%101)
+
+Sequential.denseblock3
+_DenseBlock.forward
+  graph(%self : __torch__.torchvision.models.densenet._DenseBlock,
+        %init_features.1 : Tensor):
+    %58 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:110:8
+    %features.1 : Tensor[] = prim::ListConstruct(%init_features.1)
+    %5 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer1"](%self)
+    %7 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer2"](%self)
+    %9 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer3"](%self)
+    %11 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer4"](%self)
+    %13 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer5"](%self)
+    %15 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer6"](%self)
+    %17 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer7"](%self)
+    %19 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer8"](%self)
+    %21 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer9"](%self)
+    %23 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer10"](%self)
+    %25 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer11"](%self)
+    %27 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer12"](%self)
+    %29 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer13"](%self)
+    %31 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer14"](%self)
+    %33 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer15"](%self)
+    %35 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer16"](%self)
+    %37 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer17"](%self)
+    %39 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer18"](%self)
+    %41 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer19"](%self)
+    %43 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer20"](%self)
+    %45 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer21"](%self)
+    %47 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer22"](%self)
+    %49 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer23"](%self)
+    %51 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer24"](%self)
+    %new_features.1 : Tensor = prim::CallMethod[name="forward__0"](%5, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %57 : Tensor[] = aten::append(%features.1, %new_features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.3 : Tensor = prim::CallMethod[name="forward__0"](%7, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %63 : Tensor[] = aten::append(%features.1, %new_features.3) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.5 : Tensor = prim::CallMethod[name="forward__0"](%9, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %69 : Tensor[] = aten::append(%features.1, %new_features.5) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.7 : Tensor = prim::CallMethod[name="forward__0"](%11, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %75 : Tensor[] = aten::append(%features.1, %new_features.7) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.9 : Tensor = prim::CallMethod[name="forward__0"](%13, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %81 : Tensor[] = aten::append(%features.1, %new_features.9) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.11 : Tensor = prim::CallMethod[name="forward__0"](%15, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %87 : Tensor[] = aten::append(%features.1, %new_features.11) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.13 : Tensor = prim::CallMethod[name="forward__0"](%17, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %93 : Tensor[] = aten::append(%features.1, %new_features.13) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.15 : Tensor = prim::CallMethod[name="forward__0"](%19, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %99 : Tensor[] = aten::append(%features.1, %new_features.15) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.17 : Tensor = prim::CallMethod[name="forward__0"](%21, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %105 : Tensor[] = aten::append(%features.1, %new_features.17) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.19 : Tensor = prim::CallMethod[name="forward__0"](%23, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %111 : Tensor[] = aten::append(%features.1, %new_features.19) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.21 : Tensor = prim::CallMethod[name="forward__0"](%25, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %117 : Tensor[] = aten::append(%features.1, %new_features.21) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.23 : Tensor = prim::CallMethod[name="forward__0"](%27, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %123 : Tensor[] = aten::append(%features.1, %new_features.23) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.25 : Tensor = prim::CallMethod[name="forward__0"](%29, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %129 : Tensor[] = aten::append(%features.1, %new_features.25) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.27 : Tensor = prim::CallMethod[name="forward__0"](%31, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %135 : Tensor[] = aten::append(%features.1, %new_features.27) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.29 : Tensor = prim::CallMethod[name="forward__0"](%33, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %141 : Tensor[] = aten::append(%features.1, %new_features.29) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.31 : Tensor = prim::CallMethod[name="forward__0"](%35, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %147 : Tensor[] = aten::append(%features.1, %new_features.31) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.33 : Tensor = prim::CallMethod[name="forward__0"](%37, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %153 : Tensor[] = aten::append(%features.1, %new_features.33) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.35 : Tensor = prim::CallMethod[name="forward__0"](%39, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %159 : Tensor[] = aten::append(%features.1, %new_features.35) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.37 : Tensor = prim::CallMethod[name="forward__0"](%41, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %165 : Tensor[] = aten::append(%features.1, %new_features.37) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.39 : Tensor = prim::CallMethod[name="forward__0"](%43, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %171 : Tensor[] = aten::append(%features.1, %new_features.39) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.41 : Tensor = prim::CallMethod[name="forward__0"](%45, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %177 : Tensor[] = aten::append(%features.1, %new_features.41) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.43 : Tensor = prim::CallMethod[name="forward__0"](%47, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %183 : Tensor[] = aten::append(%features.1, %new_features.43) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.45 : Tensor = prim::CallMethod[name="forward__0"](%49, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %189 : Tensor[] = aten::append(%features.1, %new_features.45) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.47 : Tensor = prim::CallMethod[name="forward__0"](%51, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %195 : Tensor[] = aten::append(%features.1, %new_features.47) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %197 : Tensor = aten::cat(%features.1, %58) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:113:15
+    return (%197)
+
+Sequential.denseblock4
+_DenseBlock.forward
+  graph(%self : __torch__.torchvision.models.densenet._DenseBlock,
+        %init_features.1 : Tensor):
+    %42 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:110:8
+    %features.1 : Tensor[] = prim::ListConstruct(%init_features.1)
+    %5 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer1"](%self)
+    %7 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer2"](%self)
+    %9 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer3"](%self)
+    %11 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer4"](%self)
+    %13 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer5"](%self)
+    %15 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer6"](%self)
+    %17 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer7"](%self)
+    %19 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer8"](%self)
+    %21 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer9"](%self)
+    %23 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer10"](%self)
+    %25 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer11"](%self)
+    %27 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer12"](%self)
+    %29 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer13"](%self)
+    %31 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer14"](%self)
+    %33 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer15"](%self)
+    %35 : __torch__.torchvision.models.densenet._DenseLayer = prim::GetAttr[name="denselayer16"](%self)
+    %new_features.1 : Tensor = prim::CallMethod[name="forward__0"](%5, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %41 : Tensor[] = aten::append(%features.1, %new_features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.3 : Tensor = prim::CallMethod[name="forward__0"](%7, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %47 : Tensor[] = aten::append(%features.1, %new_features.3) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.5 : Tensor = prim::CallMethod[name="forward__0"](%9, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %53 : Tensor[] = aten::append(%features.1, %new_features.5) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.7 : Tensor = prim::CallMethod[name="forward__0"](%11, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %59 : Tensor[] = aten::append(%features.1, %new_features.7) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.9 : Tensor = prim::CallMethod[name="forward__0"](%13, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %65 : Tensor[] = aten::append(%features.1, %new_features.9) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.11 : Tensor = prim::CallMethod[name="forward__0"](%15, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %71 : Tensor[] = aten::append(%features.1, %new_features.11) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.13 : Tensor = prim::CallMethod[name="forward__0"](%17, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %77 : Tensor[] = aten::append(%features.1, %new_features.13) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.15 : Tensor = prim::CallMethod[name="forward__0"](%19, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %83 : Tensor[] = aten::append(%features.1, %new_features.15) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.17 : Tensor = prim::CallMethod[name="forward__0"](%21, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %89 : Tensor[] = aten::append(%features.1, %new_features.17) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.19 : Tensor = prim::CallMethod[name="forward__0"](%23, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %95 : Tensor[] = aten::append(%features.1, %new_features.19) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.21 : Tensor = prim::CallMethod[name="forward__0"](%25, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %101 : Tensor[] = aten::append(%features.1, %new_features.21) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.23 : Tensor = prim::CallMethod[name="forward__0"](%27, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %107 : Tensor[] = aten::append(%features.1, %new_features.23) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.25 : Tensor = prim::CallMethod[name="forward__0"](%29, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %113 : Tensor[] = aten::append(%features.1, %new_features.25) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.27 : Tensor = prim::CallMethod[name="forward__0"](%31, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %119 : Tensor[] = aten::append(%features.1, %new_features.27) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.29 : Tensor = prim::CallMethod[name="forward__0"](%33, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %125 : Tensor[] = aten::append(%features.1, %new_features.29) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %new_features.31 : Tensor = prim::CallMethod[name="forward__0"](%35, %features.1) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:111:27
+    %131 : Tensor[] = aten::append(%features.1, %new_features.31) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:112:12
+    %133 : Tensor = aten::cat(%features.1, %42) # torch/hub/pytorch_vision_master/torchvision/models/densenet.py:113:15
+    return (%133)
+
+Sequential.norm0
+Sequential.norm5
+BatchNorm2d.forward
+_DenseLayer.norm1
+_DenseLayer.norm2
+_Transition.norm
+  graph(%self : __torch__.torch.nn.modules.batchnorm.BatchNorm2d,
+        %input.1 : Tensor):
+    %65 : Function = prim::Constant[name="batch_norm"]()
+    %64 : float = prim::Constant[value=1.0000000000000001e-05]() # torch/nn/modules/batchnorm.py:136:77
+    %32 : bool = prim::Constant[value=0]() # torch/nn/modules/batchnorm.py:125:27
+    %bn_training.1 : bool = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:123:26
+    %exponential_average_factor.1 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/batchnorm.py:108:41
+    %16 : int = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:113:70
+    %3 : None = prim::CallMethod[name="_check_input_dim"](%self, %input.1) # torch/nn/modules/batchnorm.py:100:8
+    %8 : bool = prim::GetAttr[name="training"](%self)
+     = prim::If(%8) # torch/nn/modules/batchnorm.py:110:11
+      block0():
+        %85 : Tensor = prim::GetAttr[name="num_batches_tracked"](%self)
+        %87 : Tensor = aten::add(%85, %16, %16) # torch/nn/modules/batchnorm.py:113:43
+         = prim::SetAttr[name="num_batches_tracked"](%self, %87)
+        -> ()
+      block1():
+        -> ()
+    %28 : bool = prim::GetAttr[name="training"](%self)
+    %bn_training : bool = prim::If(%28) # torch/nn/modules/batchnorm.py:122:8
+      block0():
+        -> (%bn_training.1)
+      block1():
+        -> (%32)
+    %49 : Tensor = prim::GetAttr[name="running_mean"](%self)
+    %57 : Tensor = prim::GetAttr[name="running_var"](%self)
+    %60 : Tensor = prim::GetAttr[name="weight"](%self)
+    %61 : Tensor = prim::GetAttr[name="bias"](%self)
+    %66 : Tensor = prim::CallFunction(%65, %input.1, %49, %57, %60, %61, %bn_training, %exponential_average_factor.1, %64) # torch/nn/modules/batchnorm.py:131:15
+    return (%66)
+
+Sequential.pool0
+MaxPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.MaxPool2d,
+        %input.1 : Tensor):
+    %13 : Function = prim::Constant[name="_max_pool2d"]()
+    %7 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:57
+    %5 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:28
+    %4 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:157:53
+    %3 : int = prim::Constant[value=3]() # torch/nn/modules/pooling.py:157:35
+    %9 : int[] = prim::ListConstruct(%3, %3)
+    %10 : int[] = prim::ListConstruct(%4, %4)
+    %11 : int[] = prim::ListConstruct(%5, %5)
+    %12 : int[] = prim::ListConstruct(%5, %5)
+    %14 : Tensor = prim::CallFunction(%13, %input.1, %9, %10, %11, %12, %7, %7) # torch/nn/modules/pooling.py:157:15
+    return (%14)
+
+Sequential.relu0
+ReLU.forward
+_DenseLayer.relu1
+_DenseLayer.relu2
+_Transition.relu
+  graph(%self : __torch__.torch.nn.modules.activation.ReLU,
+        %input.1 : Tensor):
+    %4 : Function = prim::Constant[name="relu"]()
+    %3 : bool = prim::Constant[value=1]() # torch/nn/modules/activation.py:102:37
+    %5 : Tensor = prim::CallFunction(%4, %input.1, %3) # torch/nn/modules/activation.py:102:15
+    return (%5)
+
+Sequential.transition1
+Sequential.transition2
+Sequential.transition3
+_Transition.forward
+  graph(%self : __torch__.torchvision.models.densenet._Transition,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="norm"](%self)
+    %5 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %7 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv"](%self)
+    %9 : __torch__.torch.nn.modules.pooling.AvgPool2d = prim::GetAttr[name="pool"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    return (%input.9)
+
+_Transition.pool
+AvgPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.AvgPool2d,
+        %input.1 : Tensor):
+    %8 : None = prim::Constant() # torch/nn/modules/pooling.py:599:82
+    %7 : bool = prim::Constant[value=1]() # torch/nn/modules/pooling.py:599:58
+    %6 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:599:42
+    %5 : int = prim::Constant[value=0]() # torch/nn/modules/pooling.py:599:28
+    %3 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:598:35
+    %12 : int[] = prim::ListConstruct(%3, %3)
+    %13 : int[] = prim::ListConstruct(%3, %3)
+    %14 : int[] = prim::ListConstruct(%5, %5)
+    %15 : Tensor = aten::avg_pool2d(%input.1, %12, %13, %14, %6, %7, %8) # torch/nn/modules/pooling.py:598:15
+    return (%15)
+

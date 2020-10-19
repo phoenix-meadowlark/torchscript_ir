@@ -1,0 +1,532 @@
+FCN(
+  (backbone): IntermediateLayerGetter(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(256, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(128, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (3): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (4): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (5): Bottleneck(
+        (conv1): Conv2d(1024, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(256, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): Bottleneck(
+        (conv1): Conv2d(1024, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(2, 2), dilation=(2, 2), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (downsample): Sequential(
+          (0): Conv2d(1024, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (1): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+      (2): Bottleneck(
+        (conv1): Conv2d(2048, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(4, 4), dilation=(4, 4), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (conv3): Conv2d(512, 2048, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn3): BatchNorm2d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+      )
+    )
+  )
+  (classifier): FCNHead(
+    (0): Conv2d(2048, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): Dropout(p=0.1, inplace=False)
+    (4): Conv2d(512, 21, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+
+FCN.backbone
+IntermediateLayerGetter.forward
+  graph(%self : __torch__.torchvision.models._utils.IntermediateLayerGetter,
+        %x.1 : Tensor):
+    %name.22 : str = prim::Constant[value="layer4"]()
+    %name.19 : str = prim::Constant[value="layer3"]()
+    %name.16 : str = prim::Constant[value="layer2"]()
+    %name.13 : str = prim::Constant[value="layer1"]()
+    %name.10 : str = prim::Constant[value="maxpool"]()
+    %name.7 : str = prim::Constant[value="relu"]()
+    %name.4 : str = prim::Constant[value="bn1"]()
+    %name.1 : str = prim::Constant[value="conv1"]()
+    %out.1 : Dict(str, Tensor) = aten::dict() # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:61:14
+    %4 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv1"](%self)
+    %6 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn1"](%self)
+    %8 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %10 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="maxpool"](%self)
+    %12 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="layer1"](%self)
+    %14 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="layer2"](%self)
+    %16 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="layer3"](%self)
+    %18 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="layer4"](%self)
+    %x.3 : Tensor = prim::CallMethod[name="forward"](%4, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %23 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %24 : bool = aten::__contains__(%23, %name.1) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%24) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %25 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.1 : str = aten::__getitem__(%25, %name.1) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.1, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.6 : Tensor = prim::CallMethod[name="forward"](%6, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %36 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %37 : bool = aten::__contains__(%36, %name.4) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%37) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %38 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.3 : str = aten::__getitem__(%38, %name.4) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.3, %x.6) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.9 : Tensor = prim::CallMethod[name="forward"](%8, %x.6) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %49 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %50 : bool = aten::__contains__(%49, %name.7) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%50) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %51 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.5 : str = aten::__getitem__(%51, %name.7) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.5, %x.9) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.12 : Tensor = prim::CallMethod[name="forward"](%10, %x.9) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %62 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %63 : bool = aten::__contains__(%62, %name.10) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%63) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %64 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.7 : str = aten::__getitem__(%64, %name.10) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.7, %x.12) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.15 : Tensor = prim::CallMethod[name="forward"](%12, %x.12) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %75 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %76 : bool = aten::__contains__(%75, %name.13) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%76) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %77 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.9 : str = aten::__getitem__(%77, %name.13) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.9, %x.15) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.18 : Tensor = prim::CallMethod[name="forward"](%14, %x.15) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %88 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %89 : bool = aten::__contains__(%88, %name.16) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%89) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %90 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.11 : str = aten::__getitem__(%90, %name.16) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.11, %x.18) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.21 : Tensor = prim::CallMethod[name="forward"](%16, %x.18) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %101 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %102 : bool = aten::__contains__(%101, %name.19) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%102) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %103 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.13 : str = aten::__getitem__(%103, %name.19) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.13, %x.21) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    %x.24 : Tensor = prim::CallMethod[name="forward"](%18, %x.21) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:63:16
+    %114 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+    %115 : bool = aten::__contains__(%114, %name.22) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:15
+     = prim::If(%115) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:64:12
+      block0():
+        %116 : Dict(str, str) = prim::GetAttr[name="return_layers"](%self)
+        %out_name.15 : str = aten::__getitem__(%116, %name.22) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:65:27
+         = aten::_set_item(%out.1, %out_name.15, %x.24) # torch/hub/pytorch_vision_master/torchvision/models/_utils.py:66:16
+        -> ()
+      block1():
+        -> ()
+    return (%out.1)
+
+FCN.classifier
+FCNHead.forward
+  graph(%self : __torch__.torchvision.models.segmentation.fcn.FCNHead,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="4"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    return (%input.11)
+
+FCN.forward
+  graph(%self : __torch__.torchvision.models.segmentation.fcn.FCN,
+        %x.1 : Tensor):
+    %26 : Function = prim::Constant[name="interpolate"]()
+    %24 : None = prim::Constant()
+    %23 : bool = prim::Constant[value=0]() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:25:78
+    %22 : str = prim::Constant[value="bilinear"]() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:25:52
+    %15 : str = prim::Constant[value="out"]() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:23:21
+    %8 : int = prim::Constant[value=9223372036854775807]()
+    %6 : int = prim::Constant[value=-2]() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:18:30
+    %7 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:18:22
+    %3 : int[] = aten::size(%x.1) # <string>:7:9
+    %input_shape.1 : int[] = aten::slice(%3, %6, %8, %7) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:18:22
+    %10 : __torch__.torchvision.models._utils.IntermediateLayerGetter = prim::GetAttr[name="backbone"](%self)
+    %features.1 : Dict(str, Tensor) = prim::CallMethod[name="forward"](%10, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:20:19
+    %result.1 : Dict(str, Tensor) = aten::dict() # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:22:17
+    %x.4 : Tensor = aten::__getitem__(%features.1, %15) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:23:12
+    %17 : __torch__.torchvision.models.segmentation.fcn.FCNHead = prim::GetAttr[name="classifier"](%self)
+    %x.6 : Tensor = prim::CallMethod[name="forward"](%17, %x.4) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:24:12
+    %x.8 : Tensor = prim::CallFunction(%26, %x.6, %input_shape.1, %24, %22, %23, %24) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:25:12
+     = aten::_set_item(%result.1, %15, %x.8) # torch/hub/pytorch_vision_master/torchvision/models/segmentation/_utils.py:26:8
+    return (%result.1)
+
+IntermediateLayerGetter.bn1
+BatchNorm2d.forward
+Bottleneck.bn1
+Bottleneck.bn2
+Bottleneck.bn3
+  graph(%self : __torch__.torch.nn.modules.batchnorm.BatchNorm2d,
+        %input.1 : Tensor):
+    %65 : Function = prim::Constant[name="batch_norm"]()
+    %64 : float = prim::Constant[value=1.0000000000000001e-05]() # torch/nn/modules/batchnorm.py:136:77
+    %32 : bool = prim::Constant[value=0]() # torch/nn/modules/batchnorm.py:125:27
+    %bn_training.1 : bool = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:123:26
+    %exponential_average_factor.1 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/batchnorm.py:108:41
+    %16 : int = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:113:70
+    %3 : None = prim::CallMethod[name="_check_input_dim"](%self, %input.1) # torch/nn/modules/batchnorm.py:100:8
+    %8 : bool = prim::GetAttr[name="training"](%self)
+     = prim::If(%8) # torch/nn/modules/batchnorm.py:110:11
+      block0():
+        %85 : Tensor = prim::GetAttr[name="num_batches_tracked"](%self)
+        %87 : Tensor = aten::add(%85, %16, %16) # torch/nn/modules/batchnorm.py:113:43
+         = prim::SetAttr[name="num_batches_tracked"](%self, %87)
+        -> ()
+      block1():
+        -> ()
+    %28 : bool = prim::GetAttr[name="training"](%self)
+    %bn_training : bool = prim::If(%28) # torch/nn/modules/batchnorm.py:122:8
+      block0():
+        -> (%bn_training.1)
+      block1():
+        -> (%32)
+    %49 : Tensor = prim::GetAttr[name="running_mean"](%self)
+    %57 : Tensor = prim::GetAttr[name="running_var"](%self)
+    %60 : Tensor = prim::GetAttr[name="weight"](%self)
+    %61 : Tensor = prim::GetAttr[name="bias"](%self)
+    %66 : Tensor = prim::CallFunction(%65, %input.1, %49, %57, %60, %61, %bn_training, %exponential_average_factor.1, %64) # torch/nn/modules/batchnorm.py:131:15
+    return (%66)
+
+IntermediateLayerGetter.conv1
+Conv2d.forward
+Bottleneck.conv1
+Bottleneck.conv2
+Bottleneck.conv3
+  graph(%self : __torch__.torch.nn.modules.conv.Conv2d,
+        %input.1 : Tensor):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::CallMethod[name="_conv_forward"](%self, %input.1, %3) # torch/nn/modules/conv.py:419:15
+    return (%4)
+
+IntermediateLayerGetter.layer1
+IntermediateLayerGetter.layer4
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="2"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    return (%input.7)
+
+IntermediateLayerGetter.layer2
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="3"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    return (%input.9)
+
+IntermediateLayerGetter.layer3
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="4"](%self)
+    %13 : __torch__.torchvision.models.resnet.Bottleneck = prim::GetAttr[name="5"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    %input.13 : Tensor = prim::CallMethod[name="forward"](%13, %input.11) # torch/nn/modules/container.py:117:20
+    return (%input.13)
+
+IntermediateLayerGetter.maxpool
+MaxPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.MaxPool2d,
+        %input.1 : Tensor):
+    %13 : Function = prim::Constant[name="_max_pool2d"]()
+    %7 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:57
+    %5 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:28
+    %4 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:157:53
+    %3 : int = prim::Constant[value=3]() # torch/nn/modules/pooling.py:157:35
+    %9 : int[] = prim::ListConstruct(%3, %3)
+    %10 : int[] = prim::ListConstruct(%4, %4)
+    %11 : int[] = prim::ListConstruct(%5, %5)
+    %12 : int[] = prim::ListConstruct(%5, %5)
+    %14 : Tensor = prim::CallFunction(%13, %input.1, %9, %10, %11, %12, %7, %7) # torch/nn/modules/pooling.py:157:15
+    return (%14)
+
+IntermediateLayerGetter.relu
+ReLU.forward
+Bottleneck.relu
+  graph(%self : __torch__.torch.nn.modules.activation.ReLU,
+        %input.1 : Tensor):
+    %4 : Function = prim::Constant[name="relu"]()
+    %3 : bool = prim::Constant[value=1]() # torch/nn/modules/activation.py:102:37
+    %5 : Tensor = prim::CallFunction(%4, %input.1, %3) # torch/nn/modules/activation.py:102:15
+    return (%5)
+
+Bottleneck.downsample
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    return (%input.5)
+
+Bottleneck.forward
+  graph(%self : __torch__.torchvision.models.resnet.Bottleneck,
+        %x.1 : Tensor):
+    %35 : int = prim::Constant[value=1]()
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv1"](%self)
+    %out.1 : Tensor = prim::CallMethod[name="forward"](%3, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:104:14
+    %6 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn1"](%self)
+    %out.3 : Tensor = prim::CallMethod[name="forward"](%6, %out.1) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:105:14
+    %9 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.5 : Tensor = prim::CallMethod[name="forward"](%9, %out.3) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:106:14
+    %12 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv2"](%self)
+    %out.7 : Tensor = prim::CallMethod[name="forward"](%12, %out.5) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:108:14
+    %15 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn2"](%self)
+    %out.9 : Tensor = prim::CallMethod[name="forward"](%15, %out.7) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:109:14
+    %18 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.11 : Tensor = prim::CallMethod[name="forward"](%18, %out.9) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:110:14
+    %21 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv3"](%self)
+    %out.13 : Tensor = prim::CallMethod[name="forward"](%21, %out.11) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:112:14
+    %24 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn3"](%self)
+    %out.15 : Tensor = prim::CallMethod[name="forward"](%24, %out.13) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:113:14
+    %30 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="downsample"](%self)
+    %identity.1 : Tensor = prim::CallMethod[name="forward"](%30, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:116:23
+    %out.17 : Tensor = aten::add_(%out.15, %identity.1, %35) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:118:8
+    %37 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.19 : Tensor = prim::CallMethod[name="forward"](%37, %out.17) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:119:14
+    return (%out.19)
+
+Bottleneck.forward
+  graph(%self : __torch__.torchvision.models.resnet.Bottleneck,
+        %x.1 : Tensor):
+    %32 : int = prim::Constant[value=1]()
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv1"](%self)
+    %out.1 : Tensor = prim::CallMethod[name="forward"](%3, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:104:14
+    %6 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn1"](%self)
+    %out.3 : Tensor = prim::CallMethod[name="forward"](%6, %out.1) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:105:14
+    %9 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.5 : Tensor = prim::CallMethod[name="forward"](%9, %out.3) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:106:14
+    %12 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv2"](%self)
+    %out.7 : Tensor = prim::CallMethod[name="forward"](%12, %out.5) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:108:14
+    %15 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn2"](%self)
+    %out.9 : Tensor = prim::CallMethod[name="forward"](%15, %out.7) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:109:14
+    %18 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.11 : Tensor = prim::CallMethod[name="forward"](%18, %out.9) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:110:14
+    %21 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="conv3"](%self)
+    %out.13 : Tensor = prim::CallMethod[name="forward"](%21, %out.11) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:112:14
+    %24 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="bn3"](%self)
+    %out.15 : Tensor = prim::CallMethod[name="forward"](%24, %out.13) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:113:14
+    %out.17 : Tensor = aten::add_(%out.15, %x.1, %32) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:118:8
+    %34 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="relu"](%self)
+    %out.19 : Tensor = prim::CallMethod[name="forward"](%34, %out.17) # torch/hub/pytorch_vision_master/torchvision/models/resnet.py:119:14
+    return (%out.19)
+
+ReLU.forward
+  graph(%self : __torch__.torch.nn.modules.activation.ReLU,
+        %input.1 : Tensor):
+    %4 : Function = prim::Constant[name="relu"]()
+    %3 : bool = prim::Constant[value=0]() # torch/nn/modules/activation.py:102:37
+    %5 : Tensor = prim::CallFunction(%4, %input.1, %3) # torch/nn/modules/activation.py:102:15
+    return (%5)
+
+Dropout.forward
+  graph(%self : __torch__.torch.nn.modules.dropout.Dropout,
+        %input.1 : Tensor):
+    %6 : Function = prim::Constant[name="dropout"]()
+    %5 : bool = prim::Constant[value=0]() # torch/nn/modules/dropout.py:58:55
+    %3 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/dropout.py:58:32
+    %4 : bool = prim::GetAttr[name="training"](%self)
+    %7 : Tensor = prim::CallFunction(%6, %input.1, %3, %4, %5) # torch/nn/modules/dropout.py:58:15
+    return (%7)
+

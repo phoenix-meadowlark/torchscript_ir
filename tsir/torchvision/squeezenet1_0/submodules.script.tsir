@@ -1,0 +1,215 @@
+SqueezeNet(
+  (features): Sequential(
+    (0): Conv2d(3, 96, kernel_size=(7, 7), stride=(2, 2))
+    (1): ReLU(inplace=True)
+    (2): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (3): Fire(
+      (squeeze): Conv2d(96, 16, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(16, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (4): Fire(
+      (squeeze): Conv2d(128, 16, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(16, 64, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(16, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (5): Fire(
+      (squeeze): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (6): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (7): Fire(
+      (squeeze): Conv2d(256, 32, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(32, 128, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(32, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (8): Fire(
+      (squeeze): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(48, 192, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(48, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (9): Fire(
+      (squeeze): Conv2d(384, 48, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(48, 192, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(48, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (10): Fire(
+      (squeeze): Conv2d(384, 64, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+    (11): MaxPool2d(kernel_size=3, stride=2, padding=0, dilation=1, ceil_mode=True)
+    (12): Fire(
+      (squeeze): Conv2d(512, 64, kernel_size=(1, 1), stride=(1, 1))
+      (squeeze_activation): ReLU(inplace=True)
+      (expand1x1): Conv2d(64, 256, kernel_size=(1, 1), stride=(1, 1))
+      (expand1x1_activation): ReLU(inplace=True)
+      (expand3x3): Conv2d(64, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (expand3x3_activation): ReLU(inplace=True)
+    )
+  )
+  (classifier): Sequential(
+    (0): Dropout(p=0.5, inplace=False)
+    (1): Conv2d(512, 1000, kernel_size=(1, 1), stride=(1, 1))
+    (2): ReLU(inplace=True)
+    (3): AdaptiveAvgPool2d(output_size=(1, 1))
+  )
+)
+
+SqueezeNet.classifier
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.dropout.Dropout = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torch.nn.modules.pooling.AdaptiveAvgPool2d = prim::GetAttr[name="3"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    return (%input.9)
+
+SqueezeNet.features
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="4"](%self)
+    %13 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="5"](%self)
+    %15 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="6"](%self)
+    %17 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="7"](%self)
+    %19 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="8"](%self)
+    %21 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="9"](%self)
+    %23 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="10"](%self)
+    %25 : __torch__.torch.nn.modules.pooling.MaxPool2d = prim::GetAttr[name="11"](%self)
+    %27 : __torch__.torchvision.models.squeezenet.Fire = prim::GetAttr[name="12"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    %input.13 : Tensor = prim::CallMethod[name="forward"](%13, %input.11) # torch/nn/modules/container.py:117:20
+    %input.15 : Tensor = prim::CallMethod[name="forward"](%15, %input.13) # torch/nn/modules/container.py:117:20
+    %input.17 : Tensor = prim::CallMethod[name="forward"](%17, %input.15) # torch/nn/modules/container.py:117:20
+    %input.19 : Tensor = prim::CallMethod[name="forward"](%19, %input.17) # torch/nn/modules/container.py:117:20
+    %input.21 : Tensor = prim::CallMethod[name="forward"](%21, %input.19) # torch/nn/modules/container.py:117:20
+    %input.23 : Tensor = prim::CallMethod[name="forward"](%23, %input.21) # torch/nn/modules/container.py:117:20
+    %input.25 : Tensor = prim::CallMethod[name="forward"](%25, %input.23) # torch/nn/modules/container.py:117:20
+    %input.27 : Tensor = prim::CallMethod[name="forward"](%27, %input.25) # torch/nn/modules/container.py:117:20
+    return (%input.27)
+
+SqueezeNet.forward
+  graph(%self : __torch__.torchvision.models.squeezenet.SqueezeNet,
+        %x.1 : Tensor):
+    %10 : int = prim::Constant[value=-1]()
+    %9 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:102:32
+    %2 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="features"](%self)
+    %x.3 : Tensor = prim::CallMethod[name="forward"](%2, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:100:12
+    %5 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="classifier"](%self)
+    %x.5 : Tensor = prim::CallMethod[name="forward"](%5, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:101:12
+    %11 : Tensor = aten::flatten(%x.5, %9, %10) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:102:15
+    return (%11)
+
+Conv2d.forward
+Fire.expand1x1
+Fire.expand3x3
+Fire.squeeze
+  graph(%self : __torch__.torch.nn.modules.conv.Conv2d,
+        %input.1 : Tensor):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::CallMethod[name="_conv_forward"](%self, %input.1, %3) # torch/nn/modules/conv.py:419:15
+    return (%4)
+
+ReLU.forward
+Fire.expand1x1_activation
+Fire.expand3x3_activation
+Fire.squeeze_activation
+  graph(%self : __torch__.torch.nn.modules.activation.ReLU,
+        %input.1 : Tensor):
+    %4 : Function = prim::Constant[name="relu"]()
+    %3 : bool = prim::Constant[value=1]() # torch/nn/modules/activation.py:102:37
+    %5 : Tensor = prim::CallFunction(%4, %input.1, %3) # torch/nn/modules/activation.py:102:15
+    return (%5)
+
+MaxPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.MaxPool2d,
+        %input.1 : Tensor):
+    %13 : Function = prim::Constant[name="_max_pool2d"]()
+    %8 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:159:28
+    %7 : bool = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:57
+    %6 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:42
+    %5 : int = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:28
+    %4 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:157:53
+    %3 : int = prim::Constant[value=3]() # torch/nn/modules/pooling.py:157:35
+    %9 : int[] = prim::ListConstruct(%3, %3)
+    %10 : int[] = prim::ListConstruct(%4, %4)
+    %11 : int[] = prim::ListConstruct(%5, %5)
+    %12 : int[] = prim::ListConstruct(%6, %6)
+    %14 : Tensor = prim::CallFunction(%13, %input.1, %9, %10, %11, %12, %7, %8) # torch/nn/modules/pooling.py:157:15
+    return (%14)
+
+Fire.forward
+  graph(%self : __torch__.torchvision.models.squeezenet.Fire,
+        %x.1 : Tensor):
+    %18 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:34:11
+    %2 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="squeeze_activation"](%self)
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="squeeze"](%self)
+    %5 : Tensor = prim::CallMethod[name="forward"](%3, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:30:36
+    %x.3 : Tensor = prim::CallMethod[name="forward"](%2, %5) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:30:12
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="expand1x1_activation"](%self)
+    %8 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="expand1x1"](%self)
+    %10 : Tensor = prim::CallMethod[name="forward"](%8, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:32:38
+    %11 : Tensor = prim::CallMethod[name="forward"](%7, %10) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:32:12
+    %12 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="expand3x3_activation"](%self)
+    %13 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="expand3x3"](%self)
+    %15 : Tensor = prim::CallMethod[name="forward"](%13, %x.3) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:33:38
+    %16 : Tensor = prim::CallMethod[name="forward"](%12, %15) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:33:12
+    %17 : Tensor[] = prim::ListConstruct(%11, %16)
+    %19 : Tensor = aten::cat(%17, %18) # torch/hub/pytorch_vision_master/torchvision/models/squeezenet.py:31:15
+    return (%19)
+
+Dropout.forward
+  graph(%self : __torch__.torch.nn.modules.dropout.Dropout,
+        %input.1 : Tensor):
+    %6 : Function = prim::Constant[name="dropout"]()
+    %5 : bool = prim::Constant[value=0]() # torch/nn/modules/dropout.py:58:55
+    %3 : float = prim::Constant[value=0.5]() # torch/nn/modules/dropout.py:58:32
+    %4 : bool = prim::GetAttr[name="training"](%self)
+    %7 : Tensor = prim::CallFunction(%6, %input.1, %3, %4, %5) # torch/nn/modules/dropout.py:58:15
+    return (%7)
+
+AdaptiveAvgPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.AdaptiveAvgPool2d,
+        %input.1 : Tensor):
+    %7 : Function = prim::Constant[name="adaptive_avg_pool2d"]()
+    %3 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:1111:44
+    %6 : int[] = prim::ListConstruct(%3, %3)
+    %8 : Tensor = prim::CallFunction(%7, %input.1, %6) # torch/nn/modules/pooling.py:1111:15
+    return (%8)
+

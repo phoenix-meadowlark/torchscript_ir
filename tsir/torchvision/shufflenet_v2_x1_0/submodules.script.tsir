@@ -1,0 +1,448 @@
+ShuffleNetV2(
+  (conv1): Sequential(
+    (0): Conv2d(3, 24, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+  (stage2): Sequential(
+    (0): InvertedResidual(
+      (branch1): Sequential(
+        (0): Conv2d(24, 24, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=24, bias=False)
+        (1): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): Conv2d(24, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (3): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (4): ReLU(inplace=True)
+      )
+      (branch2): Sequential(
+        (0): Conv2d(24, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(58, 58, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=58, bias=False)
+        (4): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (1): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+        (4): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (2): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+        (4): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (3): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(58, 58, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=58, bias=False)
+        (4): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(58, 58, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(58, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+  )
+  (stage3): Sequential(
+    (0): InvertedResidual(
+      (branch1): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=116, bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (3): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (4): ReLU(inplace=True)
+      )
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (1): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (2): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (3): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (4): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (5): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (6): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (7): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(116, 116, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=116, bias=False)
+        (4): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(116, 116, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(116, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+  )
+  (stage4): Sequential(
+    (0): InvertedResidual(
+      (branch1): Sequential(
+        (0): Conv2d(232, 232, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=232, bias=False)
+        (1): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (3): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (4): ReLU(inplace=True)
+      )
+      (branch2): Sequential(
+        (0): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(232, 232, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=232, bias=False)
+        (4): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (1): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(232, 232, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=232, bias=False)
+        (4): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (2): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(232, 232, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=232, bias=False)
+        (4): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+    (3): InvertedResidual(
+      (branch1): Sequential()
+      (branch2): Sequential(
+        (0): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (1): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): ReLU(inplace=True)
+        (3): Conv2d(232, 232, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=232, bias=False)
+        (4): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (5): Conv2d(232, 232, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (6): BatchNorm2d(232, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (7): ReLU(inplace=True)
+      )
+    )
+  )
+  (conv5): Sequential(
+    (0): Conv2d(464, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+    (1): BatchNorm2d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU(inplace=True)
+  )
+  (fc): Linear(in_features=1024, out_features=1000, bias=True)
+)
+
+ShuffleNetV2.conv1
+ShuffleNetV2.conv5
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="2"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    return (%input.7)
+
+ShuffleNetV2.fc
+Linear.forward
+  graph(%self : __torch__.torch.nn.modules.linear.Linear,
+        %input.1 : Tensor):
+    %5 : Function = prim::Constant[name="linear"]()
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::GetAttr[name="bias"](%self)
+    %6 : Tensor = prim::CallFunction(%5, %input.1, %3, %4) # torch/nn/modules/linear.py:91:15
+    return (%6)
+
+ShuffleNetV2.forward
+  graph(%self : __torch__.torchvision.models.shufflenetv2.ShuffleNetV2,
+        %x.1 : Tensor):
+    %3 : Tensor = prim::CallMethod[name="_forward_impl"](%self, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:138:15
+    return (%3)
+
+ShuffleNetV2.maxpool
+MaxPool2d.forward
+  graph(%self : __torch__.torch.nn.modules.pooling.MaxPool2d,
+        %input.1 : Tensor):
+    %13 : Function = prim::Constant[name="_max_pool2d"]()
+    %7 : bool = prim::Constant[value=0]() # torch/nn/modules/pooling.py:158:57
+    %5 : int = prim::Constant[value=1]() # torch/nn/modules/pooling.py:158:28
+    %4 : int = prim::Constant[value=2]() # torch/nn/modules/pooling.py:157:53
+    %3 : int = prim::Constant[value=3]() # torch/nn/modules/pooling.py:157:35
+    %9 : int[] = prim::ListConstruct(%3, %3)
+    %10 : int[] = prim::ListConstruct(%4, %4)
+    %11 : int[] = prim::ListConstruct(%5, %5)
+    %12 : int[] = prim::ListConstruct(%5, %5)
+    %14 : Tensor = prim::CallFunction(%13, %input.1, %9, %10, %11, %12, %7, %7) # torch/nn/modules/pooling.py:157:15
+    return (%14)
+
+ShuffleNetV2.stage2
+ShuffleNetV2.stage4
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="3"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    return (%input.9)
+
+ShuffleNetV2.stage3
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="4"](%self)
+    %13 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="5"](%self)
+    %15 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="6"](%self)
+    %17 : __torch__.torchvision.models.shufflenetv2.InvertedResidual = prim::GetAttr[name="7"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    %input.13 : Tensor = prim::CallMethod[name="forward"](%13, %input.11) # torch/nn/modules/container.py:117:20
+    %input.15 : Tensor = prim::CallMethod[name="forward"](%15, %input.13) # torch/nn/modules/container.py:117:20
+    %input.17 : Tensor = prim::CallMethod[name="forward"](%17, %input.15) # torch/nn/modules/container.py:117:20
+    return (%input.17)
+
+Conv2d.forward
+  graph(%self : __torch__.torch.nn.modules.conv.Conv2d,
+        %input.1 : Tensor):
+    %3 : Tensor = prim::GetAttr[name="weight"](%self)
+    %4 : Tensor = prim::CallMethod[name="_conv_forward"](%self, %input.1, %3) # torch/nn/modules/conv.py:419:15
+    return (%4)
+
+BatchNorm2d.forward
+  graph(%self : __torch__.torch.nn.modules.batchnorm.BatchNorm2d,
+        %input.1 : Tensor):
+    %65 : Function = prim::Constant[name="batch_norm"]()
+    %64 : float = prim::Constant[value=1.0000000000000001e-05]() # torch/nn/modules/batchnorm.py:136:77
+    %32 : bool = prim::Constant[value=0]() # torch/nn/modules/batchnorm.py:125:27
+    %bn_training.1 : bool = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:123:26
+    %exponential_average_factor.1 : float = prim::Constant[value=0.10000000000000001]() # torch/nn/modules/batchnorm.py:108:41
+    %16 : int = prim::Constant[value=1]() # torch/nn/modules/batchnorm.py:113:70
+    %3 : None = prim::CallMethod[name="_check_input_dim"](%self, %input.1) # torch/nn/modules/batchnorm.py:100:8
+    %8 : bool = prim::GetAttr[name="training"](%self)
+     = prim::If(%8) # torch/nn/modules/batchnorm.py:110:11
+      block0():
+        %85 : Tensor = prim::GetAttr[name="num_batches_tracked"](%self)
+        %87 : Tensor = aten::add(%85, %16, %16) # torch/nn/modules/batchnorm.py:113:43
+         = prim::SetAttr[name="num_batches_tracked"](%self, %87)
+        -> ()
+      block1():
+        -> ()
+    %28 : bool = prim::GetAttr[name="training"](%self)
+    %bn_training : bool = prim::If(%28) # torch/nn/modules/batchnorm.py:122:8
+      block0():
+        -> (%bn_training.1)
+      block1():
+        -> (%32)
+    %49 : Tensor = prim::GetAttr[name="running_mean"](%self)
+    %57 : Tensor = prim::GetAttr[name="running_var"](%self)
+    %60 : Tensor = prim::GetAttr[name="weight"](%self)
+    %61 : Tensor = prim::GetAttr[name="bias"](%self)
+    %66 : Tensor = prim::CallFunction(%65, %input.1, %49, %57, %60, %61, %bn_training, %exponential_average_factor.1, %64) # torch/nn/modules/batchnorm.py:131:15
+    return (%66)
+
+ReLU.forward
+  graph(%self : __torch__.torch.nn.modules.activation.ReLU,
+        %input.1 : Tensor):
+    %4 : Function = prim::Constant[name="relu"]()
+    %3 : bool = prim::Constant[value=1]() # torch/nn/modules/activation.py:102:37
+    %5 : Tensor = prim::CallFunction(%4, %input.1, %3) # torch/nn/modules/activation.py:102:15
+    return (%5)
+
+InvertedResidual.branch1
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="4"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    return (%input.11)
+
+InvertedResidual.branch2
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    %3 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="0"](%self)
+    %5 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="1"](%self)
+    %7 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="2"](%self)
+    %9 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="3"](%self)
+    %11 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="4"](%self)
+    %13 : __torch__.torch.nn.modules.conv.Conv2d = prim::GetAttr[name="5"](%self)
+    %15 : __torch__.torch.nn.modules.batchnorm.BatchNorm2d = prim::GetAttr[name="6"](%self)
+    %17 : __torch__.torch.nn.modules.activation.ReLU = prim::GetAttr[name="7"](%self)
+    %input.3 : Tensor = prim::CallMethod[name="forward"](%3, %input.1) # torch/nn/modules/container.py:117:20
+    %input.5 : Tensor = prim::CallMethod[name="forward"](%5, %input.3) # torch/nn/modules/container.py:117:20
+    %input.7 : Tensor = prim::CallMethod[name="forward"](%7, %input.5) # torch/nn/modules/container.py:117:20
+    %input.9 : Tensor = prim::CallMethod[name="forward"](%9, %input.7) # torch/nn/modules/container.py:117:20
+    %input.11 : Tensor = prim::CallMethod[name="forward"](%11, %input.9) # torch/nn/modules/container.py:117:20
+    %input.13 : Tensor = prim::CallMethod[name="forward"](%13, %input.11) # torch/nn/modules/container.py:117:20
+    %input.15 : Tensor = prim::CallMethod[name="forward"](%15, %input.13) # torch/nn/modules/container.py:117:20
+    %input.17 : Tensor = prim::CallMethod[name="forward"](%17, %input.15) # torch/nn/modules/container.py:117:20
+    return (%input.17)
+
+InvertedResidual.forward
+  graph(%self : __torch__.torchvision.models.shufflenetv2.InvertedResidual,
+        %x.1 : Tensor):
+    %31 : Function = prim::Constant[name="channel_shuffle"]()
+    %3 : int = prim::Constant[value=1]() # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:75:26
+    %6 : int = prim::Constant[value=2]() # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:76:29
+    %2 : int = prim::GetAttr[name="stride"](%self)
+    %4 : bool = aten::eq(%2, %3) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:75:11
+    %out : Tensor = prim::If(%4) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:75:8
+      block0():
+        %7 : Tensor[] = aten::chunk(%x.1, %6, %3) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:76:21
+        %x1.1 : Tensor, %x2.1 : Tensor = prim::ListUnpack(%7)
+        %11 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="branch2"](%self)
+        %13 : Tensor = prim::CallMethod[name="forward"](%11, %x2.1) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:77:33
+        %15 : Tensor[] = prim::ListConstruct(%x1.1, %13)
+        %out.1 : Tensor = aten::cat(%15, %3) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:77:18
+        -> (%out.1)
+      block1():
+        %17 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="branch1"](%self)
+        %19 : Tensor = prim::CallMethod[name="forward"](%17, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:79:29
+        %20 : __torch__.torch.nn.modules.container.Sequential = prim::GetAttr[name="branch2"](%self)
+        %22 : Tensor = prim::CallMethod[name="forward"](%20, %x.1) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:79:46
+        %24 : Tensor[] = prim::ListConstruct(%19, %22)
+        %out.2 : Tensor = aten::cat(%24, %3) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:79:18
+        -> (%out.2)
+    %out.8 : Tensor = prim::CallFunction(%31, %out, %6) # torch/hub/pytorch_vision_master/torchvision/models/shufflenetv2.py:81:14
+    return (%out.8)
+
+InvertedResidual.branch1
+Sequential.forward
+  graph(%self : __torch__.torch.nn.modules.container.Sequential,
+        %input.1 : Tensor):
+    return (%input.1)
+
