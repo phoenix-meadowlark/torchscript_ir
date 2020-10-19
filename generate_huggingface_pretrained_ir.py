@@ -1,6 +1,6 @@
 # Unimplemented, as it would require downloading terabytes of model weights.
 
-# Pretrained models as describe by
+# Pretrained models as described by
 #   https://huggingface.co/transformers/pretrained_models.html
 # Broken links are kept but commented out.
 MODEL_SHORTCUTS = [
